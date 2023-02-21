@@ -8,14 +8,14 @@ import java.util.Date;
 
 
 public class Usuario {
-    protected String nombre, password, tipo, estado;
+    protected String username, password, tipo, estado;
     protected Date fechaCrea;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String password, String tipo, String estado, Date fechaCrea) {
-        this.nombre = nombre;
+    public Usuario(String username, String password, String tipo, String estado, Date fechaCrea) {
+        this.username = username;
         this.password = password;
         this.tipo = tipo;
         this.estado = estado;
@@ -23,11 +23,11 @@ public class Usuario {
     }
 
     public String getNombre() {
-        return nombre;
+        return username;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

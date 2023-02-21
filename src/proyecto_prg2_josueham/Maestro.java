@@ -5,16 +5,25 @@
 package proyecto_prg2_josueham;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Maestro extends Usuario{
     
-    
+    private String nombre, identidad;
     private ArrayList<Curso> clases = new ArrayList();
     private ArrayList<Alumno> alumnos = new ArrayList();
 
     public Maestro() {
     }
+
+    public Maestro(String nombre, String identidad, String username, String password, String tipo, String estado, Date fechaCrea) {
+        super(username, password, tipo, estado, fechaCrea);
+        this.nombre = nombre;
+        this.identidad = identidad;
+    }
+
+    
 
     public ArrayList<Curso> getClases() {
         return clases;
