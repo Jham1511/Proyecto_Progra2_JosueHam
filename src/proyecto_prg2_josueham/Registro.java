@@ -12,32 +12,13 @@ import java.util.Date;
  * @author SKX Kafei
  */
 public class Registro extends Usuario {
-    private String user, contra;
     private ArrayList<Usuario> usuarios = new ArrayList();
 
     public Registro() {
     }
 
-    public Registro(String user, String contra, String username, String password, String tipo, String estado, Date fechaCrea) {
+    public Registro(String username, String password, String tipo, String estado, Date fechaCrea) {
         super(username, password, tipo, estado, fechaCrea);
-        this.user = user;
-        this.contra = contra;
-    }
-
-    public String getNom() {
-        return user;
-    }
-
-    public void setNom(String user) {
-        this.user = user;
-    }
-
-    public String getContra() {
-        return contra;
-    }
-
-    public void setContra(String contra) {
-        this.contra = contra;
     }
 
     public ArrayList<Usuario> getUsuarios() {
@@ -46,6 +27,11 @@ public class Registro extends Usuario {
 
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
     
     

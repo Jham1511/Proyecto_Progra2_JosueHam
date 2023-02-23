@@ -61,6 +61,11 @@ public class Usuario {
     public void setFechaCrea(Date fechaCrea) {
         this.fechaCrea = fechaCrea;
     }
+
+    @Override
+    public String toString() {
+        return username;
+    }
     
     
 }
