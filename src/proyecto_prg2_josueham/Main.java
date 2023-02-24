@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,6 @@ public class Main extends javax.swing.JFrame {
     
     public Main() {
         initComponents();
-        BtnEntrar.setBackground(Color.cyan);
         this.setExtendedState(MAXIMIZED_BOTH);
         Date fecha = null;
         usuarios.add(new Registro("registro", "admin", "Registro", "Activa", fecha));
@@ -44,7 +44,7 @@ public class Main extends javax.swing.JFrame {
         FieldUsername = new javax.swing.JTextField();
         lb_password = new javax.swing.JLabel();
         PField_Contra = new javax.swing.JPasswordField();
-        BtnEntrar = new javax.swing.JButton();
+        BtnIngresar = new javax.swing.JButton();
         PanelAyuda = new javax.swing.JPanel();
 
         javax.swing.GroupLayout MenuCrudsLayout = new javax.swing.GroupLayout(MenuCruds.getContentPane());
@@ -62,7 +62,7 @@ public class Main extends javax.swing.JFrame {
 
         PanelLogIn.setBackground(new java.awt.Color(0, 51, 102));
         PanelLogIn.setForeground(new java.awt.Color(255, 255, 255));
-        PanelLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PanelLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 42)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,14 +79,13 @@ public class Main extends javax.swing.JFrame {
 
         PField_Contra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        BtnEntrar.setBackground(new java.awt.Color(102, 102, 255));
-        BtnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnEntrar.setText("Ingresar");
-        BtnEntrar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        BtnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        BtnIngresar.setBackground(new java.awt.Color(51, 102, 255));
+        BtnIngresar.setText("Ingresar");
+        BtnIngresar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEntrarActionPerformed(evt);
+                BtnIngresarActionPerformed(evt);
             }
         });
 
@@ -95,34 +94,32 @@ public class Main extends javax.swing.JFrame {
         PanelLogInLayout.setHorizontalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lb_password, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FieldUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PField_Contra, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLogInLayout.createSequentialGroup()
-                        .addComponent(lb_username)
-                        .addGap(75, 75, 75))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE)
+                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PField_Contra)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(lb_username)
+                    .addComponent(FieldUsername)
+                    .addComponent(lb_password)
+                    .addComponent(BtnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         PanelLogInLayout.setVerticalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(lb_username)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(lb_password)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Iniciar Sesion", PanelLogIn);
@@ -131,7 +128,7 @@ public class Main extends javax.swing.JFrame {
         PanelAyuda.setLayout(PanelAyudaLayout);
         PanelAyudaLayout.setHorizontalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addGap(0, 679, Short.MAX_VALUE)
         );
         PanelAyudaLayout.setVerticalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,26 +142,27 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(TabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(TabbedPanePrincipal)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(TabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(TabbedPanePrincipal)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
-        if (FieldUsername.getText().equals(usuarios.get(0).getNombre()) && PField_Contra.getText().equals(usuarios.get(0).getPassword())) {
+    private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
+       if (FieldUsername.getText().equals(usuarios.get(0).getNombre()) && PField_Contra.getText().equals(usuarios.get(0).getPassword())) {
          abrir_MenuC();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario inexistente");
         }
-
-
-    }//GEN-LAST:event_BtnEntrarActionPerformed
+    }//GEN-LAST:event_BtnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +205,7 @@ public void abrir_MenuC(){
     MenuCruds.setVisible(true);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnEntrar;
+    private javax.swing.JButton BtnIngresar;
     private javax.swing.JTextField FieldUsername;
     private javax.swing.JDialog MenuCruds;
     private javax.swing.JPasswordField PField_Contra;
