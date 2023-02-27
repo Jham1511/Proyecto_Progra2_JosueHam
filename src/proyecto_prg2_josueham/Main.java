@@ -47,10 +47,10 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         PanelCRUDMaes = new javax.swing.JPanel();
-        PanelClases = new javax.swing.JPanel();
         PNAsignarMaes = new javax.swing.JPanel();
         PNMatricularAlum = new javax.swing.JPanel();
         PNCrudUsuarios = new javax.swing.JPanel();
+        PanelClases = new javax.swing.JPanel();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -102,19 +102,6 @@ public class Main extends javax.swing.JFrame {
 
         TabbedRegistro.addTab("CRUD Maestros", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/teacher.png")), PanelCRUDMaes); // NOI18N
 
-        javax.swing.GroupLayout PanelClasesLayout = new javax.swing.GroupLayout(PanelClases);
-        PanelClases.setLayout(PanelClasesLayout);
-        PanelClasesLayout.setHorizontalGroup(
-            PanelClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1118, Short.MAX_VALUE)
-        );
-        PanelClasesLayout.setVerticalGroup(
-            PanelClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 842, Short.MAX_VALUE)
-        );
-
-        TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/atom.png")), PanelClases); // NOI18N
-
         javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
         PNAsignarMaes.setLayout(PNAsignarMaesLayout);
         PNAsignarMaesLayout.setHorizontalGroup(
@@ -126,7 +113,7 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 842, Short.MAX_VALUE)
         );
 
-        TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/rotation.png")), PNAsignarMaes); // NOI18N
+        TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/distribution.png")), PNAsignarMaes); // NOI18N
 
         javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
         PNMatricularAlum.setLayout(PNMatricularAlumLayout);
@@ -153,6 +140,10 @@ public class Main extends javax.swing.JFrame {
         );
 
         TabbedRegistro.addTab("CRUD Usuarios", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/agregar-usuario.png")), PNCrudUsuarios); // NOI18N
+
+        PanelClases.setBackground(new java.awt.Color(96, 150, 180));
+        PanelClases.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/atom.png")), PanelClases); // NOI18N
 
         jPanel1.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 1060, 420));
 
