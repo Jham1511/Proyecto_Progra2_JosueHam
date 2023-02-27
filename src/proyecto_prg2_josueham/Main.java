@@ -5,6 +5,7 @@
 package proyecto_prg2_josueham;
 
 import java.awt.Color;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ComboBoxModel;
@@ -19,12 +20,12 @@ public class Main extends javax.swing.JFrame {
 
     ArrayList<Usuario> usuarios = new ArrayList();
     ArrayList<Alumno> alumnos = new ArrayList();
+     ArrayList<Maestro> maestros = new ArrayList();
+     Registro registro = new Registro("registro", "admin", "Registro", "Activa",  new Date().from(Instant.now()));
     
     public Main() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        Date fecha = null;
-        usuarios.add(new Registro("registro", "admin", "Registro", "Activa", fecha));
     }
 
     /**
@@ -36,10 +37,23 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MenuCruds = new javax.swing.JDialog();
+        MenuRegistro = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        TabbedRegistro = new javax.swing.JTabbedPane();
+        PanelCRUDAlum = new javax.swing.JPanel();
+        CirculoIzq = new javax.swing.JLabel();
+        CirculoAbajo = new javax.swing.JLabel();
+        CirculoDer = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        PanelCRUDMaes = new javax.swing.JPanel();
+        PanelClases = new javax.swing.JPanel();
+        PNAsignarMaes = new javax.swing.JPanel();
+        PNMatricularAlum = new javax.swing.JPanel();
+        PNCrudUsuarios = new javax.swing.JPanel();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Portal = new javax.swing.JLabel();
         lb_username = new javax.swing.JLabel();
         FieldUsername = new javax.swing.JTextField();
         lb_password = new javax.swing.JLabel();
@@ -47,16 +61,102 @@ public class Main extends javax.swing.JFrame {
         BtnIngresar = new javax.swing.JButton();
         PanelAyuda = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout MenuCrudsLayout = new javax.swing.GroupLayout(MenuCruds.getContentPane());
-        MenuCruds.getContentPane().setLayout(MenuCrudsLayout);
-        MenuCrudsLayout.setHorizontalGroup(
-            MenuCrudsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+        MenuRegistro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TabbedRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TabbedRegistro.setName(""); // NOI18N
+
+        PanelCRUDAlum.setBackground(new java.awt.Color(96, 150, 180));
+        PanelCRUDAlum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CirculoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/5886792.png"))); // NOI18N
+        PanelCRUDAlum.add(CirculoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 38, -1, -1));
+
+        CirculoAbajo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/5886792.png"))); // NOI18N
+        PanelCRUDAlum.add(CirculoAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 714, -1, -1));
+
+        CirculoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/5886792.png"))); // NOI18N
+        PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 100, -1, -1));
+
+        jLabel1.setText("jLabel1");
+        PanelCRUDAlum.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        PanelCRUDAlum.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+
+        TabbedRegistro.addTab("CRUD Alumnos", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/estudiante.png")), PanelCRUDAlum); // NOI18N
+
+        javax.swing.GroupLayout PanelCRUDMaesLayout = new javax.swing.GroupLayout(PanelCRUDMaes);
+        PanelCRUDMaes.setLayout(PanelCRUDMaesLayout);
+        PanelCRUDMaesLayout.setHorizontalGroup(
+            PanelCRUDMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1118, Short.MAX_VALUE)
         );
-        MenuCrudsLayout.setVerticalGroup(
-            MenuCrudsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+        PanelCRUDMaesLayout.setVerticalGroup(
+            PanelCRUDMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
         );
+
+        TabbedRegistro.addTab("CRUD Maestros", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/teacher.png")), PanelCRUDMaes); // NOI18N
+
+        javax.swing.GroupLayout PanelClasesLayout = new javax.swing.GroupLayout(PanelClases);
+        PanelClases.setLayout(PanelClasesLayout);
+        PanelClasesLayout.setHorizontalGroup(
+            PanelClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1118, Short.MAX_VALUE)
+        );
+        PanelClasesLayout.setVerticalGroup(
+            PanelClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
+        );
+
+        TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/atom.png")), PanelClases); // NOI18N
+
+        javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
+        PNAsignarMaes.setLayout(PNAsignarMaesLayout);
+        PNAsignarMaesLayout.setHorizontalGroup(
+            PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1118, Short.MAX_VALUE)
+        );
+        PNAsignarMaesLayout.setVerticalGroup(
+            PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
+        );
+
+        TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/rotation.png")), PNAsignarMaes); // NOI18N
+
+        javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
+        PNMatricularAlum.setLayout(PNMatricularAlumLayout);
+        PNMatricularAlumLayout.setHorizontalGroup(
+            PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1118, Short.MAX_VALUE)
+        );
+        PNMatricularAlumLayout.setVerticalGroup(
+            PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
+        );
+
+        TabbedRegistro.addTab("Matricular Alumnos", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/register.png")), PNMatricularAlum); // NOI18N
+
+        javax.swing.GroupLayout PNCrudUsuariosLayout = new javax.swing.GroupLayout(PNCrudUsuarios);
+        PNCrudUsuarios.setLayout(PNCrudUsuariosLayout);
+        PNCrudUsuariosLayout.setHorizontalGroup(
+            PNCrudUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1118, Short.MAX_VALUE)
+        );
+        PNCrudUsuariosLayout.setVerticalGroup(
+            PNCrudUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
+        );
+
+        TabbedRegistro.addTab("CRUD Usuarios", new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/agregar-usuario.png")), PNCrudUsuarios); // NOI18N
+
+        jPanel1.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 1060, 420));
+
+        MenuRegistro.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,10 +164,10 @@ public class Main extends javax.swing.JFrame {
         PanelLogIn.setForeground(new java.awt.Color(255, 255, 255));
         PanelLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 42)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/diamante_resized.png"))); // NOI18N
-        jLabel1.setText("Portal");
+        Portal.setFont(new java.awt.Font("Calisto MT", 1, 42)); // NOI18N
+        Portal.setForeground(new java.awt.Color(255, 255, 255));
+        Portal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto_prg2_josueham/diamante_resized.png"))); // NOI18N
+        Portal.setText("Portal");
 
         lb_username.setForeground(new java.awt.Color(255, 255, 255));
         lb_username.setText("Nombre de Usuario");
@@ -94,21 +194,21 @@ public class Main extends javax.swing.JFrame {
         PanelLogInLayout.setHorizontalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PField_Contra)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(Portal, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                     .addComponent(lb_username)
                     .addComponent(FieldUsername)
                     .addComponent(lb_password)
                     .addComponent(BtnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
         PanelLogInLayout.setVerticalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addComponent(Portal)
                 .addGap(18, 18, 18)
                 .addComponent(lb_username)
                 .addGap(6, 6, 6)
@@ -119,7 +219,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Iniciar Sesion", PanelLogIn);
@@ -128,7 +228,7 @@ public class Main extends javax.swing.JFrame {
         PanelAyuda.setLayout(PanelAyudaLayout);
         PanelAyudaLayout.setHorizontalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 679, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
         PanelAyudaLayout.setVerticalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,10 +241,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TabbedPanePrincipal)
-                .addContainerGap())
+            .addComponent(TabbedPanePrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +254,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-       if (FieldUsername.getText().equals(usuarios.get(0).getNombre()) && PField_Contra.getText().equals(usuarios.get(0).getPassword())) {
+       if (FieldUsername.getText().equals(registro.getNombre()) && PField_Contra.getText().equals(registro.getPassword())) {
          abrir_MenuC();
         } else {
             JOptionPane.showMessageDialog(this, "Usuario inexistente");
@@ -200,19 +297,33 @@ public class Main extends javax.swing.JFrame {
     }
 
 public void abrir_MenuC(){
-    MenuCruds.pack();
-    MenuCruds.setLocationRelativeTo(this);
-    MenuCruds.setVisible(true);
+    MenuRegistro.pack();
+    MenuRegistro.setLocationRelativeTo(this);
+    MenuRegistro.setVisible(true);
+    this.setVisible(false);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIngresar;
+    private javax.swing.JLabel CirculoAbajo;
+    private javax.swing.JLabel CirculoDer;
+    private javax.swing.JLabel CirculoIzq;
     private javax.swing.JTextField FieldUsername;
-    private javax.swing.JDialog MenuCruds;
+    private javax.swing.JDialog MenuRegistro;
     private javax.swing.JPasswordField PField_Contra;
+    private javax.swing.JPanel PNAsignarMaes;
+    private javax.swing.JPanel PNCrudUsuarios;
+    private javax.swing.JPanel PNMatricularAlum;
     private javax.swing.JPanel PanelAyuda;
+    private javax.swing.JPanel PanelCRUDAlum;
+    private javax.swing.JPanel PanelCRUDMaes;
+    private javax.swing.JPanel PanelClases;
     private javax.swing.JPanel PanelLogIn;
+    private javax.swing.JLabel Portal;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
+    private javax.swing.JTabbedPane TabbedRegistro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_password;
     private javax.swing.JLabel lb_username;
     // End of variables declaration//GEN-END:variables
