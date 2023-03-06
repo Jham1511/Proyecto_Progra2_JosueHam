@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Usuario {
     protected String username, password, tipo, estado;
-    protected Date fechaCrea;
+    protected Date fechaNas;
 
     public Usuario() {
     }
@@ -19,7 +19,7 @@ public class Usuario {
         this.password = password;
         this.tipo = tipo;
         this.estado = estado;
-        this.fechaCrea = fechaCrea;
+        this.fechaNas = fechaCrea;
     }
 
     public String getNombre() {
@@ -55,11 +55,11 @@ public class Usuario {
     }
 
     public Date getFechaCrea() {
-        return fechaCrea;
+        return fechaNas;
     }
 
     public void setFechaCrea(Date fechaCrea) {
-        this.fechaCrea = fechaCrea;
+        this.fechaNas = fechaCrea;
     }
 
     @Override
