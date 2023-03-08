@@ -6,26 +6,52 @@ package proyecto_prg2_josueham;
 
 public class Curso {
 
-    private String nombre, codigo, aula;
-    private int seccion, UV;
+    private String nombre, codigo, hora,semestre,periodo,anio;
+    private  int UV;
 
     public Curso() {
     }
 
-    public Curso(String nombre, String codigo, String aula, int seccion, int UV) {
+    public Curso(String nombre, String codigo, String hora, String semestre, String periodo, String anio, int UV) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.aula = aula;
-        this.seccion = seccion;
+        this.hora = hora;
+        this.semestre = semestre;
+        this.periodo = periodo;
+        this.anio = anio;
         this.UV = UV;
     }
 
-    public String getAula() {
-        return aula;
+    public String getSemestre() {
+        return semestre;
     }
 
-    public void setAula(String aula) {
-        this.aula = aula;
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
+    public String getAnio() {
+        return anio;
+    }
+
+    public void setAnio(String anio) {
+        this.anio = anio;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String aula) {
+        this.hora = aula;
     }
 
     public String getNombre() {
@@ -44,20 +70,17 @@ public class Curso {
         this.codigo = codigo;
     }
 
-    public int getSeccion() {
-        return seccion;
-    }
-
-    public void setSeccion(int seccion) {
-        this.seccion = seccion;
-    }
-
     public int getUV() {
         return UV;
     }
 
     public void setUV(int UV) {
         this.UV = UV;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " - " + codigo;
     }
 
 }

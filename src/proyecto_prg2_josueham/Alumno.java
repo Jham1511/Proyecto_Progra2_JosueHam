@@ -5,6 +5,7 @@
 package proyecto_prg2_josueham;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -12,13 +13,25 @@ import java.util.ArrayList;
  */
 public class Alumno extends Usuario{
     
-    private String nom, carrera;
-    private boolean genero;
-    private int numCuenta, edad;
-    private double promedio;
+    private String nom, carrera,rol;
     private ArrayList<Curso> clases = new ArrayList();
     
     public Alumno() {
+    }
+
+    public Alumno(String nom, String carrera, String rol, String username, String password, String tipo, String estado, Date fechaCrea) {
+        super(username, password, tipo, estado, fechaCrea);
+        this.nom = nom;
+        this.carrera = carrera;
+        this.rol = rol;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getNom() {
@@ -37,38 +50,6 @@ public class Alumno extends Usuario{
         this.carrera = carrera;
     }
 
-    public boolean isGenero() {
-        return genero;
-    }
-
-    public void setGenero(boolean genero) {
-        this.genero = genero;
-    }
-
-    public int getNumCuenta() {
-        return numCuenta;
-    }
-
-    public void setNumCuenta(int numCuenta) {
-        this.numCuenta = numCuenta;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public double getPromedio() {
-        return promedio;
-    }
-
-    public void setPromedio(double promedio) {
-        this.promedio = promedio;
-    }
-
     public ArrayList<Curso> getClases() {
         return clases;
     }
@@ -79,7 +60,7 @@ public class Alumno extends Usuario{
 
     @Override
     public String toString() {
-        return "Nombre: " + " - " + nom + "Carrera: " + " - " + carrera + ", Numero de Cuenta: " + " - " + numCuenta + "Promedio: " + " - " + promedio;
+        return nom;
     }
     
     

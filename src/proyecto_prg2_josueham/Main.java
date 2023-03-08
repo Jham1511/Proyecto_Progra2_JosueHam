@@ -68,6 +68,7 @@ public class Main extends javax.swing.JFrame {
         PField_Contra = new javax.swing.JPasswordField();
         BtnIngresar = new javax.swing.JButton();
         PanelAyuda = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         MenuRegistro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -170,29 +171,24 @@ public class Main extends javax.swing.JFrame {
         PanelLogIn.setBackground(new java.awt.Color(0, 51, 102));
         PanelLogIn.setForeground(new java.awt.Color(255, 255, 255));
         PanelLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        PanelLogIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Portal.setFont(new java.awt.Font("Calisto MT", 1, 42)); // NOI18N
         Portal.setForeground(new java.awt.Color(255, 255, 255));
         Portal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/diamante_resized.png"))); // NOI18N
         Portal.setText("Portal");
-        PanelLogIn.add(Portal, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 120, 167, -1));
 
         lb_username.setForeground(new java.awt.Color(255, 255, 255));
         lb_username.setText("Nombre de Usuario");
-        PanelLogIn.add(lb_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 189, -1, -1));
 
         FieldUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelLogIn.add(FieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 210, 167, 30));
 
         lb_password.setForeground(new java.awt.Color(255, 255, 255));
         lb_password.setText("Contraseña");
-        PanelLogIn.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 268, -1, -1));
 
         PField_Contra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelLogIn.add(PField_Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 289, 167, 31));
 
         BtnIngresar.setBackground(new java.awt.Color(51, 102, 255));
+        BtnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         BtnIngresar.setText("Ingresar");
         BtnIngresar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,19 +197,66 @@ public class Main extends javax.swing.JFrame {
                 BtnIngresarActionPerformed(evt);
             }
         });
-        PanelLogIn.add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 354, 167, 39));
+
+        javax.swing.GroupLayout PanelLogInLayout = new javax.swing.GroupLayout(PanelLogIn);
+        PanelLogIn.setLayout(PanelLogInLayout);
+        PanelLogInLayout.setHorizontalGroup(
+            PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelLogInLayout.createSequentialGroup()
+                .addContainerGap(269, Short.MAX_VALUE)
+                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Portal, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_username)
+                    .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_password)
+                    .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(239, Short.MAX_VALUE))
+        );
+        PanelLogInLayout.setVerticalGroup(
+            PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelLogInLayout.createSequentialGroup()
+                .addContainerGap(132, Short.MAX_VALUE)
+                .addComponent(Portal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(lb_username)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(lb_password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         TabbedPanePrincipal.addTab("Iniciar Sesion", PanelLogIn);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout PanelAyudaLayout = new javax.swing.GroupLayout(PanelAyuda);
         PanelAyuda.setLayout(PanelAyudaLayout);
         PanelAyudaLayout.setHorizontalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
+            .addGroup(PanelAyudaLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 606, Short.MAX_VALUE))
         );
         PanelAyudaLayout.setVerticalGroup(
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 476, Short.MAX_VALUE)
+            .addGroup(PanelAyudaLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 376, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Ayuda", PanelAyuda);
@@ -307,6 +350,7 @@ public void abrir_MenuC(){
     private javax.swing.ButtonGroup btngrupoUsuarios;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_contra;

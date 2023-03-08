@@ -7,23 +7,57 @@ package proyecto_prg2_josueham;
 import java.util.ArrayList;
 import java.util.Date;
 
+public class Maestro extends Usuario {
 
-public class Maestro extends Usuario{
-    
-    private String nombre, identidad;
+    private String nombre, identidad, profesion,rol;
+    private int sueldo;
     private ArrayList<Curso> clases = new ArrayList();
     private ArrayList<Alumno> alumnos = new ArrayList();
 
     public Maestro() {
+        super();
     }
 
-    public Maestro(String nombre, String identidad, String username, String password, String tipo, String estado, Date fechaCrea) {
+    public Maestro(String nombre, String identidad, String profesion, String rol, int sueldo, String username, String password, String tipo, String estado, Date fechaCrea) {
         super(username, password, tipo, estado, fechaCrea);
         this.nombre = nombre;
         this.identidad = identidad;
+        this.profesion = profesion;
+        this.rol = rol;
+        this.sueldo = sueldo;
     }
 
-    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getIdentidad() {
+        return identidad;
+    }
+
+    public void setIdentidad(String identidad) {
+        this.identidad = identidad;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
 
     public ArrayList<Curso> getClases() {
         return clases;
@@ -40,6 +74,18 @@ public class Maestro extends Usuario{
     public void setAlumnos(ArrayList<Alumno> alumnos) {
         this.alumnos = alumnos;
     }
-    
-    
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return nombre ;
+    }
+
 }
