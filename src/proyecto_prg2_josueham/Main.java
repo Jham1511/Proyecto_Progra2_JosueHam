@@ -54,9 +54,14 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lb_estado = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        lb_nomAlum = new javax.swing.JLabel();
+        FieldNombre = new javax.swing.JTextField();
+        lb_carrera = new javax.swing.JLabel();
+        FieldCarrera = new javax.swing.JTextField();
         PNAsignarMaes = new javax.swing.JPanel();
         PNMatricularAlum = new javax.swing.JPanel();
         PanelClases = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         FondoUnitec = new javax.swing.JLabel();
         btngrupoUsuarios = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
@@ -114,11 +119,16 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(Rbtn_maestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         btn_tipoUser.setText("->");
+        btn_tipoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tipoUserActionPerformed(evt);
+            }
+        });
         PanelCRUDAlum.add(btn_tipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha de Nascimiento");
+        jLabel2.setText("Fecha de Nacimiento");
         PanelCRUDAlum.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
         lb_estado.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
@@ -126,6 +136,16 @@ public class Main extends javax.swing.JFrame {
         lb_estado.setText("Estado de la cuenta");
         PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
         PanelCRUDAlum.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 120, 40));
+
+        lb_nomAlum.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_nomAlum.setText("Nombre");
+        PanelCRUDAlum.add(lb_nomAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
+        PanelCRUDAlum.add(FieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 80, 40));
+
+        lb_carrera.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_carrera.setText("Carrera");
+        PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        PanelCRUDAlum.add(FieldCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
 
         TabbedRegistro.addTab("CRUD Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
 
@@ -160,6 +180,17 @@ public class Main extends javax.swing.JFrame {
         TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/atom.png")), PanelClases); // NOI18N
 
         jPanel1.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 420));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         FondoUnitec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondo UNITEC.jpeg"))); // NOI18N
         jPanel1.add(FondoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -285,6 +316,19 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnIngresarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.setVisible(true);
+       MenuRegistro.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_tipoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tipoUserActionPerformed
+        if (Rbtn_alumno.isSelected()) {
+            
+        } else if (Rbtn_maestro.isSelected()){
+            
+        }
+    }//GEN-LAST:event_btn_tipoUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,12 +368,16 @@ public void abrir_MenuC(){
     MenuRegistro.pack();
     MenuRegistro.setLocationRelativeTo(this);
     MenuRegistro.setVisible(true);
+    FieldCarrera.setVisible(false);
+    FieldNombre.setVisible(false);
     this.setVisible(false);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIngresar;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
+    private javax.swing.JTextField FieldCarrera;
+    private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldUsername;
     private javax.swing.JTextField FieldUsernameAlum;
     private javax.swing.JLabel FondoUnitec;
@@ -348,13 +396,16 @@ public void abrir_MenuC(){
     private javax.swing.JTabbedPane TabbedRegistro;
     private javax.swing.JButton btn_tipoUser;
     private javax.swing.ButtonGroup btngrupoUsuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lb_carrera;
     private javax.swing.JLabel lb_contra;
     private javax.swing.JLabel lb_estado;
+    private javax.swing.JLabel lb_nomAlum;
     private javax.swing.JLabel lb_password;
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JLabel lb_username;
