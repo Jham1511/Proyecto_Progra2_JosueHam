@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -18,11 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
-    ArrayList<Usuario> usuarios = new ArrayList();
-    ArrayList<Alumno> alumnos = new ArrayList();
-     ArrayList<Maestro> maestros = new ArrayList();
-     Registro registro = new Registro("registro", "admin", "Registro", "Activa",  new Date().from(Instant.now()));
-    
+    Registro registro = new Registro("registro", "admin", "Registro", "Activa", new Date().from(Instant.now()));
+    Random aleatorio = new Random();
+
     public Main() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -44,24 +43,49 @@ public class Main extends javax.swing.JFrame {
         CirculoIzq = new javax.swing.JLabel();
         CirculoDer = new javax.swing.JLabel();
         lb_usernameCrud = new javax.swing.JLabel();
-        FieldUsernameAlum = new javax.swing.JTextField();
+        FieldUsernameUser = new javax.swing.JTextField();
         lb_contra = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        FieldContra = new javax.swing.JPasswordField();
         lb_tipo = new javax.swing.JLabel();
         Rbtn_alumno = new javax.swing.JRadioButton();
         Rbtn_maestro = new javax.swing.JRadioButton();
         btn_tipoUser = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lb_nacimiento = new javax.swing.JLabel();
         lb_estado = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        lb_nomAlum = new javax.swing.JLabel();
+        FieldEstado = new javax.swing.JTextField();
+        lb_nom = new javax.swing.JLabel();
         FieldNombre = new javax.swing.JTextField();
         lb_carrera = new javax.swing.JLabel();
         FieldCarrera = new javax.swing.JTextField();
+        lb_profesion = new javax.swing.JLabel();
+        FieldProfesion = new javax.swing.JTextField();
+        lb_sueldo = new javax.swing.JLabel();
+        FieldSueldo = new javax.swing.JTextField();
+        ChooserNacimiento = new com.toedter.calendar.JDateChooser();
+        BtnGuardar = new javax.swing.JButton();
         PNAsignarMaes = new javax.swing.JPanel();
         PNMatricularAlum = new javax.swing.JPanel();
         PanelClases = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lb_nomClase = new javax.swing.JLabel();
+        FieldNombreClase = new javax.swing.JTextField();
+        lb_codClase = new javax.swing.JLabel();
+        FieldCodigo = new javax.swing.JTextField();
+        lb_horaClase = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        lb_semestre = new javax.swing.JLabel();
+        FieldSemestre = new javax.swing.JTextField();
+        lb_periodo = new javax.swing.JLabel();
+        FieldPeriodo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        FieldAnio = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        FieldUV = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        btnElimClases = new javax.swing.JButton();
+        BtnRegresar = new javax.swing.JButton();
         FondoUnitec = new javax.swing.JLabel();
         btngrupoUsuarios = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
@@ -91,19 +115,19 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(CirculoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         CirculoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5886792.png"))); // NOI18N
-        PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, -1, -1));
+        PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, -1, -1));
 
         lb_usernameCrud.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_usernameCrud.setForeground(new java.awt.Color(255, 255, 255));
         lb_usernameCrud.setText("Username");
         PanelCRUDAlum.add(lb_usernameCrud, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 20));
-        PanelCRUDAlum.add(FieldUsernameAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, 40));
+        PanelCRUDAlum.add(FieldUsernameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, 40));
 
         lb_contra.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_contra.setForeground(new java.awt.Color(255, 255, 255));
         lb_contra.setText("Contraseña");
         PanelCRUDAlum.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
-        PanelCRUDAlum.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 40));
+        PanelCRUDAlum.add(FieldContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 40));
 
         lb_tipo.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_tipo.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,6 +142,8 @@ public class Main extends javax.swing.JFrame {
         Rbtn_maestro.setText("Maestro");
         PanelCRUDAlum.add(Rbtn_maestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
+        btn_tipoUser.setBackground(new java.awt.Color(153, 153, 255));
+        btn_tipoUser.setForeground(new java.awt.Color(255, 255, 255));
         btn_tipoUser.setText("->");
         btn_tipoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,28 +152,55 @@ public class Main extends javax.swing.JFrame {
         });
         PanelCRUDAlum.add(btn_tipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha de Nacimiento");
-        PanelCRUDAlum.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+        lb_nacimiento.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_nacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nacimiento.setText("Fecha de Nacimiento");
+        PanelCRUDAlum.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
 
         lb_estado.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_estado.setForeground(new java.awt.Color(255, 255, 255));
         lb_estado.setText("Estado de la cuenta");
         PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
-        PanelCRUDAlum.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 120, 40));
+        PanelCRUDAlum.add(FieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 120, 40));
 
-        lb_nomAlum.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
-        lb_nomAlum.setText("Nombre");
-        PanelCRUDAlum.add(lb_nomAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
+        lb_nom.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_nom.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nom.setText("Nombre");
+        PanelCRUDAlum.add(lb_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
         PanelCRUDAlum.add(FieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 80, 40));
 
         lb_carrera.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_carrera.setForeground(new java.awt.Color(255, 255, 255));
         lb_carrera.setText("Carrera");
         PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
         PanelCRUDAlum.add(FieldCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
 
-        TabbedRegistro.addTab("CRUD Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
+        lb_profesion.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_profesion.setForeground(new java.awt.Color(255, 255, 255));
+        lb_profesion.setText("Profesion");
+        PanelCRUDAlum.add(lb_profesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, -1, 20));
+        PanelCRUDAlum.add(FieldProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 80, 40));
+
+        lb_sueldo.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_sueldo.setForeground(new java.awt.Color(255, 255, 255));
+        lb_sueldo.setText("Sueldo");
+        PanelCRUDAlum.add(lb_sueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        PanelCRUDAlum.add(FieldSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
+        PanelCRUDAlum.add(ChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 140, 40));
+
+        BtnGuardar.setBackground(new java.awt.Color(153, 153, 255));
+        BtnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnGuardar.setText("Guardar Usuario");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
+        PanelCRUDAlum.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+
+        TabbedRegistro.addTab("Agregar Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
+
+        PNAsignarMaes.setBackground(new java.awt.Color(96, 150, 180));
 
         javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
         PNAsignarMaes.setLayout(PNAsignarMaesLayout);
@@ -176,21 +229,83 @@ public class Main extends javax.swing.JFrame {
         TabbedRegistro.addTab("Matricular Alumnos", new javax.swing.ImageIcon(getClass().getResource("/register.png")), PNMatricularAlum); // NOI18N
 
         PanelClases.setBackground(new java.awt.Color(96, 150, 180));
+        PanelClases.setForeground(new java.awt.Color(255, 255, 255));
         PanelClases.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5886792.png"))); // NOI18N
+        PanelClases.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        lb_nomClase.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nomClase.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nomClase.setText("Nombre de la clase");
+        PanelClases.add(lb_nomClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        PanelClases.add(FieldNombreClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, 30));
+
+        lb_codClase.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_codClase.setForeground(new java.awt.Color(255, 255, 255));
+        lb_codClase.setText("Codigo de la clase");
+        PanelClases.add(lb_codClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        PanelClases.add(FieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 110, 30));
+
+        lb_horaClase.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_horaClase.setForeground(new java.awt.Color(255, 255, 255));
+        lb_horaClase.setText("Hora de la clase");
+        PanelClases.add(lb_horaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        PanelClases.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 110, 30));
+        PanelClases.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
+
+        lb_semestre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_semestre.setForeground(new java.awt.Color(255, 255, 255));
+        lb_semestre.setText("Semestre de la clase");
+        PanelClases.add(lb_semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        PanelClases.add(FieldSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, 30));
+
+        lb_periodo.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_periodo.setForeground(new java.awt.Color(255, 255, 255));
+        lb_periodo.setText("Periodo de la clase: Ejemplo \"Q4\"");
+        PanelClases.add(lb_periodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+        PanelClases.add(FieldPeriodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Año en la que se cursa");
+        PanelClases.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
+        PanelClases.add(FieldAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 120, 30));
+
+        jLabel3.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel3.setText("Unidades Valorativas de la clase");
+        PanelClases.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
+        PanelClases.add(FieldUV, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 110, 30));
+
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Guardar Clase");
+        PanelClases.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 120, -1));
+
+        jButton2.setBackground(new java.awt.Color(153, 153, 255));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Modificar Clases");
+        PanelClases.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 120, -1));
+
+        btnElimClases.setBackground(new java.awt.Color(153, 153, 255));
+        btnElimClases.setForeground(new java.awt.Color(255, 255, 255));
+        btnElimClases.setText("Eliminar Clases");
+        PanelClases.add(btnElimClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 120, -1));
+
         TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/atom.png")), PanelClases); // NOI18N
 
         jPanel1.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 420));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setOpaque(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
+        BtnRegresar.setBorder(null);
+        BtnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnRegresar.setOpaque(false);
+        BtnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(BtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         FondoUnitec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondo UNITEC.jpeg"))); // NOI18N
         jPanel1.add(FondoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -234,7 +349,7 @@ public class Main extends javax.swing.JFrame {
         PanelLogInLayout.setHorizontalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
+                .addContainerGap(284, Short.MAX_VALUE)
                 .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Portal, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_username)
@@ -242,24 +357,24 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(lb_password)
                     .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         PanelLogInLayout.setVerticalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
+                .addContainerGap(151, Short.MAX_VALUE)
                 .addComponent(Portal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(lb_username)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(lb_password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Iniciar Sesion", PanelLogIn);
@@ -309,25 +424,80 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-       if (FieldUsername.getText().equals(registro.getNombre()) && PField_Contra.getText().equals(registro.getPassword())) {
-         abrir_MenuC();
+        if (FieldUsername.getText().equals(registro.getNombre()) && PField_Contra.getText().equals(registro.getPassword())) {
+            abrir_MenuC();
         } else {
             JOptionPane.showMessageDialog(this, "Usuario inexistente");
         }
     }//GEN-LAST:event_BtnIngresarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       this.setVisible(true);
-       MenuRegistro.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarActionPerformed
+        this.setVisible(true);
+        MenuRegistro.setVisible(false);
+    }//GEN-LAST:event_BtnRegresarActionPerformed
 
     private void btn_tipoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tipoUserActionPerformed
+
         if (Rbtn_alumno.isSelected()) {
-            
-        } else if (Rbtn_maestro.isSelected()){
-            
+            lb_sueldo.setVisible(false);
+            FieldSueldo.setVisible(false);
+            lb_carrera.setVisible(true);
+            FieldCarrera.setVisible(true);
+
+        } else if (Rbtn_maestro.isSelected()) {
+            lb_carrera.setVisible(false);
+            FieldCarrera.setVisible(false);
+            lb_sueldo.setVisible(true);
+            lb_profesion.setVisible(true);
+            FieldProfesion.setVisible(true);
+            FieldSueldo.setVisible(true);
+
         }
     }//GEN-LAST:event_btn_tipoUserActionPerformed
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        String username = FieldUsernameUser.getText();
+        String password = FieldContra.getText();
+        String estado = FieldEstado.getText();
+        Date fecha = ChooserNacimiento.getDate();
+        String nombre = FieldNombre.getText();
+        String strSueldo = FieldSueldo.getText();
+        int sueldo = Integer.parseInt(strSueldo);
+        String profesion = FieldProfesion.getText();
+        String rol = "";
+        if (Rbtn_alumno.isSelected()) {
+            rol = "Alumno";
+            String carrera = FieldCarrera.getText();
+            Alumno p = new Alumno(nombre, carrera, username, password, rol, estado, fecha);
+            adminAlumnos ap = new adminAlumnos("./alumnos.cbm");
+            ap.cargarArchivo();
+            ap.setAlumno(p);
+            ap.escribirArchivo();
+
+            Usuario u = new Usuario(username, password, rol, estado, fecha);
+            adminUsuarios us = new adminUsuarios("./usuarios.usr");
+            us.cargarArchivo();
+            us.setUsuario(u);
+            us.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
+
+        } else if (Rbtn_maestro.isSelected()) {
+            String identidad = alfa();
+            rol = "Maestro";
+            Maestro m = new Maestro(nombre, identidad, profesion, sueldo, username, password, rol, estado, fecha);
+            adminMaestros am = new adminMaestros("./maestros.tch");
+            am.cargarArchivo();
+            am.setMaestro(m);
+            am.escribirArchivo();
+
+            Usuario u = new Usuario(username, password, rol, estado, fecha);
+            adminUsuarios us = new adminUsuarios("./usuarios.usr");
+            us.cargarArchivo();
+            us.setUsuario(u);
+            us.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Maestro guardado exitosamente");
+        }
+    }//GEN-LAST:event_BtnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,22 +534,52 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-public void abrir_MenuC(){
-    MenuRegistro.pack();
-    MenuRegistro.setLocationRelativeTo(this);
-    MenuRegistro.setVisible(true);
-    FieldCarrera.setVisible(false);
-    FieldNombre.setVisible(false);
-    this.setVisible(false);
-}
+    public void abrir_MenuC() {
+        MenuRegistro.pack();
+        MenuRegistro.setLocationRelativeTo(this);
+        MenuRegistro.setVisible(true);
+        FieldCarrera.setVisible(false);
+        lb_carrera.setVisible(false);
+        lb_profesion.setVisible(false);
+        lb_sueldo.setVisible(false);
+        FieldProfesion.setVisible(false);
+        FieldSueldo.setVisible(false);
+        this.setVisible(false);
+    }
+
+    public String alfa() {
+        //Codigo Alfanumerico {
+        String alfa = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
+        String cadena = "";    //Inicializamos la Variable//
+        int numero;
+        int forma;
+        forma = (int) (aleatorio.nextDouble() * alfa.length() - 1 + 0);
+        numero = (int) (aleatorio.nextDouble() * 99 + 100);
+        cadena = cadena + alfa.charAt(forma) + numero;
+        //}
+        return cadena;
+    }//
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnIngresar;
+    private javax.swing.JButton BtnRegresar;
+    private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
+    private javax.swing.JTextField FieldAnio;
     private javax.swing.JTextField FieldCarrera;
+    private javax.swing.JTextField FieldCodigo;
+    private javax.swing.JPasswordField FieldContra;
+    private javax.swing.JTextField FieldEstado;
     private javax.swing.JTextField FieldNombre;
+    private javax.swing.JTextField FieldNombreClase;
+    private javax.swing.JTextField FieldPeriodo;
+    private javax.swing.JTextField FieldProfesion;
+    private javax.swing.JTextField FieldSemestre;
+    private javax.swing.JTextField FieldSueldo;
+    private javax.swing.JTextField FieldUV;
     private javax.swing.JTextField FieldUsername;
-    private javax.swing.JTextField FieldUsernameAlum;
+    private javax.swing.JTextField FieldUsernameUser;
     private javax.swing.JLabel FondoUnitec;
     private javax.swing.JDialog MenuRegistro;
     private javax.swing.JPasswordField PField_Contra;
@@ -394,19 +594,31 @@ public void abrir_MenuC(){
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedRegistro;
+    private javax.swing.JButton btnElimClases;
     private javax.swing.JButton btn_tipoUser;
     private javax.swing.ButtonGroup btngrupoUsuarios;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lb_carrera;
+    private javax.swing.JLabel lb_codClase;
     private javax.swing.JLabel lb_contra;
     private javax.swing.JLabel lb_estado;
-    private javax.swing.JLabel lb_nomAlum;
+    private javax.swing.JLabel lb_horaClase;
+    private javax.swing.JLabel lb_nacimiento;
+    private javax.swing.JLabel lb_nom;
+    private javax.swing.JLabel lb_nomClase;
     private javax.swing.JLabel lb_password;
+    private javax.swing.JLabel lb_periodo;
+    private javax.swing.JLabel lb_profesion;
+    private javax.swing.JLabel lb_semestre;
+    private javax.swing.JLabel lb_sueldo;
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JLabel lb_username;
     private javax.swing.JLabel lb_usernameCrud;

@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Maestro extends Usuario {
 
-    private String nombre, identidad, profesion,rol;
+    private String nombre, identidad, profesion;
     private int sueldo;
     private ArrayList<Curso> clases = new ArrayList();
     private ArrayList<Alumno> alumnos = new ArrayList();
@@ -18,12 +18,11 @@ public class Maestro extends Usuario {
         super();
     }
 
-    public Maestro(String nombre, String identidad, String profesion, String rol, int sueldo, String username, String password, String tipo, String estado, Date fechaCrea) {
+    public Maestro(String nombre, String identidad, String profesion, int sueldo, String username, String password, String tipo, String estado, Date fechaCrea) {
         super(username, password, tipo, estado, fechaCrea);
         this.nombre = nombre;
         this.identidad = identidad;
         this.profesion = profesion;
-        this.rol = rol;
         this.sueldo = sueldo;
     }
 
@@ -75,17 +74,9 @@ public class Maestro extends Usuario {
         this.alumnos = alumnos;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
     @Override
     public String toString() {
-        return nombre ;
+        return nombre;
     }
 
 }
