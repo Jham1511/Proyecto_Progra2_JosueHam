@@ -16,23 +16,23 @@ import java.util.ArrayList;
  *
  * @author SKX Kafei
  */
-public class adminUsuarios {
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+public class adminCurso {
+    private ArrayList<Curso> listaCursos = new ArrayList<>();
     private File archivo = null;
 
-    public adminUsuarios(String path) {
+    public adminCurso(String path) {
         archivo = new File(path);
     }
 
-    public adminUsuarios() {
+    public adminCurso() {
     }
 
-    public ArrayList<Usuario> getListaUsuarios() {
-        return listaUsuarios;
+    public ArrayList<Curso> getListaCursos() {
+        return listaCursos;
     }
 
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public void setListaCursos(ArrayList<Curso> listaCursos) {
+        this.listaCursos = listaCursos;
     }
 
     public File getArchivo() {
@@ -42,22 +42,25 @@ public class adminUsuarios {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-     public void setUsuario(Usuario a){
-        listaUsuarios.add(a);
+    
+    
+    public void setCurso(Curso a){
+        listaCursos.add(a);
     }
-     
-     public void cargarArchivo() {
+    
+    
+    public void cargarArchivo() {
         try {            
-            listaUsuarios = new ArrayList();
-            Usuario temp;
+            listaCursos = new ArrayList();
+            Curso temp;
             if (archivo.exists()) {
                 FileInputStream entrada
                     = new FileInputStream(archivo);
                 ObjectInputStream objeto
                     = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Usuario) objeto.readObject()) != null) {
-                        listaUsuarios.add(temp);
+                    while ((temp = (Curso) objeto.readObject()) != null) {
+                        listaCursos.add(temp);
                     }
                 } catch (EOFException e) {
                     //encontro el final del archivo
@@ -76,7 +79,7 @@ public class adminUsuarios {
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (Usuario t : listaUsuarios) {
+            for (Curso t : listaCursos) {
                 bw.writeObject(t);
             }
             bw.flush();

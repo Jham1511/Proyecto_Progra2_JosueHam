@@ -5,13 +5,21 @@
 package proyecto_prg2_josueham;
 
 import java.awt.Color;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -37,7 +45,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         MenuRegistro = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
+        PanelAtras = new javax.swing.JPanel();
         TabbedRegistro = new javax.swing.JTabbedPane();
         PanelCRUDAlum = new javax.swing.JPanel();
         CirculoIzq = new javax.swing.JLabel();
@@ -63,8 +71,21 @@ public class Main extends javax.swing.JFrame {
         FieldSueldo = new javax.swing.JTextField();
         ChooserNacimiento = new com.toedter.calendar.JDateChooser();
         BtnGuardar = new javax.swing.JButton();
+        BtnModifUsuarios = new javax.swing.JButton();
+        BtnElimUsuarios = new javax.swing.JButton();
         PNAsignarMaes = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JListMaestros = new javax.swing.JList<>();
+        BtnCargarMaestros = new javax.swing.JButton();
+        Cb_listaClases = new javax.swing.JComboBox<>();
+        PanelAsignarAlum = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JListaAlum = new javax.swing.JList<>();
+        BtnCargarAlumAsig = new javax.swing.JButton();
         PNMatricularAlum = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JL_Alumnos = new javax.swing.JList<>();
+        BtnCargarAlumnos = new javax.swing.JButton();
         PanelClases = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lb_nomClase = new javax.swing.JLabel();
@@ -72,7 +93,7 @@ public class Main extends javax.swing.JFrame {
         lb_codClase = new javax.swing.JLabel();
         FieldCodigo = new javax.swing.JTextField();
         lb_horaClase = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        FieldHora = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         lb_semestre = new javax.swing.JLabel();
         FieldSemestre = new javax.swing.JTextField();
@@ -101,12 +122,18 @@ public class Main extends javax.swing.JFrame {
 
         MenuRegistro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelAtras.setBackground(new java.awt.Color(0, 102, 153));
+        PanelAtras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        TabbedRegistro.setBackground(new java.awt.Color(51, 51, 55));
         TabbedRegistro.setForeground(new java.awt.Color(255, 255, 255));
         TabbedRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TabbedRegistro.setName(""); // NOI18N
+        TabbedRegistro.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedRegistroStateChanged(evt);
+            }
+        });
 
         PanelCRUDAlum.setBackground(new java.awt.Color(96, 150, 180));
         PanelCRUDAlum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,10 +163,12 @@ public class Main extends javax.swing.JFrame {
 
         btngrupoUsuarios.add(Rbtn_alumno);
         Rbtn_alumno.setText("Alumno");
+        Rbtn_alumno.setOpaque(false);
         PanelCRUDAlum.add(Rbtn_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         btngrupoUsuarios.add(Rbtn_maestro);
         Rbtn_maestro.setText("Maestro");
+        Rbtn_maestro.setOpaque(false);
         PanelCRUDAlum.add(Rbtn_maestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         btn_tipoUser.setBackground(new java.awt.Color(153, 153, 255));
@@ -196,34 +225,130 @@ public class Main extends javax.swing.JFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-        PanelCRUDAlum.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+        PanelCRUDAlum.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
+
+        BtnModifUsuarios.setBackground(new java.awt.Color(153, 153, 255));
+        BtnModifUsuarios.setText("Modificar Usuario");
+        PanelCRUDAlum.add(BtnModifUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
+
+        BtnElimUsuarios.setBackground(new java.awt.Color(153, 153, 255));
+        BtnElimUsuarios.setText("Eliminar Usuario");
+        PanelCRUDAlum.add(BtnElimUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, -1, -1));
 
         TabbedRegistro.addTab("Agregar Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
 
         PNAsignarMaes.setBackground(new java.awt.Color(96, 150, 180));
 
+        JListMaestros.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(JListMaestros);
+
+        BtnCargarMaestros.setText("Cargar Maestros");
+        BtnCargarMaestros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCargarMaestrosActionPerformed(evt);
+            }
+        });
+
+        Cb_listaClases.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Cb_listaClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cb_listaClasesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
         PNAsignarMaes.setLayout(PNAsignarMaesLayout);
         PNAsignarMaesLayout.setHorizontalGroup(
             PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
+            .addGroup(PNAsignarMaesLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BtnCargarMaestros, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(555, Short.MAX_VALUE))
         );
         PNAsignarMaesLayout.setVerticalGroup(
             PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 385, Short.MAX_VALUE)
+            .addGroup(PNAsignarMaesLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(BtnCargarMaestros)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/teacher.png")), PNAsignarMaes); // NOI18N
+
+        PanelAsignarAlum.setBackground(new java.awt.Color(96, 150, 180));
+
+        JListaAlum.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(JListaAlum);
+
+        BtnCargarAlumAsig.setText("Cargar Alumnos");
+        BtnCargarAlumAsig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCargarAlumAsigActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelAsignarAlumLayout = new javax.swing.GroupLayout(PanelAsignarAlum);
+        PanelAsignarAlum.setLayout(PanelAsignarAlumLayout);
+        PanelAsignarAlumLayout.setHorizontalGroup(
+            PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BtnCargarAlumAsig, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+                .addContainerGap(824, Short.MAX_VALUE))
+        );
+        PanelAsignarAlumLayout.setVerticalGroup(
+            PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnCargarAlumAsig)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        TabbedRegistro.addTab("Asignar Alumnos", new javax.swing.ImageIcon(getClass().getResource("/estudiante.png")), PanelAsignarAlum); // NOI18N
+
+        PNMatricularAlum.setBackground(new java.awt.Color(96, 150, 180));
+
+        JL_Alumnos.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(JL_Alumnos);
+
+        BtnCargarAlumnos.setText("Cargar Alumnos");
+        BtnCargarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCargarAlumnosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
         PNMatricularAlum.setLayout(PNMatricularAlumLayout);
         PNMatricularAlumLayout.setHorizontalGroup(
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1055, Short.MAX_VALUE)
+            .addGroup(PNMatricularAlumLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(BtnCargarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(702, Short.MAX_VALUE))
         );
         PNMatricularAlumLayout.setVerticalGroup(
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 385, Short.MAX_VALUE)
+            .addGroup(PNMatricularAlumLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnCargarAlumnos)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Matricular Alumnos", new javax.swing.ImageIcon(getClass().getResource("/register.png")), PNMatricularAlum); // NOI18N
@@ -249,9 +374,9 @@ public class Main extends javax.swing.JFrame {
 
         lb_horaClase.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_horaClase.setForeground(new java.awt.Color(255, 255, 255));
-        lb_horaClase.setText("Hora de la clase");
+        lb_horaClase.setText("Hora de la clase: \"hh:mm\"");
         PanelClases.add(lb_horaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
-        PanelClases.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 110, 30));
+        PanelClases.add(FieldHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 110, 30));
         PanelClases.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
         lb_semestre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
@@ -280,6 +405,11 @@ public class Main extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Guardar Clase");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         PanelClases.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 120, -1));
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
@@ -292,9 +422,9 @@ public class Main extends javax.swing.JFrame {
         btnElimClases.setText("Eliminar Clases");
         PanelClases.add(btnElimClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 120, -1));
 
-        TabbedRegistro.addTab("CRUD Clases", new javax.swing.ImageIcon(getClass().getResource("/atom.png")), PanelClases); // NOI18N
+        TabbedRegistro.addTab("Agregar Clases", new javax.swing.ImageIcon(getClass().getResource("/atom.png")), PanelClases); // NOI18N
 
-        jPanel1.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 420));
+        PanelAtras.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 420));
 
         BtnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
         BtnRegresar.setBorder(null);
@@ -305,12 +435,12 @@ public class Main extends javax.swing.JFrame {
                 BtnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        PanelAtras.add(BtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         FondoUnitec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondo UNITEC.jpeg"))); // NOI18N
-        jPanel1.add(FondoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        PanelAtras.add(FondoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        MenuRegistro.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        MenuRegistro.getContentPane().add(PanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -443,7 +573,8 @@ public class Main extends javax.swing.JFrame {
             FieldSueldo.setVisible(false);
             lb_carrera.setVisible(true);
             FieldCarrera.setVisible(true);
-
+            FieldProfesion.setVisible(false);
+            lb_profesion.setVisible(false);
         } else if (Rbtn_maestro.isSelected()) {
             lb_carrera.setVisible(false);
             FieldCarrera.setVisible(false);
@@ -461,29 +592,32 @@ public class Main extends javax.swing.JFrame {
         String estado = FieldEstado.getText();
         Date fecha = ChooserNacimiento.getDate();
         String nombre = FieldNombre.getText();
-        String strSueldo = FieldSueldo.getText();
-        int sueldo = Integer.parseInt(strSueldo);
         String profesion = FieldProfesion.getText();
-        String rol = "";
+        String carrera = FieldCarrera.getText();
+        String rol;
         if (Rbtn_alumno.isSelected()) {
-            rol = "Alumno";
-            String carrera = FieldCarrera.getText();
-            Alumno p = new Alumno(nombre, carrera, username, password, rol, estado, fecha);
-            adminAlumnos ap = new adminAlumnos("./alumnos.cbm");
-            ap.cargarArchivo();
-            ap.setAlumno(p);
-            ap.escribirArchivo();
+            try {
+                rol = "Alumno";
+                Alumno p = new Alumno(nombre, carrera, username, password, rol, estado, fecha);
+                adminAlumnos ap = new adminAlumnos("./alumnos.cbm");
+                ap.cargarArchivo();
+                ap.setAlumno(p);
+                ap.escribirArchivo();
 
-            Usuario u = new Usuario(username, password, rol, estado, fecha);
-            adminUsuarios us = new adminUsuarios("./usuarios.usr");
-            us.cargarArchivo();
-            us.setUsuario(u);
-            us.escribirArchivo();
-            JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
+                Usuario u = new Usuario(username, password, rol, estado, fecha);
+                adminUsuarios us = new adminUsuarios("./usuarios.usr");
+                us.cargarArchivo();
+                us.setUsuario(u);
+                us.escribirArchivo();
+                JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
+            } catch (Exception ex) {
+            }
 
         } else if (Rbtn_maestro.isSelected()) {
             String identidad = alfa();
             rol = "Maestro";
+            String strSueldo = FieldSueldo.getText();
+            int sueldo = Integer.parseInt(strSueldo);
             Maestro m = new Maestro(nombre, identidad, profesion, sueldo, username, password, rol, estado, fecha);
             adminMaestros am = new adminMaestros("./maestros.tch");
             am.cargarArchivo();
@@ -497,7 +631,154 @@ public class Main extends javax.swing.JFrame {
             us.escribirArchivo();
             JOptionPane.showMessageDialog(this, "Maestro guardado exitosamente");
         }
+
+        FieldUsernameUser.setText("");
+        FieldContra.setText("");
+        FieldEstado.setText("");
+        ChooserNacimiento.setDate(null);
+        FieldNombre.setText("");
+        FieldProfesion.setText("");
+        FieldCarrera.setText("");
+        FieldSueldo.setText("");
     }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombreClase = FieldNombreClase.getText();
+        String codigo = FieldCodigo.getText();
+        String hora = FieldHora.getText();
+        int resp = JOptionPane.showConfirmDialog(this, "¿La clase es en horario matutino?", "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (resp == JOptionPane.OK_OPTION) {
+            hora += "AM";
+        } else {
+            hora += "PM";
+        }
+        String semestre = FieldSemestre.getText();
+        String periodo = FieldPeriodo.getText();
+        String anio = FieldAnio.getText();
+        int UV = Integer.parseInt(FieldUV.getText());
+
+        Curso ca = new Curso(nombreClase, codigo, hora, semestre, periodo, anio, UV);
+        adminCurso cu = new adminCurso("./clases.cla");
+        cu.cargarArchivo();
+        cu.setCurso(ca);
+        cu.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Clase guardada exitosamente");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnCargarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarAlumnosActionPerformed
+        File fichero = null;
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter(
+                            "Alumnos", "cbm");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                entrada
+                        = new FileInputStream(fichero);
+                objeto
+                        = new ObjectInputStream(entrada);
+
+                adminAlumnos a = new adminAlumnos("./alumnos.cbm");
+                a.cargarArchivo();
+                DefaultListModel modelito = llenarLista(a);
+                JL_Alumnos.setModel(modelito);
+            } //fin if
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            objeto.close();
+            entrada.close();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_BtnCargarAlumnosActionPerformed
+
+    private void BtnCargarMaestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarMaestrosActionPerformed
+        File fichero = null;
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter(
+                            "Maestros", "tch");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                entrada
+                        = new FileInputStream(fichero);
+                objeto
+                        = new ObjectInputStream(entrada);
+
+                adminMaestros am = new adminMaestros("./maestros.tch");
+                am.cargarArchivo();
+                DefaultListModel modelito = llenarListaM(am);
+                JListMaestros.setModel(modelito);
+            } //fin if
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            objeto.close();
+            entrada.close();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_BtnCargarMaestrosActionPerformed
+
+    private void BtnCargarAlumAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarAlumAsigActionPerformed
+        File fichero = null;
+        FileInputStream entrada = null;
+        ObjectInputStream objeto = null;
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter(
+                            "Alumnos", "cbm");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                entrada
+                        = new FileInputStream(fichero);
+                objeto
+                        = new ObjectInputStream(entrada);
+
+                adminAlumnos a = new adminAlumnos("./alumnos.cbm");
+                a.cargarArchivo();
+                DefaultListModel modelito = llenarLista(a);
+                JListaAlum.setModel(modelito);
+            } //fin if
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            objeto.close();
+            entrada.close();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_BtnCargarAlumAsigActionPerformed
+
+    private void Cb_listaClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cb_listaClasesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Cb_listaClasesActionPerformed
+
+    private void TabbedRegistroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedRegistroStateChanged
+        
+        adminCurso a = new adminCurso("./clases.cla");
+        a.cargarArchivo();
+        Cb_listaClases.setModel(llenarComboC(a));
+    }//GEN-LAST:event_TabbedRegistroStateChanged
 
     /**
      * @param args the command line arguments
@@ -559,10 +840,42 @@ public class Main extends javax.swing.JFrame {
         //}
         return cadena;
     }//
+
+    public DefaultListModel llenarListaM(adminMaestros a) {
+
+        DefaultListModel modelito = new DefaultListModel();
+        for (Maestro p : a.getListaMaestros()) {
+            modelito.addElement(p);
+        }
+        return modelito;
+    }
+
+    public DefaultListModel llenarLista(adminAlumnos a) {
+
+        DefaultListModel modelito = new DefaultListModel();
+        for (Alumno p : a.getListaAlumnos()) {
+            modelito.addElement(p);
+        }
+        return modelito;
+    }
+    
+    public DefaultComboBoxModel llenarComboC (adminCurso a){
+        DefaultComboBoxModel modelo  = new DefaultComboBoxModel();
+        for (Curso p : a.getListaCursos()) {
+            modelo.addElement(p);
+        }
+        return modelo;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCargarAlumAsig;
+    private javax.swing.JButton BtnCargarAlumnos;
+    private javax.swing.JButton BtnCargarMaestros;
+    private javax.swing.JButton BtnElimUsuarios;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnIngresar;
+    private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnRegresar;
+    private javax.swing.JComboBox<String> Cb_listaClases;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
@@ -571,6 +884,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldCodigo;
     private javax.swing.JPasswordField FieldContra;
     private javax.swing.JTextField FieldEstado;
+    private javax.swing.JTextField FieldHora;
     private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldNombreClase;
     private javax.swing.JTextField FieldPeriodo;
@@ -581,10 +895,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldUsername;
     private javax.swing.JTextField FieldUsernameUser;
     private javax.swing.JLabel FondoUnitec;
+    private javax.swing.JList<String> JL_Alumnos;
+    private javax.swing.JList<String> JListMaestros;
+    private javax.swing.JList<String> JListaAlum;
     private javax.swing.JDialog MenuRegistro;
     private javax.swing.JPasswordField PField_Contra;
     private javax.swing.JPanel PNAsignarMaes;
     private javax.swing.JPanel PNMatricularAlum;
+    private javax.swing.JPanel PanelAsignarAlum;
+    private javax.swing.JPanel PanelAtras;
     private javax.swing.JPanel PanelAyuda;
     private javax.swing.JPanel PanelCRUDAlum;
     private javax.swing.JPanel PanelClases;
@@ -603,9 +922,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_carrera;
     private javax.swing.JLabel lb_codClase;
     private javax.swing.JLabel lb_contra;

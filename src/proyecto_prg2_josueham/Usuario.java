@@ -4,10 +4,11 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class Usuario {
+public class Usuario implements Serializable{
     protected String username, password, tipo, estado;
     protected Date fechaNas;
 

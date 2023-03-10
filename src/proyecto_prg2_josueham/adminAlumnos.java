@@ -51,8 +51,7 @@ public class adminAlumnos {
             if (archivo.exists()) {
                 FileInputStream entrada
                     = new FileInputStream(archivo);
-                ObjectInputStream objeto
-                    = new ObjectInputStream(entrada);
+                ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
                     while ((temp = (Alumno) objeto.readObject()) != null) {
                         listaAlumnos.add(temp);
