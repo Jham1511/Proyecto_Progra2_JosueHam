@@ -26,6 +26,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author SKX Kafei
  */
 public class Main extends javax.swing.JFrame {
+
     adminAlumnos aAlumnos = new adminAlumnos("./alumnos.cbm");
     adminCurso aCurso = new adminCurso("./clases.cla");
     adminMaestros aMaestros = new adminMaestros("./maestros.tch");
@@ -670,16 +671,17 @@ public class Main extends javax.swing.JFrame {
             }
             case 2: {
                 aAlumnos.cargarArchivo();
-                JListaAlum.setModel(llenarLista(aAlumnos));
+                JListaAlum.setModel(llenarListaAlum(aAlumnos));
+                System.out.println("entre");
                 break;
             }
             case 3: {
                 aAlumnos.cargarArchivo();
-                JL_Alumnos.setModel(llenarLista(aAlumnos));
+                JL_Alumnos.setModel(llenarListaAlum(aAlumnos));
                 break;
             }
         }
-        
+       
     }//GEN-LAST:event_TabbedRegistroStateChanged
 
     /**
@@ -752,16 +754,17 @@ public class Main extends javax.swing.JFrame {
         return modelito;
     }
 
-    public DefaultListModel llenarLista(adminAlumnos a) {
+    public DefaultListModel llenarListaAlum(adminAlumnos a) {
+
         DefaultListModel modelito = new DefaultListModel();
         for (Alumno p : a.getListaAlumnos()) {
             modelito.addElement(p);
         }
         return modelito;
     }
-    
-    public DefaultComboBoxModel llenarComboC (adminCurso a){
-        DefaultComboBoxModel modelo  = new DefaultComboBoxModel();
+
+    public DefaultComboBoxModel llenarComboC(adminCurso a) {
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         for (Curso p : a.getListaCursos()) {
             modelo.addElement(p);
         }
