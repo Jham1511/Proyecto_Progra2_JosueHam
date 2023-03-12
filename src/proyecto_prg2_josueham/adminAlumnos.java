@@ -53,8 +53,7 @@ public class adminAlumnos {
                     = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
-                    while ((Alumno)objeto.readObject() != null) {
-                        temp = (Alumno) objeto.readObject();
+                    while ((temp = (Alumno) objeto.readObject()) != null) {
                         listaAlumnos.add(temp);
                     }
                 } catch (EOFException e) {

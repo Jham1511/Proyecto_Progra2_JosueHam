@@ -65,8 +65,6 @@ public class Main extends javax.swing.JFrame {
         Rbtn_maestro = new javax.swing.JRadioButton();
         btn_tipoUser = new javax.swing.JButton();
         lb_nacimiento = new javax.swing.JLabel();
-        lb_estado = new javax.swing.JLabel();
-        FieldEstado = new javax.swing.JTextField();
         lb_nom = new javax.swing.JLabel();
         FieldNombre = new javax.swing.JTextField();
         lb_carrera = new javax.swing.JLabel();
@@ -79,20 +77,30 @@ public class Main extends javax.swing.JFrame {
         BtnGuardar = new javax.swing.JButton();
         BtnModifUsuarios = new javax.swing.JButton();
         BtnElimUsuarios = new javax.swing.JButton();
+        RbtnActiva = new javax.swing.JRadioButton();
+        Rbtn_Inactiva = new javax.swing.JRadioButton();
+        lb_estado = new javax.swing.JLabel();
         PNAsignarMaes = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JListMaestros = new javax.swing.JList<>();
         Cb_listaClases = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lb_clasesMaes = new javax.swing.JLabel();
+        lb_maestrosAsig = new javax.swing.JLabel();
+        BtnAsignarMaestro = new javax.swing.JButton();
         PanelAsignarAlum = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        JListaAlum = new javax.swing.JList<>();
-        jLabel7 = new javax.swing.JLabel();
+        JListAlumAsig = new javax.swing.JList<>();
+        lb_AsigAlum = new javax.swing.JLabel();
+        cb_maestros = new javax.swing.JComboBox<>();
+        BtnAlumAsig = new javax.swing.JButton();
+        lb_maestros = new javax.swing.JLabel();
         PNMatricularAlum = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JL_Alumnos = new javax.swing.JList<>();
-        jLabel8 = new javax.swing.JLabel();
+        JL_AlumnosMat = new javax.swing.JList<>();
+        lb_AlumnosMat = new javax.swing.JLabel();
+        cb_ClasesAlum = new javax.swing.JComboBox<>();
+        BtnAsigClases = new javax.swing.JButton();
+        lb_ClasesMatri = new javax.swing.JLabel();
         PanelClases = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lb_nomClase = new javax.swing.JLabel();
@@ -111,11 +119,14 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         FieldUV = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnModifClases = new javax.swing.JButton();
         btnElimClases = new javax.swing.JButton();
         BtnRegresar = new javax.swing.JButton();
         FondoUnitec = new javax.swing.JLabel();
         btngrupoUsuarios = new javax.swing.ButtonGroup();
+        btngrupoEstado = new javax.swing.ButtonGroup();
+        DiaModifUsuarios = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -151,13 +162,13 @@ public class Main extends javax.swing.JFrame {
         CirculoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5886792.png"))); // NOI18N
         PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 260, -1, -1));
 
-        lb_usernameCrud.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_usernameCrud.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_usernameCrud.setForeground(new java.awt.Color(255, 255, 255));
         lb_usernameCrud.setText("Username");
         PanelCRUDAlum.add(lb_usernameCrud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, 20));
         PanelCRUDAlum.add(FieldUsernameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 200, 30));
 
-        lb_contra.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_contra.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_contra.setForeground(new java.awt.Color(255, 255, 255));
         lb_contra.setText("Contraseña");
         PanelCRUDAlum.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
@@ -186,18 +197,12 @@ public class Main extends javax.swing.JFrame {
         });
         PanelCRUDAlum.add(btn_tipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 150, 30));
 
-        lb_nacimiento.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_nacimiento.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_nacimiento.setForeground(new java.awt.Color(255, 255, 255));
         lb_nacimiento.setText("Fecha de Nacimiento");
         PanelCRUDAlum.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
-        lb_estado.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
-        lb_estado.setForeground(new java.awt.Color(255, 255, 255));
-        lb_estado.setText("Estado de la cuenta");
-        PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
-        PanelCRUDAlum.add(FieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 200, 30));
-
-        lb_nom.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_nom.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_nom.setForeground(new java.awt.Color(255, 255, 255));
         lb_nom.setText("Nombre");
         PanelCRUDAlum.add(lb_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
@@ -209,13 +214,13 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, -1, -1));
         PanelCRUDAlum.add(FieldCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 190, 30));
 
-        lb_profesion.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_profesion.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_profesion.setForeground(new java.awt.Color(255, 255, 255));
         lb_profesion.setText("Profesion");
         PanelCRUDAlum.add(lb_profesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, 20));
         PanelCRUDAlum.add(FieldProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 200, 30));
 
-        lb_sueldo.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_sueldo.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_sueldo.setForeground(new java.awt.Color(255, 255, 255));
         lb_sueldo.setText("Sueldo");
         PanelCRUDAlum.add(lb_sueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 140, -1));
@@ -242,6 +247,18 @@ public class Main extends javax.swing.JFrame {
         BtnElimUsuarios.setText("Eliminar Usuario");
         PanelCRUDAlum.add(BtnElimUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, 40));
 
+        btngrupoEstado.add(RbtnActiva);
+        RbtnActiva.setText("Activa");
+        PanelCRUDAlum.add(RbtnActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
+        btngrupoEstado.add(Rbtn_Inactiva);
+        Rbtn_Inactiva.setText("Inactiva");
+        PanelCRUDAlum.add(Rbtn_Inactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, -1));
+
+        lb_estado.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
+        lb_estado.setText("Estado de la cuenta");
+        PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
         TabbedRegistro.addTab("Agregar Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
 
         PNAsignarMaes.setBackground(new java.awt.Color(96, 150, 180));
@@ -256,11 +273,20 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Clases");
+        lb_clasesMaes.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_clasesMaes.setForeground(new java.awt.Color(255, 255, 255));
+        lb_clasesMaes.setText("Clases Disponibles");
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Maestros");
+        lb_maestrosAsig.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_maestrosAsig.setForeground(new java.awt.Color(255, 255, 255));
+        lb_maestrosAsig.setText("Maestros");
+
+        BtnAsignarMaestro.setText("Asignar Maestro");
+        BtnAsignarMaestro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAsignarMaestroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
         PNAsignarMaes.setLayout(PNAsignarMaesLayout);
@@ -269,37 +295,54 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PNAsignarMaesLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_maestrosAsig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                 .addGap(52, 52, 52)
                 .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Cb_listaClases, 0, 170, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(528, Short.MAX_VALUE))
+                    .addComponent(lb_clasesMaes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnAsignarMaestro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
         PNAsignarMaesLayout.setVerticalGroup(
             PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNAsignarMaesLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(lb_clasesMaes)
+                    .addComponent(lb_maestrosAsig))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PNAsignarMaesLayout.createSequentialGroup()
+                        .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAsignarMaestro))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/teacher.png")), PNAsignarMaes); // NOI18N
 
         PanelAsignarAlum.setBackground(new java.awt.Color(96, 150, 180));
 
-        JListaAlum.setModel(new DefaultListModel());
-        jScrollPane3.setViewportView(JListaAlum);
+        JListAlumAsig.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(JListAlumAsig);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Alumnos");
+        lb_AsigAlum.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_AsigAlum.setForeground(new java.awt.Color(255, 255, 255));
+        lb_AsigAlum.setText("Alumnos");
+
+        cb_maestros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No hay maestros" }));
+
+        BtnAlumAsig.setText("Asignar Alumno");
+        BtnAlumAsig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlumAsigActionPerformed(evt);
+            }
+        });
+
+        lb_maestros.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_maestros.setText("Maestros Disponibles");
 
         javax.swing.GroupLayout PanelAsignarAlumLayout = new javax.swing.GroupLayout(PanelAsignarAlum);
         PanelAsignarAlum.setLayout(PanelAsignarAlumLayout);
@@ -308,29 +351,55 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(750, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lb_AsigAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_maestros)
+                    .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cb_maestros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAlumAsig, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         PanelAsignarAlumLayout.setVerticalGroup(
             PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jLabel7)
+                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_AsigAlum)
+                    .addComponent(lb_maestros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
+                        .addComponent(cb_maestros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAlumAsig)))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Asignar Alumnos", new javax.swing.ImageIcon(getClass().getResource("/estudiante.png")), PanelAsignarAlum); // NOI18N
 
         PNMatricularAlum.setBackground(new java.awt.Color(96, 150, 180));
 
-        JL_Alumnos.setModel(new DefaultListModel());
-        jScrollPane1.setViewportView(JL_Alumnos);
+        JL_AlumnosMat.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(JL_AlumnosMat);
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Alumnos");
+        lb_AlumnosMat.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_AlumnosMat.setForeground(new java.awt.Color(255, 255, 255));
+        lb_AlumnosMat.setText("Alumnos");
+
+        cb_ClasesAlum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No hay clases" }));
+
+        BtnAsigClases.setText("Asignar Alumno");
+        BtnAsigClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAsigClasesActionPerformed(evt);
+            }
+        });
+
+        lb_ClasesMatri.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_ClasesMatri.setText("Clases Disponibles");
 
         javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
         PNMatricularAlum.setLayout(PNMatricularAlumLayout);
@@ -338,19 +407,32 @@ public class Main extends javax.swing.JFrame {
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNMatricularAlumLayout.createSequentialGroup()
                 .addGap(97, 97, 97)
-                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(705, Short.MAX_VALUE))
+                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_AlumnosMat, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cb_ClasesAlum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAsigClases, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lb_ClasesMatri))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         PNMatricularAlumLayout.setVerticalGroup(
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNMatricularAlumLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jLabel8)
+                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_AlumnosMat)
+                    .addComponent(lb_ClasesMatri))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PNMatricularAlumLayout.createSequentialGroup()
+                        .addComponent(cb_ClasesAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAsigClases)))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Matricular Alumnos", new javax.swing.ImageIcon(getClass().getResource("/register.png")), PNMatricularAlum); // NOI18N
@@ -415,10 +497,15 @@ public class Main extends javax.swing.JFrame {
         });
         PanelClases.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 120, -1));
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Modificar Clases");
-        PanelClases.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 120, -1));
+        BtnModifClases.setBackground(new java.awt.Color(153, 153, 255));
+        BtnModifClases.setForeground(new java.awt.Color(255, 255, 255));
+        BtnModifClases.setText("Modificar Clases");
+        BtnModifClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifClasesActionPerformed(evt);
+            }
+        });
+        PanelClases.add(BtnModifClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 120, -1));
 
         btnElimClases.setBackground(new java.awt.Color(153, 153, 255));
         btnElimClases.setForeground(new java.awt.Color(255, 255, 255));
@@ -443,6 +530,28 @@ public class Main extends javax.swing.JFrame {
         PanelAtras.add(FondoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         MenuRegistro.getContentPane().add(PanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 447, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DiaModifUsuariosLayout = new javax.swing.GroupLayout(DiaModifUsuarios.getContentPane());
+        DiaModifUsuarios.getContentPane().setLayout(DiaModifUsuariosLayout);
+        DiaModifUsuariosLayout.setHorizontalGroup(
+            DiaModifUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DiaModifUsuariosLayout.setVerticalGroup(
+            DiaModifUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -591,7 +700,12 @@ public class Main extends javax.swing.JFrame {
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         String username = FieldUsernameUser.getText();
         String password = FieldContra.getText();
-        String estado = FieldEstado.getText();
+        String estado = "";
+        if (RbtnActiva.isSelected()) {
+            estado = "Activa";
+        } else if (Rbtn_Inactiva.isSelected()){
+            estado = "Inactiva";
+        }
         Date fecha = ChooserNacimiento.getDate();
         String nombre = FieldNombre.getText();
         String profesion = FieldProfesion.getText();
@@ -624,7 +738,6 @@ public class Main extends javax.swing.JFrame {
 
         FieldUsernameUser.setText("");
         FieldContra.setText("");
-        FieldEstado.setText("");
         ChooserNacimiento.setDate(null);
         FieldNombre.setText("");
         FieldProfesion.setText("");
@@ -671,18 +784,68 @@ public class Main extends javax.swing.JFrame {
             }
             case 2: {
                 aAlumnos.cargarArchivo();
-                JListaAlum.setModel(llenarListaAlum(aAlumnos));
-                System.out.println("entre");
+                JListAlumAsig.setModel(llenarListaAlum(aAlumnos));
+                aMaestros.cargarArchivo();
+                cb_maestros.setModel(llenarComboMaes(aMaestros));
                 break;
             }
             case 3: {
                 aAlumnos.cargarArchivo();
-                JL_Alumnos.setModel(llenarListaAlum(aAlumnos));
+                JL_AlumnosMat.setModel(llenarListaAlum(aAlumnos));
+                aCurso.cargarArchivo();
+                cb_ClasesAlum.setModel(llenarComboC(aCurso));
                 break;
             }
         }
        
     }//GEN-LAST:event_TabbedRegistroStateChanged
+
+    private void BtnAsignarMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsignarMaestroActionPerformed
+        DefaultListModel modelito = (DefaultListModel) JListMaestros.getModel();
+        modelito.getElementAt(JListMaestros.getSelectedIndex());
+        Maestro ticher = (Maestro) modelito.getElementAt(JListMaestros.getSelectedIndex());
+        
+        Curso clase = (Curso)Cb_listaClases.getSelectedItem();
+        
+        ticher.getClases().add(clase);
+        
+        JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
+        aMaestros.cargarArchivo();
+        aMaestros.escribirArchivo();
+    }//GEN-LAST:event_BtnAsignarMaestroActionPerformed
+
+    private void BtnAsigClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsigClasesActionPerformed
+    DefaultListModel modelito = (DefaultListModel) JL_AlumnosMat.getModel();
+        modelito.getElementAt(JL_AlumnosMat.getSelectedIndex());
+        Alumno alum = (Alumno) modelito.getElementAt(JL_AlumnosMat.getSelectedIndex());
+        
+        Curso clase = (Curso)cb_ClasesAlum.getSelectedItem();
+        
+        alum.getClases().add(clase);
+        
+        JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
+        aAlumnos.cargarArchivo();
+        aAlumnos.escribirArchivo();
+        System.out.println(alum.getClases());
+    }//GEN-LAST:event_BtnAsigClasesActionPerformed
+
+    private void BtnAlumAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlumAsigActionPerformed
+        DefaultListModel modelito = (DefaultListModel) JListAlumAsig.getModel();
+        modelito.getElementAt(JListAlumAsig.getSelectedIndex());
+        Alumno alum = (Alumno) modelito.getElementAt(JListAlumAsig.getSelectedIndex());
+        
+        Maestro ticher = (Maestro)cb_maestros.getSelectedItem();
+        
+        ticher.getAlumnos().add(alum);
+        
+        JOptionPane.showMessageDialog(this, "Alumno asignado correctamente");
+        aMaestros.cargarArchivo();
+        aMaestros.escribirArchivo();
+    }//GEN-LAST:event_BtnAlumAsigActionPerformed
+
+    private void BtnModifClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifClasesActionPerformed
+        
+    }//GEN-LAST:event_BtnModifClasesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -770,21 +933,32 @@ public class Main extends javax.swing.JFrame {
         }
         return modelo;
     }
+    public DefaultComboBoxModel llenarComboMaes(adminMaestros a) {
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (Maestro p : a.getListaMaestros()) {
+            modelo.addElement(p);
+        }
+        return modelo;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAlumAsig;
+    private javax.swing.JButton BtnAsigClases;
+    private javax.swing.JButton BtnAsignarMaestro;
     private javax.swing.JButton BtnElimUsuarios;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnIngresar;
+    private javax.swing.JButton BtnModifClases;
     private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnRegresar;
     private javax.swing.JComboBox<String> Cb_listaClases;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
+    private javax.swing.JDialog DiaModifUsuarios;
     private javax.swing.JTextField FieldAnio;
     private javax.swing.JTextField FieldCarrera;
     private javax.swing.JTextField FieldCodigo;
     private javax.swing.JPasswordField FieldContra;
-    private javax.swing.JTextField FieldEstado;
     private javax.swing.JTextField FieldHora;
     private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldNombreClase;
@@ -796,9 +970,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldUsername;
     private javax.swing.JTextField FieldUsernameUser;
     private javax.swing.JLabel FondoUnitec;
-    private javax.swing.JList<String> JL_Alumnos;
+    private javax.swing.JList<String> JL_AlumnosMat;
+    private javax.swing.JList<String> JListAlumAsig;
     private javax.swing.JList<String> JListMaestros;
-    private javax.swing.JList<String> JListaAlum;
     private javax.swing.JDialog MenuRegistro;
     private javax.swing.JPasswordField PField_Contra;
     private javax.swing.JPanel PNAsignarMaes;
@@ -810,32 +984,39 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel PanelClases;
     private javax.swing.JPanel PanelLogIn;
     private javax.swing.JLabel Portal;
+    private javax.swing.JRadioButton RbtnActiva;
+    private javax.swing.JRadioButton Rbtn_Inactiva;
     private javax.swing.JRadioButton Rbtn_alumno;
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedRegistro;
     private javax.swing.JButton btnElimClases;
     private javax.swing.JButton btn_tipoUser;
+    private javax.swing.ButtonGroup btngrupoEstado;
     private javax.swing.ButtonGroup btngrupoUsuarios;
+    private javax.swing.JComboBox<String> cb_ClasesAlum;
+    private javax.swing.JComboBox<String> cb_maestros;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lb_AlumnosMat;
+    private javax.swing.JLabel lb_AsigAlum;
+    private javax.swing.JLabel lb_ClasesMatri;
     private javax.swing.JLabel lb_carrera;
+    private javax.swing.JLabel lb_clasesMaes;
     private javax.swing.JLabel lb_codClase;
     private javax.swing.JLabel lb_contra;
     private javax.swing.JLabel lb_estado;
     private javax.swing.JLabel lb_horaClase;
+    private javax.swing.JLabel lb_maestros;
+    private javax.swing.JLabel lb_maestrosAsig;
     private javax.swing.JLabel lb_nacimiento;
     private javax.swing.JLabel lb_nom;
     private javax.swing.JLabel lb_nomClase;
