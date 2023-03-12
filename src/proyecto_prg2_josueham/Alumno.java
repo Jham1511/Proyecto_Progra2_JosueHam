@@ -4,6 +4,7 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import java.util.Date;
  *
  * @author SKX Kafei
  */
-public class Alumno extends Usuario{
+public class Alumno extends Usuario implements Serializable {
     
     private String nom, carrera;
     private ArrayList<Curso> clases = new ArrayList();

@@ -59,7 +59,8 @@ public class adminCurso {
                 ObjectInputStream objeto
                     = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Curso) objeto.readObject()) != null) {
+                    while ((Curso)objeto.readObject() != null) {
+                        temp = (Curso)objeto.readObject();
                         listaCursos.add(temp);
                     }
                 } catch (EOFException e) {
@@ -69,7 +70,7 @@ public class adminCurso {
                 entrada.close();
             }            
         } catch (Exception ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
         }
     }
 

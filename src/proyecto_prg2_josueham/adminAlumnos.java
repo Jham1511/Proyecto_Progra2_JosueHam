@@ -47,13 +47,14 @@ public class adminAlumnos {
     public void cargarArchivo() {
         try {            
             listaAlumnos = new ArrayList();
-            Alumno temp;
+            Alumno temp = new Alumno();
             if (archivo.exists()) {
                 FileInputStream entrada
                     = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Alumno) objeto.readObject()) != null) {
+                    while ((Alumno)objeto.readObject() != null) {
+                        temp = (Alumno) objeto.readObject();
                         listaAlumnos.add(temp);
                     }
                 } catch (EOFException e) {

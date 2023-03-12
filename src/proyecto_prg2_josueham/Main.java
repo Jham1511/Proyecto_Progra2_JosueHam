@@ -26,8 +26,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author SKX Kafei
  */
 public class Main extends javax.swing.JFrame {
+    adminAlumnos aAlumnos = new adminAlumnos("./alumnos.cbm");
+    adminCurso aCurso = new adminCurso("./clases.cla");
+    adminMaestros aMaestros = new adminMaestros("./maestros.tch");
+    adminUsuarios aUsuarios = new adminUsuarios("./usuarios.usr");
 
-    Registro registro = new Registro("registro", "admin", "Registro", "Activa", new Date().from(Instant.now()));
+    Registro registro1 = new Registro("registro", "admin", "Registro", "Activa", new Date().from(Instant.now()));
+    Registro registro2 = new Registro("a", "a", "Registro", "Activa", new Date().from(Instant.now()));
     Random aleatorio = new Random();
 
     public Main() {
@@ -76,16 +81,17 @@ public class Main extends javax.swing.JFrame {
         PNAsignarMaes = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JListMaestros = new javax.swing.JList<>();
-        BtnCargarMaestros = new javax.swing.JButton();
         Cb_listaClases = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         PanelAsignarAlum = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         JListaAlum = new javax.swing.JList<>();
-        BtnCargarAlumAsig = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         PNMatricularAlum = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JL_Alumnos = new javax.swing.JList<>();
-        BtnCargarAlumnos = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         PanelClases = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lb_nomClase = new javax.swing.JLabel();
@@ -142,80 +148,78 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(CirculoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         CirculoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5886792.png"))); // NOI18N
-        PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, -1, -1));
+        PanelCRUDAlum.add(CirculoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 260, -1, -1));
 
         lb_usernameCrud.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_usernameCrud.setForeground(new java.awt.Color(255, 255, 255));
         lb_usernameCrud.setText("Username");
-        PanelCRUDAlum.add(lb_usernameCrud, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 20));
-        PanelCRUDAlum.add(FieldUsernameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, 40));
+        PanelCRUDAlum.add(lb_usernameCrud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, 20));
+        PanelCRUDAlum.add(FieldUsernameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 200, 30));
 
         lb_contra.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_contra.setForeground(new java.awt.Color(255, 255, 255));
         lb_contra.setText("Contraseña");
-        PanelCRUDAlum.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
-        PanelCRUDAlum.add(FieldContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, 40));
+        PanelCRUDAlum.add(lb_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        PanelCRUDAlum.add(FieldContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 200, 30));
 
         lb_tipo.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_tipo.setForeground(new java.awt.Color(255, 255, 255));
         lb_tipo.setText("Tipo de Usuario");
-        PanelCRUDAlum.add(lb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        PanelCRUDAlum.add(lb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
         btngrupoUsuarios.add(Rbtn_alumno);
         Rbtn_alumno.setText("Alumno");
-        Rbtn_alumno.setOpaque(false);
-        PanelCRUDAlum.add(Rbtn_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        PanelCRUDAlum.add(Rbtn_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
 
         btngrupoUsuarios.add(Rbtn_maestro);
         Rbtn_maestro.setText("Maestro");
-        Rbtn_maestro.setOpaque(false);
-        PanelCRUDAlum.add(Rbtn_maestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+        PanelCRUDAlum.add(Rbtn_maestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
         btn_tipoUser.setBackground(new java.awt.Color(153, 153, 255));
         btn_tipoUser.setForeground(new java.awt.Color(255, 255, 255));
-        btn_tipoUser.setText("->");
+        btn_tipoUser.setText("Mostrar campos ->");
         btn_tipoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_tipoUserActionPerformed(evt);
             }
         });
-        PanelCRUDAlum.add(btn_tipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        PanelCRUDAlum.add(btn_tipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 150, 30));
 
         lb_nacimiento.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_nacimiento.setForeground(new java.awt.Color(255, 255, 255));
         lb_nacimiento.setText("Fecha de Nacimiento");
-        PanelCRUDAlum.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, -1));
+        PanelCRUDAlum.add(lb_nacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         lb_estado.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_estado.setForeground(new java.awt.Color(255, 255, 255));
         lb_estado.setText("Estado de la cuenta");
-        PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
-        PanelCRUDAlum.add(FieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 120, 40));
+        PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+        PanelCRUDAlum.add(FieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 200, 30));
 
         lb_nom.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_nom.setForeground(new java.awt.Color(255, 255, 255));
         lb_nom.setText("Nombre");
-        PanelCRUDAlum.add(lb_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
-        PanelCRUDAlum.add(FieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 80, 40));
+        PanelCRUDAlum.add(lb_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
+        PanelCRUDAlum.add(FieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 190, 30));
 
         lb_carrera.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_carrera.setForeground(new java.awt.Color(255, 255, 255));
         lb_carrera.setText("Carrera");
-        PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
-        PanelCRUDAlum.add(FieldCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
+        PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, -1, -1));
+        PanelCRUDAlum.add(FieldCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 190, 30));
 
         lb_profesion.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_profesion.setForeground(new java.awt.Color(255, 255, 255));
         lb_profesion.setText("Profesion");
-        PanelCRUDAlum.add(lb_profesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, -1, 20));
-        PanelCRUDAlum.add(FieldProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 80, 40));
+        PanelCRUDAlum.add(lb_profesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, 20));
+        PanelCRUDAlum.add(FieldProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 200, 30));
 
         lb_sueldo.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
         lb_sueldo.setForeground(new java.awt.Color(255, 255, 255));
         lb_sueldo.setText("Sueldo");
-        PanelCRUDAlum.add(lb_sueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
-        PanelCRUDAlum.add(FieldSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
-        PanelCRUDAlum.add(ChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 140, 40));
+        PanelCRUDAlum.add(lb_sueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 140, -1));
+        PanelCRUDAlum.add(FieldSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, 190, 30));
+        PanelCRUDAlum.add(ChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 200, 30));
 
         BtnGuardar.setBackground(new java.awt.Color(153, 153, 255));
         BtnGuardar.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,15 +229,17 @@ public class Main extends javax.swing.JFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-        PanelCRUDAlum.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
+        PanelCRUDAlum.add(BtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, 40));
 
         BtnModifUsuarios.setBackground(new java.awt.Color(153, 153, 255));
+        BtnModifUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         BtnModifUsuarios.setText("Modificar Usuario");
-        PanelCRUDAlum.add(BtnModifUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
+        PanelCRUDAlum.add(BtnModifUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, 40));
 
         BtnElimUsuarios.setBackground(new java.awt.Color(153, 153, 255));
+        BtnElimUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         BtnElimUsuarios.setText("Eliminar Usuario");
-        PanelCRUDAlum.add(BtnElimUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, -1, -1));
+        PanelCRUDAlum.add(BtnElimUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, 40));
 
         TabbedRegistro.addTab("Agregar Usuarios", new javax.swing.ImageIcon(getClass().getResource("/agregar-usuario.png")), PanelCRUDAlum); // NOI18N
 
@@ -242,13 +248,6 @@ public class Main extends javax.swing.JFrame {
         JListMaestros.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(JListMaestros);
 
-        BtnCargarMaestros.setText("Cargar Maestros");
-        BtnCargarMaestros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCargarMaestrosActionPerformed(evt);
-            }
-        });
-
         Cb_listaClases.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Cb_listaClases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,29 +255,39 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Clases");
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Maestros");
+
         javax.swing.GroupLayout PNAsignarMaesLayout = new javax.swing.GroupLayout(PNAsignarMaes);
         PNAsignarMaes.setLayout(PNAsignarMaesLayout);
         PNAsignarMaesLayout.setHorizontalGroup(
             PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNAsignarMaesLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(100, 100, 100)
                 .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(BtnCargarMaestros, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(555, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Cb_listaClases, 0, 170, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(528, Short.MAX_VALUE))
         );
         PNAsignarMaesLayout.setVerticalGroup(
             PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNAsignarMaesLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
+                .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PNAsignarMaesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(BtnCargarMaestros)
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(Cb_listaClases, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Asignar Maestros", new javax.swing.ImageIcon(getClass().getResource("/teacher.png")), PNAsignarMaes); // NOI18N
@@ -288,32 +297,28 @@ public class Main extends javax.swing.JFrame {
         JListaAlum.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(JListaAlum);
 
-        BtnCargarAlumAsig.setText("Cargar Alumnos");
-        BtnCargarAlumAsig.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCargarAlumAsigActionPerformed(evt);
-            }
-        });
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Alumnos");
 
         javax.swing.GroupLayout PanelAsignarAlumLayout = new javax.swing.GroupLayout(PanelAsignarAlum);
         PanelAsignarAlum.setLayout(PanelAsignarAlumLayout);
         PanelAsignarAlumLayout.setHorizontalGroup(
             PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(BtnCargarAlumAsig, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
-                .addContainerGap(824, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addGroup(PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(750, Short.MAX_VALUE))
         );
         PanelAsignarAlumLayout.setVerticalGroup(
             PanelAsignarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAsignarAlumLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnCargarAlumAsig)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Asignar Alumnos", new javax.swing.ImageIcon(getClass().getResource("/estudiante.png")), PanelAsignarAlum); // NOI18N
@@ -323,32 +328,28 @@ public class Main extends javax.swing.JFrame {
         JL_Alumnos.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(JL_Alumnos);
 
-        BtnCargarAlumnos.setText("Cargar Alumnos");
-        BtnCargarAlumnos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCargarAlumnosActionPerformed(evt);
-            }
-        });
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Alumnos");
 
         javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
         PNMatricularAlum.setLayout(PNMatricularAlumLayout);
         PNMatricularAlumLayout.setHorizontalGroup(
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNMatricularAlumLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(97, 97, 97)
                 .addGroup(PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(BtnCargarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(702, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(705, Short.MAX_VALUE))
         );
         PNMatricularAlumLayout.setVerticalGroup(
             PNMatricularAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNMatricularAlumLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnCargarAlumnos)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         TabbedRegistro.addTab("Matricular Alumnos", new javax.swing.ImageIcon(getClass().getResource("/register.png")), PNMatricularAlum); // NOI18N
@@ -398,6 +399,7 @@ public class Main extends javax.swing.JFrame {
         PanelClases.add(FieldAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 120, 30));
 
         jLabel3.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Unidades Valorativas de la clase");
         PanelClases.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
         PanelClases.add(FieldUV, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 110, 30));
@@ -424,12 +426,11 @@ public class Main extends javax.swing.JFrame {
 
         TabbedRegistro.addTab("Agregar Clases", new javax.swing.ImageIcon(getClass().getResource("/atom.png")), PanelClases); // NOI18N
 
-        PanelAtras.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 420));
+        PanelAtras.add(TabbedRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1060, 480));
 
         BtnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
         BtnRegresar.setBorder(null);
         BtnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnRegresar.setOpaque(false);
         BtnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRegresarActionPerformed(evt);
@@ -479,32 +480,32 @@ public class Main extends javax.swing.JFrame {
         PanelLogInLayout.setHorizontalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
-                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Portal, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE)
+                .addGroup(PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lb_username)
-                    .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lb_password)
-                    .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                    .addComponent(Portal, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(FieldUsername)
+                    .addComponent(PField_Contra)
+                    .addComponent(BtnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         PanelLogInLayout.setVerticalGroup(
             PanelLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLogInLayout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+                .addGap(200, 200, 200)
                 .addComponent(Portal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(lb_username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(lb_password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(BtnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Iniciar Sesion", PanelLogIn);
@@ -532,7 +533,7 @@ public class Main extends javax.swing.JFrame {
             PanelAyudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAyudaLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 376, Short.MAX_VALUE))
+                .addGap(0, 413, Short.MAX_VALUE))
         );
 
         TabbedPanePrincipal.addTab("Ayuda", PanelAyuda);
@@ -554,7 +555,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-        if (FieldUsername.getText().equals(registro.getNombre()) && PField_Contra.getText().equals(registro.getPassword())) {
+        if (FieldUsername.getText().equals(registro2.getNombre()) && PField_Contra.getText().equals(registro2.getPassword())) {
             abrir_MenuC();
         } else {
             JOptionPane.showMessageDialog(this, "Usuario inexistente");
@@ -594,24 +595,15 @@ public class Main extends javax.swing.JFrame {
         String nombre = FieldNombre.getText();
         String profesion = FieldProfesion.getText();
         String carrera = FieldCarrera.getText();
-        String rol;
+        String rol = "";
         if (Rbtn_alumno.isSelected()) {
-            try {
-                rol = "Alumno";
-                Alumno p = new Alumno(nombre, carrera, username, password, rol, estado, fecha);
-                adminAlumnos ap = new adminAlumnos("./alumnos.cbm");
-                ap.cargarArchivo();
-                ap.setAlumno(p);
-                ap.escribirArchivo();
-
-                Usuario u = new Usuario(username, password, rol, estado, fecha);
-                adminUsuarios us = new adminUsuarios("./usuarios.usr");
-                us.cargarArchivo();
-                us.setUsuario(u);
-                us.escribirArchivo();
-                JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
-            } catch (Exception ex) {
-            }
+            rol = "Alumno";
+            Alumno p = new Alumno(nombre, carrera, username, password, rol, estado, fecha);
+            aAlumnos.cargarArchivo();
+            aAlumnos.setAlumno(p);
+            aAlumnos.escribirArchivo();
+            System.out.println(aAlumnos.getListaAlumnos().size());
+            JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
 
         } else if (Rbtn_maestro.isSelected()) {
             String identidad = alfa();
@@ -619,18 +611,15 @@ public class Main extends javax.swing.JFrame {
             String strSueldo = FieldSueldo.getText();
             int sueldo = Integer.parseInt(strSueldo);
             Maestro m = new Maestro(nombre, identidad, profesion, sueldo, username, password, rol, estado, fecha);
-            adminMaestros am = new adminMaestros("./maestros.tch");
-            am.cargarArchivo();
-            am.setMaestro(m);
-            am.escribirArchivo();
-
-            Usuario u = new Usuario(username, password, rol, estado, fecha);
-            adminUsuarios us = new adminUsuarios("./usuarios.usr");
-            us.cargarArchivo();
-            us.setUsuario(u);
-            us.escribirArchivo();
+            aMaestros.cargarArchivo();
+            aMaestros.setMaestro(m);
+            aMaestros.escribirArchivo();
             JOptionPane.showMessageDialog(this, "Maestro guardado exitosamente");
         }
+        Usuario u = new Usuario(username, password, rol, estado, fecha);
+        aUsuarios.cargarArchivo();
+        aUsuarios.setUsuario(u);
+        aUsuarios.escribirArchivo();
 
         FieldUsernameUser.setText("");
         FieldContra.setText("");
@@ -660,124 +649,37 @@ public class Main extends javax.swing.JFrame {
         int UV = Integer.parseInt(FieldUV.getText());
 
         Curso ca = new Curso(nombreClase, codigo, hora, semestre, periodo, anio, UV);
-        adminCurso cu = new adminCurso("./clases.cla");
-        cu.cargarArchivo();
-        cu.setCurso(ca);
-        cu.escribirArchivo();
+        aCurso.cargarArchivo();
+        aCurso.setCurso(ca);
+        aCurso.escribirArchivo();
         JOptionPane.showMessageDialog(this, "Clase guardada exitosamente");
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void BtnCargarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarAlumnosActionPerformed
-        File fichero = null;
-        FileInputStream entrada = null;
-        ObjectInputStream objeto = null;
-        try {
-            JFileChooser jfc = new JFileChooser();
-            FileNameExtensionFilter filtro
-                    = new FileNameExtensionFilter(
-                            "Alumnos", "cbm");
-            jfc.setFileFilter(filtro);
-            int seleccion = jfc.showOpenDialog(this);
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                fichero = jfc.getSelectedFile();
-                entrada
-                        = new FileInputStream(fichero);
-                objeto
-                        = new ObjectInputStream(entrada);
-
-                adminAlumnos a = new adminAlumnos("./alumnos.cbm");
-                a.cargarArchivo();
-                DefaultListModel modelito = llenarLista(a);
-                JL_Alumnos.setModel(modelito);
-            } //fin if
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            objeto.close();
-            entrada.close();
-        } catch (IOException ex) {
-        }
-    }//GEN-LAST:event_BtnCargarAlumnosActionPerformed
-
-    private void BtnCargarMaestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarMaestrosActionPerformed
-        File fichero = null;
-        FileInputStream entrada = null;
-        ObjectInputStream objeto = null;
-        try {
-            JFileChooser jfc = new JFileChooser();
-            FileNameExtensionFilter filtro
-                    = new FileNameExtensionFilter(
-                            "Maestros", "tch");
-            jfc.setFileFilter(filtro);
-            int seleccion = jfc.showOpenDialog(this);
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                fichero = jfc.getSelectedFile();
-                entrada
-                        = new FileInputStream(fichero);
-                objeto
-                        = new ObjectInputStream(entrada);
-
-                adminMaestros am = new adminMaestros("./maestros.tch");
-                am.cargarArchivo();
-                DefaultListModel modelito = llenarListaM(am);
-                JListMaestros.setModel(modelito);
-            } //fin if
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            objeto.close();
-            entrada.close();
-        } catch (IOException ex) {
-        }
-    }//GEN-LAST:event_BtnCargarMaestrosActionPerformed
-
-    private void BtnCargarAlumAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCargarAlumAsigActionPerformed
-        File fichero = null;
-        FileInputStream entrada = null;
-        ObjectInputStream objeto = null;
-        try {
-            JFileChooser jfc = new JFileChooser();
-            FileNameExtensionFilter filtro
-                    = new FileNameExtensionFilter(
-                            "Alumnos", "cbm");
-            jfc.setFileFilter(filtro);
-            int seleccion = jfc.showOpenDialog(this);
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                fichero = jfc.getSelectedFile();
-                entrada
-                        = new FileInputStream(fichero);
-                objeto
-                        = new ObjectInputStream(entrada);
-
-                adminAlumnos a = new adminAlumnos("./alumnos.cbm");
-                a.cargarArchivo();
-                DefaultListModel modelito = llenarLista(a);
-                JListaAlum.setModel(modelito);
-            } //fin if
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            objeto.close();
-            entrada.close();
-        } catch (IOException ex) {
-        }
-    }//GEN-LAST:event_BtnCargarAlumAsigActionPerformed
 
     private void Cb_listaClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cb_listaClasesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Cb_listaClasesActionPerformed
 
     private void TabbedRegistroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedRegistroStateChanged
+        switch (TabbedRegistro.getSelectedIndex()) {
+            case 1: {
+                aMaestros.cargarArchivo();
+                JListMaestros.setModel(llenarListaM(aMaestros));
+                aCurso.cargarArchivo();
+                Cb_listaClases.setModel(llenarComboC(aCurso));
+                break;
+            }
+            case 2: {
+                aAlumnos.cargarArchivo();
+                JListaAlum.setModel(llenarLista(aAlumnos));
+                break;
+            }
+            case 3: {
+                aAlumnos.cargarArchivo();
+                JL_Alumnos.setModel(llenarLista(aAlumnos));
+                break;
+            }
+        }
         
-        adminCurso a = new adminCurso("./clases.cla");
-        a.cargarArchivo();
-        Cb_listaClases.setModel(llenarComboC(a));
     }//GEN-LAST:event_TabbedRegistroStateChanged
 
     /**
@@ -851,7 +753,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     public DefaultListModel llenarLista(adminAlumnos a) {
-
         DefaultListModel modelito = new DefaultListModel();
         for (Alumno p : a.getListaAlumnos()) {
             modelito.addElement(p);
@@ -867,9 +768,6 @@ public class Main extends javax.swing.JFrame {
         return modelo;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCargarAlumAsig;
-    private javax.swing.JButton BtnCargarAlumnos;
-    private javax.swing.JButton BtnCargarMaestros;
     private javax.swing.JButton BtnElimUsuarios;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnIngresar;
@@ -922,6 +820,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -4,10 +4,11 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Maestro extends Usuario {
+public class Maestro extends Usuario implements Serializable {
 
     private String nombre, identidad, profesion;
     private int sueldo;

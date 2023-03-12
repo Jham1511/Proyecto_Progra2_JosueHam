@@ -4,7 +4,9 @@
  */
 package proyecto_prg2_josueham;
 
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable {
 
     private String nombre, codigo, hora,semestre,periodo,anio;
     private  int UV;
