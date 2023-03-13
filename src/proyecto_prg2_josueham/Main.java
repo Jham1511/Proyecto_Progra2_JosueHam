@@ -118,7 +118,7 @@ public class Main extends javax.swing.JFrame {
         FieldAnio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         FieldUV = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BtnGuardarClase = new javax.swing.JButton();
         BtnModifClases = new javax.swing.JButton();
         btnElimClases = new javax.swing.JButton();
         BtnRegresar = new javax.swing.JButton();
@@ -127,6 +127,46 @@ public class Main extends javax.swing.JFrame {
         btngrupoEstado = new javax.swing.ButtonGroup();
         DiaModifUsuarios = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
+        FieldBuscar = new javax.swing.JTextField();
+        ModifUsuarios = new javax.swing.JLabel();
+        lb_buscar = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        JListUsuarios = new javax.swing.JList<>();
+        lb_nueUsername = new javax.swing.JLabel();
+        FieldNuevoUsername = new javax.swing.JTextField();
+        lb_nuePass = new javax.swing.JLabel();
+        BtnEscogerUser = new javax.swing.JButton();
+        lb_nueTipoUser = new javax.swing.JLabel();
+        FieldNueNombre = new javax.swing.JTextField();
+        lb_nueNombre = new javax.swing.JLabel();
+        modifAlumno = new javax.swing.JRadioButton();
+        modifMaestro = new javax.swing.JRadioButton();
+        lb_nueFechaBirth = new javax.swing.JLabel();
+        DateChooserModif = new com.toedter.calendar.JDateChooser();
+        lb_modifEstado = new javax.swing.JLabel();
+        rbtn_modifActiva = new javax.swing.JRadioButton();
+        rbtn_modifInactiva = new javax.swing.JRadioButton();
+        FieldNuePass = new javax.swing.JPasswordField();
+        lb_nueCarrera = new javax.swing.JLabel();
+        FieldNueCarrera = new javax.swing.JTextField();
+        lb_nueProfe = new javax.swing.JLabel();
+        FieldNueProfesion = new javax.swing.JTextField();
+        lb_nueSueldo = new javax.swing.JLabel();
+        FieldNueSueldo = new javax.swing.JTextField();
+        BtnMostrarCamposModif = new javax.swing.JButton();
+        BtnGuardarCambiosUser = new javax.swing.JButton();
+        BtnRegresarModifUser = new javax.swing.JButton();
+        btngrupoModifUsuario = new javax.swing.ButtonGroup();
+        btngrupoModifEstado = new javax.swing.ButtonGroup();
+        DiaElimUsuarios = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        JListElimUser = new javax.swing.JList<>();
+        FieldBuscarElim = new javax.swing.JTextField();
+        BtnEliminarUsuario = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -208,7 +248,7 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(lb_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
         PanelCRUDAlum.add(FieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 190, 30));
 
-        lb_carrera.setFont(new java.awt.Font("Cooper Black", 1, 18)); // NOI18N
+        lb_carrera.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_carrera.setForeground(new java.awt.Color(255, 255, 255));
         lb_carrera.setText("Carrera");
         PanelCRUDAlum.add(lb_carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, -1, -1));
@@ -240,11 +280,21 @@ public class Main extends javax.swing.JFrame {
         BtnModifUsuarios.setBackground(new java.awt.Color(153, 153, 255));
         BtnModifUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         BtnModifUsuarios.setText("Modificar Usuario");
+        BtnModifUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModifUsuariosActionPerformed(evt);
+            }
+        });
         PanelCRUDAlum.add(BtnModifUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, 40));
 
         BtnElimUsuarios.setBackground(new java.awt.Color(153, 153, 255));
         BtnElimUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         BtnElimUsuarios.setText("Eliminar Usuario");
+        BtnElimUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnElimUsuariosActionPerformed(evt);
+            }
+        });
         PanelCRUDAlum.add(BtnElimUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, 40));
 
         btngrupoEstado.add(RbtnActiva);
@@ -256,6 +306,7 @@ public class Main extends javax.swing.JFrame {
         PanelCRUDAlum.add(Rbtn_Inactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, -1));
 
         lb_estado.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
+        lb_estado.setForeground(new java.awt.Color(255, 255, 255));
         lb_estado.setText("Estado de la cuenta");
         PanelCRUDAlum.add(lb_estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
@@ -266,12 +317,7 @@ public class Main extends javax.swing.JFrame {
         JListMaestros.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(JListMaestros);
 
-        Cb_listaClases.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Cb_listaClases.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cb_listaClasesActionPerformed(evt);
-            }
-        });
+        Cb_listaClases.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No hay clases" }));
 
         lb_clasesMaes.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_clasesMaes.setForeground(new java.awt.Color(255, 255, 255));
@@ -342,6 +388,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         lb_maestros.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_maestros.setForeground(new java.awt.Color(255, 255, 255));
         lb_maestros.setText("Maestros Disponibles");
 
         javax.swing.GroupLayout PanelAsignarAlumLayout = new javax.swing.GroupLayout(PanelAsignarAlum);
@@ -399,6 +446,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         lb_ClasesMatri.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_ClasesMatri.setForeground(new java.awt.Color(255, 255, 255));
         lb_ClasesMatri.setText("Clases Disponibles");
 
         javax.swing.GroupLayout PNMatricularAlumLayout = new javax.swing.GroupLayout(PNMatricularAlum);
@@ -487,15 +535,15 @@ public class Main extends javax.swing.JFrame {
         PanelClases.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
         PanelClases.add(FieldUV, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 110, 30));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 255));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Guardar Clase");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnGuardarClase.setBackground(new java.awt.Color(153, 153, 255));
+        BtnGuardarClase.setForeground(new java.awt.Color(255, 255, 255));
+        BtnGuardarClase.setText("Guardar Clase");
+        BtnGuardarClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnGuardarClaseActionPerformed(evt);
             }
         });
-        PanelClases.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 120, -1));
+        PanelClases.add(BtnGuardarClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 120, -1));
 
         BtnModifClases.setBackground(new java.awt.Color(153, 153, 255));
         BtnModifClases.setForeground(new java.awt.Color(255, 255, 255));
@@ -531,26 +579,232 @@ public class Main extends javax.swing.JFrame {
 
         MenuRegistro.getContentPane().add(PanelAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(96, 150, 180));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                FieldBuscarKeyReleased(evt);
+            }
+        });
+        jPanel1.add(FieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 30));
+
+        ModifUsuarios.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
+        ModifUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        ModifUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuario.png"))); // NOI18N
+        ModifUsuarios.setText("Modificar Usuarios");
+        jPanel1.add(ModifUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        lb_buscar.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        lb_buscar.setText("Buscar Usuario");
+        jPanel1.add(lb_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+
+        JListUsuarios.setModel(new DefaultListModel()
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-        );
+        jScrollPane4.setViewportView(JListUsuarios);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 140, 170));
+
+        lb_nueUsername.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueUsername.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueUsername.setText("Username");
+        jPanel1.add(lb_nueUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jPanel1.add(FieldNuevoUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 100, 30));
+
+        lb_nuePass.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nuePass.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nuePass.setText("Contraseña");
+        jPanel1.add(lb_nuePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
+
+        BtnEscogerUser.setBackground(new java.awt.Color(153, 153, 255));
+        BtnEscogerUser.setText("Escoger Usuario");
+        BtnEscogerUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEscogerUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnEscogerUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 140, -1));
+
+        lb_nueTipoUser.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueTipoUser.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueTipoUser.setText("Tipo de Usuario");
+        jPanel1.add(lb_nueTipoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
+        jPanel1.add(FieldNueNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 90, 30));
+
+        lb_nueNombre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueNombre.setText("Nombre");
+        jPanel1.add(lb_nueNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+
+        btngrupoModifUsuario.add(modifAlumno);
+        modifAlumno.setText("Alumno");
+        jPanel1.add(modifAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+
+        btngrupoModifUsuario.add(modifMaestro);
+        modifMaestro.setText("Maestro");
+        jPanel1.add(modifMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
+
+        lb_nueFechaBirth.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueFechaBirth.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueFechaBirth.setText("Fecha de Nacimiento");
+        jPanel1.add(lb_nueFechaBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
+        jPanel1.add(DateChooserModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 150, 30));
+
+        lb_modifEstado.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_modifEstado.setForeground(new java.awt.Color(255, 255, 255));
+        lb_modifEstado.setText("Estado de la cuenta");
+        jPanel1.add(lb_modifEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+
+        btngrupoModifEstado.add(rbtn_modifActiva);
+        rbtn_modifActiva.setText("Activa");
+        jPanel1.add(rbtn_modifActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+
+        btngrupoModifEstado.add(rbtn_modifInactiva);
+        rbtn_modifInactiva.setText("Inactiva");
+        jPanel1.add(rbtn_modifInactiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, -1, -1));
+        jPanel1.add(FieldNuePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 100, 30));
+
+        lb_nueCarrera.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueCarrera.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueCarrera.setText("Carrera");
+        jPanel1.add(lb_nueCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, -1));
+        jPanel1.add(FieldNueCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 110, 30));
+
+        lb_nueProfe.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueProfe.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueProfe.setText("Profesion");
+        jPanel1.add(lb_nueProfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
+        jPanel1.add(FieldNueProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 110, 30));
+
+        lb_nueSueldo.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueSueldo.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueSueldo.setText("Sueldo");
+        jPanel1.add(lb_nueSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, -1, -1));
+        jPanel1.add(FieldNueSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 110, 30));
+
+        BtnMostrarCamposModif.setBackground(new java.awt.Color(153, 153, 255));
+        BtnMostrarCamposModif.setText("Mostrar Campos ->");
+        BtnMostrarCamposModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMostrarCamposModifActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnMostrarCamposModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
+
+        BtnGuardarCambiosUser.setBackground(new java.awt.Color(153, 153, 255));
+        BtnGuardarCambiosUser.setText("Guardar Cambios");
+        BtnGuardarCambiosUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarCambiosUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnGuardarCambiosUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 150, 40));
+
+        BtnRegresarModifUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
+        BtnRegresarModifUser.setBorder(null);
+        BtnRegresarModifUser.setOpaque(false);
+        BtnRegresarModifUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegresarModifUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnRegresarModifUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout DiaModifUsuariosLayout = new javax.swing.GroupLayout(DiaModifUsuarios.getContentPane());
         DiaModifUsuarios.getContentPane().setLayout(DiaModifUsuariosLayout);
         DiaModifUsuariosLayout.setHorizontalGroup(
             DiaModifUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
         );
         DiaModifUsuariosLayout.setVerticalGroup(
             DiaModifUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(96, 150, 180));
+
+        jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Eliminar Usuarios");
+
+        jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Buscar Usuario a eliminar");
+
+        JListElimUser.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(JListElimUser);
+
+        FieldBuscarElim.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                FieldBuscarElimKeyReleased(evt);
+            }
+        });
+
+        BtnEliminarUsuario.setText("Eliminar Usuario");
+        BtnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEliminarUsuarioActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/turn-left.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5)
+                            .addComponent(FieldBuscarElim)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(BtnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldBuscarElim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnEliminarUsuario)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout DiaElimUsuariosLayout = new javax.swing.GroupLayout(DiaElimUsuarios.getContentPane());
+        DiaElimUsuarios.getContentPane().setLayout(DiaElimUsuariosLayout);
+        DiaElimUsuariosLayout.setHorizontalGroup(
+            DiaElimUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        DiaElimUsuariosLayout.setVerticalGroup(
+            DiaElimUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -665,7 +919,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
-        if (FieldUsername.getText().equals(registro2.getNombre()) && PField_Contra.getText().equals(registro2.getPassword())) {
+        if (FieldUsername.getText().equals(registro2.getUsername()) && PField_Contra.getText().equals(registro2.getPassword())) {
             abrir_MenuC();
         } else {
             JOptionPane.showMessageDialog(this, "Usuario inexistente");
@@ -703,7 +957,7 @@ public class Main extends javax.swing.JFrame {
         String estado = "";
         if (RbtnActiva.isSelected()) {
             estado = "Activa";
-        } else if (Rbtn_Inactiva.isSelected()){
+        } else if (Rbtn_Inactiva.isSelected()) {
             estado = "Inactiva";
         }
         Date fecha = ChooserNacimiento.getDate();
@@ -745,7 +999,7 @@ public class Main extends javax.swing.JFrame {
         FieldSueldo.setText("");
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnGuardarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarClaseActionPerformed
         String nombreClase = FieldNombreClase.getText();
         String codigo = FieldCodigo.getText();
         String hora = FieldHora.getText();
@@ -767,11 +1021,7 @@ public class Main extends javax.swing.JFrame {
         aCurso.setCurso(ca);
         aCurso.escribirArchivo();
         JOptionPane.showMessageDialog(this, "Clase guardada exitosamente");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void Cb_listaClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cb_listaClasesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Cb_listaClasesActionPerformed
+    }//GEN-LAST:event_BtnGuardarClaseActionPerformed
 
     private void TabbedRegistroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedRegistroStateChanged
         switch (TabbedRegistro.getSelectedIndex()) {
@@ -797,32 +1047,30 @@ public class Main extends javax.swing.JFrame {
                 break;
             }
         }
-       
+
     }//GEN-LAST:event_TabbedRegistroStateChanged
 
     private void BtnAsignarMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsignarMaestroActionPerformed
         DefaultListModel modelito = (DefaultListModel) JListMaestros.getModel();
-        modelito.getElementAt(JListMaestros.getSelectedIndex());
         Maestro ticher = (Maestro) modelito.getElementAt(JListMaestros.getSelectedIndex());
-        
-        Curso clase = (Curso)Cb_listaClases.getSelectedItem();
-        
+
+        Curso clase = (Curso) Cb_listaClases.getSelectedItem();
+
         ticher.getClases().add(clase);
-        
+
         JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
         aMaestros.cargarArchivo();
         aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnAsignarMaestroActionPerformed
 
     private void BtnAsigClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAsigClasesActionPerformed
-    DefaultListModel modelito = (DefaultListModel) JL_AlumnosMat.getModel();
-        modelito.getElementAt(JL_AlumnosMat.getSelectedIndex());
+        DefaultListModel modelito = (DefaultListModel) JL_AlumnosMat.getModel();
         Alumno alum = (Alumno) modelito.getElementAt(JL_AlumnosMat.getSelectedIndex());
-        
-        Curso clase = (Curso)cb_ClasesAlum.getSelectedItem();
-        
+
+        Curso clase = (Curso) cb_ClasesAlum.getSelectedItem();
+
         alum.getClases().add(clase);
-        
+
         JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
         aAlumnos.cargarArchivo();
         aAlumnos.escribirArchivo();
@@ -831,21 +1079,181 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnAlumAsigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlumAsigActionPerformed
         DefaultListModel modelito = (DefaultListModel) JListAlumAsig.getModel();
-        modelito.getElementAt(JListAlumAsig.getSelectedIndex());
         Alumno alum = (Alumno) modelito.getElementAt(JListAlumAsig.getSelectedIndex());
-        
-        Maestro ticher = (Maestro)cb_maestros.getSelectedItem();
-        
+
+        Maestro ticher = (Maestro) cb_maestros.getSelectedItem();
+
         ticher.getAlumnos().add(alum);
-        
+
         JOptionPane.showMessageDialog(this, "Alumno asignado correctamente");
         aMaestros.cargarArchivo();
         aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnAlumAsigActionPerformed
 
     private void BtnModifClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifClasesActionPerformed
-        
+
     }//GEN-LAST:event_BtnModifClasesActionPerformed
+
+    private void BtnModifUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifUsuariosActionPerformed
+        abrirModifUser();
+    }//GEN-LAST:event_BtnModifUsuariosActionPerformed
+
+    private void FieldBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldBuscarKeyReleased
+        aUsuarios.cargarArchivo();
+        DefaultListModel modelito = new DefaultListModel();
+        for (Usuario u : aUsuarios.getListaUsuarios()) {
+            if (u.getUsername().startsWith(FieldBuscar.getText())) {
+                modelito.addElement(u);
+            }
+
+        }
+        JListUsuarios.setModel(modelito);
+    }//GEN-LAST:event_FieldBuscarKeyReleased
+
+    private void BtnEscogerUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEscogerUserActionPerformed
+        DefaultListModel modelito = (DefaultListModel) JListUsuarios.getModel();
+        Usuario user = (Usuario) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+        FieldNuevoUsername.setText(user.getUsername());
+        DateChooserModif.setDate(user.getFechaCrea());
+        FieldNuePass.setText(user.getPassword());
+        
+        if (modelito.getElementAt(JListUsuarios.getSelectedIndex()) instanceof Alumno) {
+            Alumno alum = (Alumno) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+            FieldCarrera.setText(alum.getCarrera());
+            FieldNueNombre.setText(alum.getNom());
+        } else if (modelito.getElementAt(JListUsuarios.getSelectedIndex()) instanceof Maestro) {
+            Maestro ticher = (Maestro) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+            String strSueldo = Integer.toString(ticher.getSueldo());
+            FieldNueNombre.setText(ticher.getNombre());
+            FieldNueSueldo.setText(strSueldo);
+            FieldNueProfesion.setText(ticher.getProfesion());
+        }
+
+
+    }//GEN-LAST:event_BtnEscogerUserActionPerformed
+
+    private void BtnMostrarCamposModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarCamposModifActionPerformed
+        if (modifAlumno.isSelected()) {
+            lb_nueCarrera.setVisible(true);
+            FieldNueCarrera.setVisible(true);
+            lb_nueSueldo.setVisible(false);
+            FieldNueSueldo.setVisible(false);
+            lb_nueProfe.setVisible(false);
+            FieldNueProfesion.setVisible(false);
+        } else if (modifMaestro.isSelected()) {
+            lb_nueCarrera.setVisible(false);
+            FieldNueCarrera.setVisible(false);
+            lb_nueSueldo.setVisible(true);
+            FieldNueSueldo.setVisible(true);
+            lb_nueProfe.setVisible(true);
+            FieldNueProfesion.setVisible(true);
+        }
+    }//GEN-LAST:event_BtnMostrarCamposModifActionPerformed
+
+    private void BtnGuardarCambiosUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarCambiosUserActionPerformed
+        DefaultListModel modelito = (DefaultListModel) JListUsuarios.getModel();
+        Usuario user = (Usuario) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+        String tipo = "";
+        String nueUsername = FieldNuevoUsername.getText();
+        String nuePass = FieldNuePass.getText();
+        String nueNombre = FieldNueNombre.getText();
+        String estado = "";
+        String nueCarrera = FieldNueCarrera.getText();
+        
+
+        if (rbtn_modifActiva.isSelected()) {
+            estado = "Activa";
+        } else if (rbtn_modifInactiva.isSelected()) {
+            estado = "Inactiva";
+        }
+
+        if (modifAlumno.isSelected()) {
+            tipo = "Alumno";
+        } else if (modifMaestro.isSelected()) {
+            tipo = "Maestro";
+        }
+
+        String strNueSueldo = FieldNueSueldo.getText();
+        int nueSueldo = Integer.parseInt(strNueSueldo);
+        String nueProfesion = FieldNueProfesion.getText();
+        Date nueFecha = DateChooserModif.getDate();
+        if (modelito.getElementAt(JListUsuarios.getSelectedIndex()) instanceof Alumno) {
+            Alumno alum = (Alumno) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+            alum.setNom(nueNombre);
+            alum.setUsername(nueUsername);
+            alum.setPassword(nuePass);
+            alum.setFechaCrea(nueFecha);
+            alum.setTipo(tipo);
+            alum.setEstado(estado);
+            alum.setCarrera(nueCarrera);
+            
+            aAlumnos.cargarArchivo();
+            aAlumnos.setAlumno(alum);
+            aAlumnos.escribirArchivo();
+        } else if (modelito.getElementAt(JListUsuarios.getSelectedIndex()) instanceof Maestro) {
+            Maestro ticher = (Maestro) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+            
+            
+            ticher.setNombre(nueNombre);
+            ticher.setUsername(nueUsername);
+            ticher.setPassword(nuePass);
+            ticher.setFechaCrea(nueFecha);
+            ticher.setTipo(tipo);
+            ticher.setEstado(estado);
+            ticher.setProfesion(nueProfesion);
+            ticher.setSueldo(nueSueldo);
+            aMaestros.cargarArchivo();
+            aMaestros.setMaestro(ticher);
+            aMaestros.escribirArchivo();
+        }
+
+        user.setUsername(nueUsername);
+        user.setPassword(nuePass);
+        user.setFechaCrea(nueFecha);
+        user.setTipo(tipo);
+        user.setEstado(estado);
+        aUsuarios.cargarArchivo();
+        aUsuarios.setUsuario(user);
+        aUsuarios.escribirArchivo();
+        
+        JOptionPane.showMessageDialog(this, "Cambios realizados");
+    }//GEN-LAST:event_BtnGuardarCambiosUserActionPerformed
+
+    private void BtnElimUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimUsuariosActionPerformed
+      abrirElimUsuarios();
+    }//GEN-LAST:event_BtnElimUsuariosActionPerformed
+
+    private void BtnRegresarModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarModifUserActionPerformed
+        DiaModifUsuarios.setVisible(false);
+        MenuRegistro.setVisible(true);
+    }//GEN-LAST:event_BtnRegresarModifUserActionPerformed
+
+    private void FieldBuscarElimKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldBuscarElimKeyReleased
+        aUsuarios.cargarArchivo();
+        DefaultListModel modelito = new DefaultListModel();
+        for (Usuario u : aUsuarios.getListaUsuarios()) {
+            if (u.getUsername().startsWith(FieldBuscar.getText())) {
+                modelito.addElement(u);
+            }
+
+        }
+        JListUsuarios.setModel(modelito);
+    }//GEN-LAST:event_FieldBuscarElimKeyReleased
+
+    private void BtnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarUsuarioActionPerformed
+       DefaultListModel modelito = (DefaultListModel) JListUsuarios.getModel();
+        Usuario user = (Usuario) modelito.getElementAt(JListUsuarios.getSelectedIndex());
+        aUsuarios.cargarArchivo();
+        aUsuarios.getListaUsuarios().remove(user);
+        aUsuarios.escribirArchivo();
+        
+        JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente");
+    }//GEN-LAST:event_BtnEliminarUsuarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       DiaElimUsuarios.setVisible(false);
+       MenuRegistro.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -933,6 +1341,7 @@ public class Main extends javax.swing.JFrame {
         }
         return modelo;
     }
+
     public DefaultComboBoxModel llenarComboMaes(adminMaestros a) {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         for (Maestro p : a.getListaMaestros()) {
@@ -940,28 +1349,75 @@ public class Main extends javax.swing.JFrame {
         }
         return modelo;
     }
+
+    public void abrirModifUser() {
+        DiaModifUsuarios.pack();
+        DiaModifUsuarios.setLocationRelativeTo(this);
+        lb_nueCarrera.setVisible(false);
+        FieldNueCarrera.setVisible(false);
+        lb_nueSueldo.setVisible(false);
+        FieldNueSueldo.setVisible(false);
+        lb_nueProfe.setVisible(false);
+        FieldNueProfesion.setVisible(false);
+        DiaModifUsuarios.setVisible(true);
+        MenuRegistro.setVisible(false);
+        this.setVisible(false);
+    }
+
+    public DefaultListModel llenarListaUser(adminUsuarios a) {
+
+        DefaultListModel modelito = new DefaultListModel();
+        for (Usuario p : a.getListaUsuarios()) {
+            modelito.addElement(p);
+        }
+        return modelito;
+    }
+    
+    public void abrirElimUsuarios (){
+        DiaElimUsuarios.pack();
+        DiaElimUsuarios.setLocationRelativeTo(this);
+        DiaElimUsuarios.setVisible(true);
+        MenuRegistro.setVisible(false);
+        this.setVisible(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
     private javax.swing.JButton BtnAsigClases;
     private javax.swing.JButton BtnAsignarMaestro;
     private javax.swing.JButton BtnElimUsuarios;
+    private javax.swing.JButton BtnEliminarUsuario;
+    private javax.swing.JButton BtnEscogerUser;
     private javax.swing.JButton BtnGuardar;
+    private javax.swing.JButton BtnGuardarCambiosUser;
+    private javax.swing.JButton BtnGuardarClase;
     private javax.swing.JButton BtnIngresar;
     private javax.swing.JButton BtnModifClases;
     private javax.swing.JButton BtnModifUsuarios;
+    private javax.swing.JButton BtnMostrarCamposModif;
     private javax.swing.JButton BtnRegresar;
+    private javax.swing.JButton BtnRegresarModifUser;
     private javax.swing.JComboBox<String> Cb_listaClases;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
+    private com.toedter.calendar.JDateChooser DateChooserModif;
+    private javax.swing.JDialog DiaElimUsuarios;
     private javax.swing.JDialog DiaModifUsuarios;
     private javax.swing.JTextField FieldAnio;
+    private javax.swing.JTextField FieldBuscar;
+    private javax.swing.JTextField FieldBuscarElim;
     private javax.swing.JTextField FieldCarrera;
     private javax.swing.JTextField FieldCodigo;
     private javax.swing.JPasswordField FieldContra;
     private javax.swing.JTextField FieldHora;
     private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldNombreClase;
+    private javax.swing.JTextField FieldNueCarrera;
+    private javax.swing.JTextField FieldNueNombre;
+    private javax.swing.JPasswordField FieldNuePass;
+    private javax.swing.JTextField FieldNueProfesion;
+    private javax.swing.JTextField FieldNueSueldo;
+    private javax.swing.JTextField FieldNuevoUsername;
     private javax.swing.JTextField FieldPeriodo;
     private javax.swing.JTextField FieldProfesion;
     private javax.swing.JTextField FieldSemestre;
@@ -972,8 +1428,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel FondoUnitec;
     private javax.swing.JList<String> JL_AlumnosMat;
     private javax.swing.JList<String> JListAlumAsig;
+    private javax.swing.JList<String> JListElimUser;
     private javax.swing.JList<String> JListMaestros;
+    private javax.swing.JList<String> JListUsuarios;
     private javax.swing.JDialog MenuRegistro;
+    private javax.swing.JLabel ModifUsuarios;
     private javax.swing.JPasswordField PField_Contra;
     private javax.swing.JPanel PNAsignarMaes;
     private javax.swing.JPanel PNMatricularAlum;
@@ -993,6 +1452,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnElimClases;
     private javax.swing.JButton btn_tipoUser;
     private javax.swing.ButtonGroup btngrupoEstado;
+    private javax.swing.ButtonGroup btngrupoModifEstado;
+    private javax.swing.ButtonGroup btngrupoModifUsuario;
     private javax.swing.ButtonGroup btngrupoUsuarios;
     private javax.swing.JComboBox<String> cb_ClasesAlum;
     private javax.swing.JComboBox<String> cb_maestros;
@@ -1001,14 +1462,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lb_AlumnosMat;
     private javax.swing.JLabel lb_AsigAlum;
     private javax.swing.JLabel lb_ClasesMatri;
+    private javax.swing.JLabel lb_buscar;
     private javax.swing.JLabel lb_carrera;
     private javax.swing.JLabel lb_clasesMaes;
     private javax.swing.JLabel lb_codClase;
@@ -1017,9 +1484,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_horaClase;
     private javax.swing.JLabel lb_maestros;
     private javax.swing.JLabel lb_maestrosAsig;
+    private javax.swing.JLabel lb_modifEstado;
     private javax.swing.JLabel lb_nacimiento;
     private javax.swing.JLabel lb_nom;
     private javax.swing.JLabel lb_nomClase;
+    private javax.swing.JLabel lb_nueCarrera;
+    private javax.swing.JLabel lb_nueFechaBirth;
+    private javax.swing.JLabel lb_nueNombre;
+    private javax.swing.JLabel lb_nuePass;
+    private javax.swing.JLabel lb_nueProfe;
+    private javax.swing.JLabel lb_nueSueldo;
+    private javax.swing.JLabel lb_nueTipoUser;
+    private javax.swing.JLabel lb_nueUsername;
     private javax.swing.JLabel lb_password;
     private javax.swing.JLabel lb_periodo;
     private javax.swing.JLabel lb_profesion;
@@ -1028,5 +1504,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JLabel lb_username;
     private javax.swing.JLabel lb_usernameCrud;
+    private javax.swing.JRadioButton modifAlumno;
+    private javax.swing.JRadioButton modifMaestro;
+    private javax.swing.JRadioButton rbtn_modifActiva;
+    private javax.swing.JRadioButton rbtn_modifInactiva;
     // End of variables declaration//GEN-END:variables
 }

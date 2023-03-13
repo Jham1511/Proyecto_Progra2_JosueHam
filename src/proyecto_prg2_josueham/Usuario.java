@@ -23,11 +23,11 @@ public class Usuario implements Serializable{
         this.fechaNas = fechaCrea;
     }
 
-    public String getNombre() {
+    public String getUsername() {
         return username;
     }
 
-    public void setNombre(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 

@@ -66,7 +66,7 @@ public class adminUsuarios {
                 entrada.close();
             }            
         } catch (Exception ex) {
-            ex.printStackTrace();
+           //ex.printStackTrace();
         }
     }
 
