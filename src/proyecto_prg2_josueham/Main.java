@@ -206,6 +206,7 @@ public class Main extends javax.swing.JFrame {
         InicioMaestros = new javax.swing.JDialog();
         PanelAzulHowie = new javax.swing.JPanel();
         lb_howie = new javax.swing.JLabel();
+        lb_hylianMaestros = new javax.swing.JLabel();
         PanelBlanco = new javax.swing.JPanel();
         PanelRojo = new javax.swing.JPanel();
         lb_bienvenidoMaestro = new javax.swing.JLabel();
@@ -217,6 +218,7 @@ public class Main extends javax.swing.JFrame {
         lb_bienvenidoAlumno = new javax.swing.JLabel();
         PanelHowie = new javax.swing.JPanel();
         lb_howieMochila = new javax.swing.JLabel();
+        lb_hylianAlum = new javax.swing.JLabel();
         BtnCanvasAlumno = new javax.swing.JButton();
         BtnLogOutAlum = new javax.swing.JButton();
         BtnSalirAlum = new javax.swing.JButton();
@@ -225,6 +227,8 @@ public class Main extends javax.swing.JFrame {
         lb_UnitecAlum = new javax.swing.JLabel();
         PanelTaskbar = new javax.swing.JPanel();
         BtnCursosAlumnos = new javax.swing.JButton();
+        BtnRegAlumnos = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lb_misClasesAlum = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -1263,6 +1267,8 @@ public class Main extends javax.swing.JFrame {
 
         lb_howie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/howie.png"))); // NOI18N
 
+        lb_hylianMaestros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pngfind.com-hylian-shield-png-905760_resized.png"))); // NOI18N
+
         javax.swing.GroupLayout PanelAzulHowieLayout = new javax.swing.GroupLayout(PanelAzulHowie);
         PanelAzulHowie.setLayout(PanelAzulHowieLayout);
         PanelAzulHowieLayout.setHorizontalGroup(
@@ -1271,11 +1277,17 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lb_howie)
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAzulHowieLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_hylianMaestros)
+                .addGap(31, 31, 31))
         );
         PanelAzulHowieLayout.setVerticalGroup(
             PanelAzulHowieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAzulHowieLayout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lb_hylianMaestros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(lb_howie)
                 .addGap(106, 106, 106))
         );
@@ -1377,6 +1389,7 @@ public class Main extends javax.swing.JFrame {
         PanelAlum.setBackground(new java.awt.Color(255, 102, 102));
 
         lb_bienvenidoAlumno.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
+        lb_bienvenidoAlumno.setForeground(new java.awt.Color(255, 255, 255));
         lb_bienvenidoAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hijo.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelAlumLayout = new javax.swing.GroupLayout(PanelAlum);
@@ -1402,21 +1415,30 @@ public class Main extends javax.swing.JFrame {
 
         lb_howieMochila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/howie-sueter_resized.png"))); // NOI18N
 
+        lb_hylianAlum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pngfind.com-hylian-shield-png-905760_resized.png"))); // NOI18N
+
         javax.swing.GroupLayout PanelHowieLayout = new javax.swing.GroupLayout(PanelHowie);
         PanelHowie.setLayout(PanelHowieLayout);
         PanelHowieLayout.setHorizontalGroup(
             PanelHowieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelHowieLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_howieMochila)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(PanelHowieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelHowieLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lb_howieMochila))
+                    .addGroup(PanelHowieLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(lb_hylianAlum)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelHowieLayout.setVerticalGroup(
             PanelHowieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelHowieLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addContainerGap()
+                .addComponent(lb_hylianAlum)
+                .addGap(38, 38, 38)
                 .addComponent(lb_howieMochila)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         InicioAlumnos.getContentPane().add(PanelHowie, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
@@ -1463,17 +1485,17 @@ public class Main extends javax.swing.JFrame {
         PanelRojoUnitec.setLayout(PanelRojoUnitecLayout);
         PanelRojoUnitecLayout.setHorizontalGroup(
             PanelRojoUnitecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelRojoUnitecLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRojoUnitecLayout.createSequentialGroup()
+                .addContainerGap(189, Short.MAX_VALUE)
                 .addComponent(lb_UnitecAlum)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addGap(161, 161, 161))
         );
         PanelRojoUnitecLayout.setVerticalGroup(
             PanelRojoUnitecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelRojoUnitecLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(20, 20, 20)
                 .addComponent(lb_UnitecAlum)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         MenuAlumnos.getContentPane().add(PanelRojoUnitec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
@@ -1490,21 +1512,43 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BtnRegAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back-arrow.png"))); // NOI18N
+        BtnRegAlumnos.setBorder(null);
+        BtnRegAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnRegAlumnos.setOpaque(false);
+        BtnRegAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegAlumnosActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        jLabel12.setText("Cursos");
+
         javax.swing.GroupLayout PanelTaskbarLayout = new javax.swing.GroupLayout(PanelTaskbar);
         PanelTaskbar.setLayout(PanelTaskbarLayout);
         PanelTaskbarLayout.setHorizontalGroup(
             PanelTaskbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTaskbarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnCursosAlumnos)
-                .addContainerGap())
+            .addGroup(PanelTaskbarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelTaskbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelTaskbarLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel12))
+                    .addComponent(BtnRegAlumnos)
+                    .addComponent(BtnCursosAlumnos))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelTaskbarLayout.setVerticalGroup(
             PanelTaskbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTaskbarLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(61, 61, 61)
                 .addComponent(BtnCursosAlumnos)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(BtnRegAlumnos)
+                .addGap(75, 75, 75))
         );
 
         MenuAlumnos.getContentPane().add(PanelTaskbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 90, 400));
@@ -1520,6 +1564,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane9.setViewportView(JListClasesAlum);
 
         BtnIngresarAlum.setText("Ingresar");
+        BtnIngresarAlum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1772,6 +1817,7 @@ public class Main extends javax.swing.JFrame {
 
         aMaestros.cargarArchivo();
         aAlumnos.cargarArchivo();
+        aUsuarios.cargarArchivo();
         if (FieldUsername.getText().equals(registro2.getUsername()) && PField_Contra.getText().equals(registro2.getPassword())) {
             abrir_MenuC();
         } 
@@ -1785,6 +1831,17 @@ public class Main extends javax.swing.JFrame {
         for (Alumno alum : aAlumnos.getListaAlumnos()) {
             if (FieldUsername.getText().equals(alum.getUsername()) && PField_Contra.getText().equals(alum.getPassword())) {
                 abrirInicioAlumnos(alum);
+            }
+        }
+        
+        for (Usuario user : aUsuarios.getListaUsuarios()) {
+            if (!FieldUsername.getText().equals(user.getUsername()) && PField_Contra.getText().equals(user.getPassword())) {
+                JOptionPane.showMessageDialog(this, "Nombre de usuario Incorrecto");
+            } else if (FieldUsername.getText().equals(user.getUsername()) && !PField_Contra.getText().equals(user.getPassword())){
+                JOptionPane.showMessageDialog(this, "Contraseña Incorrecta");
+            } else if (!FieldUsername.getText().equals(user.getUsername()) && 
+                    !PField_Contra.getText().equals(user.getPassword())){
+                JOptionPane.showMessageDialog(this, "No se pudo encontrar un usuario con estas credenciales");
             }
         }
     }//GEN-LAST:event_BtnIngresarActionPerformed
@@ -2255,7 +2312,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnLogOutAlumActionPerformed
 
     private void BtnSalirAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirAlumActionPerformed
-        JOptionPane.showConfirmDialog(this, "!Gracias por utilizar el sistema!");
+        JOptionPane.showMessageDialog(this, "!Gracias por utilizar el sistema!");
         System.exit(0);
     }//GEN-LAST:event_BtnSalirAlumActionPerformed
 
@@ -2274,6 +2331,11 @@ public class Main extends javax.swing.JFrame {
         Alumno alumSelec = alumnoSeleccionado(aAlumnos);
         abrirMenuAlumnos(alumSelec);
     }//GEN-LAST:event_BtnCanvasAlumnoActionPerformed
+
+    private void BtnRegAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegAlumnosActionPerformed
+        MenuAlumnos.setVisible(false);
+        InicioAlumnos.setVisible(true);
+    }//GEN-LAST:event_BtnRegAlumnosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2355,7 +2417,7 @@ public class Main extends javax.swing.JFrame {
         InicioAlumnos.pack();
         InicioAlumnos.setLocationRelativeTo(this);
         lb_bienvenidoAlumno.setText("¡Bienvenido " + a.getNom()+ "!");
-        InicioMaestros.setVisible(true);
+        InicioAlumnos.setVisible(true);
     }
     
     public void abrir_ModifClases() {
@@ -2522,6 +2584,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnModifClases;
     private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnMostrarCamposModif;
+    private javax.swing.JButton BtnRegAlumnos;
     private javax.swing.JButton BtnRegMaestros;
     private javax.swing.JButton BtnRegistro;
     private javax.swing.JButton BtnRegresar;
@@ -2625,6 +2688,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2667,6 +2731,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_horaModif;
     private javax.swing.JLabel lb_howie;
     private javax.swing.JLabel lb_howieMochila;
+    private javax.swing.JLabel lb_hylianAlum;
+    private javax.swing.JLabel lb_hylianMaestros;
     private javax.swing.JLabel lb_maestros;
     private javax.swing.JLabel lb_maestrosAsig;
     private javax.swing.JLabel lb_menuAyuda;
