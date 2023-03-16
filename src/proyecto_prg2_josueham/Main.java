@@ -234,6 +234,40 @@ public class Main extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         JListClasesAlum = new javax.swing.JList<>();
         BtnIngresarAlum = new javax.swing.JButton();
+        DiaExamenMaestros = new javax.swing.JDialog();
+        TabbedPreguntas = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        lb_unitecBlanco = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        TAPreguntaVF = new javax.swing.JTextArea();
+        Rbtn_verdadero = new javax.swing.JRadioButton();
+        Rbtn_Falso = new javax.swing.JRadioButton();
+        BtnVF = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        CheckBoxOp1 = new javax.swing.JCheckBox();
+        CheckBoxOp2 = new javax.swing.JCheckBox();
+        CheckBoxOp3 = new javax.swing.JCheckBox();
+        CheckBoxOp4 = new javax.swing.JCheckBox();
+        FieldCHBOp1 = new javax.swing.JTextField();
+        FieldCHBOp2 = new javax.swing.JTextField();
+        FieldCHBOp3 = new javax.swing.JTextField();
+        FieldCHBOp4 = new javax.swing.JTextField();
+        BtnSeleccion = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        lb_UnitecColor = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        lb_respCorrecta = new javax.swing.JLabel();
+        FieldRespCorrecta = new javax.swing.JTextField();
+        BtnCompletacion = new javax.swing.JButton();
+        BtngrupoVF = new javax.swing.ButtonGroup();
+        BtngrupoSeleccion = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -1575,14 +1609,11 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lb_misClasesAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(276, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BtnIngresarAlum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(lb_misClasesAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(BtnIngresarAlum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1597,6 +1628,254 @@ public class Main extends javax.swing.JFrame {
         );
 
         MenuAlumnos.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 560, 390));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel11.setBackground(new java.awt.Color(255, 102, 102));
+
+        lb_unitecBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unitec blanco.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(lb_unitecBlanco)
+                .addContainerGap(505, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_unitecBlanco)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        TAPreguntaVF.setColumns(20);
+        TAPreguntaVF.setRows(5);
+        jScrollPane10.setViewportView(TAPreguntaVF);
+
+        BtngrupoVF.add(Rbtn_verdadero);
+        Rbtn_verdadero.setText("Verdadero");
+
+        BtngrupoVF.add(Rbtn_Falso);
+        Rbtn_Falso.setText("Falso");
+
+        BtnVF.setText("Guardar Pregunta");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane10))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Rbtn_Falso)
+                            .addComponent(Rbtn_verdadero))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(306, 306, 306)
+                .addComponent(BtnVF)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(Rbtn_verdadero)
+                .addGap(18, 18, 18)
+                .addComponent(Rbtn_Falso)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVF)
+                .addGap(0, 69, Short.MAX_VALUE))
+        );
+
+        TabbedPreguntas.addTab("Verdadero o Falso", jPanel4);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel12.setBackground(new java.awt.Color(0, 51, 102));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unitec negro.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel13)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane11.setViewportView(jTextArea1);
+
+        BtnSeleccion.setText("Guardar Pregunta");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(CheckBoxOp4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(FieldCHBOp4))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(CheckBoxOp3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(FieldCHBOp3))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(CheckBoxOp2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(FieldCHBOp2))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(CheckBoxOp1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(FieldCHBOp1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(BtnSeleccion)))
+                .addContainerGap(334, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(CheckBoxOp1))
+                            .addComponent(FieldCHBOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CheckBoxOp2)
+                            .addComponent(FieldCHBOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(CheckBoxOp3))
+                    .addComponent(FieldCHBOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CheckBoxOp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FieldCHBOp4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(BtnSeleccion)
+                .addGap(22, 22, 22))
+        );
+
+        TabbedPreguntas.addTab("Tipo Seleccion Multiple", jPanel6);
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel13.setBackground(new java.awt.Color(102, 102, 102));
+
+        lb_UnitecColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unitec color.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(204, 204, 204)
+                .addComponent(lb_UnitecColor)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_UnitecColor)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane12.setViewportView(jTextArea2);
+
+        lb_respCorrecta.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_respCorrecta.setForeground(new java.awt.Color(51, 51, 51));
+        lb_respCorrecta.setText("Respuesta Correcta");
+
+        BtnCompletacion.setText("Guardar Pregunta");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb_respCorrecta)
+                            .addComponent(FieldRespCorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(BtnCompletacion)))
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lb_respCorrecta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldRespCorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(BtnCompletacion)
+                .addGap(34, 34, 34))
+        );
+
+        TabbedPreguntas.addTab("Tipo Completacion", jPanel10);
+
+        javax.swing.GroupLayout DiaExamenMaestrosLayout = new javax.swing.GroupLayout(DiaExamenMaestros.getContentPane());
+        DiaExamenMaestros.getContentPane().setLayout(DiaExamenMaestrosLayout);
+        DiaExamenMaestrosLayout.setHorizontalGroup(
+            DiaExamenMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TabbedPreguntas)
+        );
+        DiaExamenMaestrosLayout.setVerticalGroup(
+            DiaExamenMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TabbedPreguntas)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2576,6 +2855,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnAyudaCanvas;
     private javax.swing.JButton BtnCanvasAlumno;
     private javax.swing.JButton BtnCanvasMaestros;
+    private javax.swing.JButton BtnCompletacion;
     private javax.swing.JButton BtnCorreo;
     private javax.swing.JButton BtnCrai;
     private javax.swing.JButton BtnCursosAlumnos;
@@ -2605,18 +2885,31 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalirAlum;
     private javax.swing.JButton BtnSalirMaestros;
     private javax.swing.JButton BtnSelecClaseModif;
+    private javax.swing.JButton BtnSeleccion;
+    private javax.swing.JButton BtnVF;
+    private javax.swing.ButtonGroup BtngrupoSeleccion;
+    private javax.swing.ButtonGroup BtngrupoVF;
     private javax.swing.JComboBox<String> Cb_listaClases;
+    private javax.swing.JCheckBox CheckBoxOp1;
+    private javax.swing.JCheckBox CheckBoxOp2;
+    private javax.swing.JCheckBox CheckBoxOp3;
+    private javax.swing.JCheckBox CheckBoxOp4;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
     private com.toedter.calendar.JDateChooser DateChooserModif;
     private javax.swing.JDialog DiaElimClases;
     private javax.swing.JDialog DiaElimUsuarios;
+    private javax.swing.JDialog DiaExamenMaestros;
     private javax.swing.JDialog DiaModifClases;
     private javax.swing.JDialog DiaModifUsuarios;
     private javax.swing.JTextField FieldAnio;
     private javax.swing.JTextField FieldBuscar;
     private javax.swing.JTextField FieldBuscarElim;
+    private javax.swing.JTextField FieldCHBOp1;
+    private javax.swing.JTextField FieldCHBOp2;
+    private javax.swing.JTextField FieldCHBOp3;
+    private javax.swing.JTextField FieldCHBOp4;
     private javax.swing.JTextField FieldCarrera;
     private javax.swing.JTextField FieldCodigo;
     private javax.swing.JPasswordField FieldContra;
@@ -2636,6 +2929,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldNueSueldo;
     private javax.swing.JTextField FieldNuevoUsername;
     private javax.swing.JTextField FieldProfesion;
+    private javax.swing.JTextField FieldRespCorrecta;
     private javax.swing.JTextField FieldSemestre;
     private javax.swing.JTextField FieldSueldo;
     private javax.swing.JTextField FieldUV;
@@ -2677,10 +2971,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel PanelTaskbar;
     private javax.swing.JLabel Portal;
     private javax.swing.JRadioButton RbtnActiva;
+    private javax.swing.JRadioButton Rbtn_Falso;
     private javax.swing.JRadioButton Rbtn_Inactiva;
     private javax.swing.JRadioButton Rbtn_alumno;
     private javax.swing.JRadioButton Rbtn_maestro;
+    private javax.swing.JRadioButton Rbtn_verdadero;
+    private javax.swing.JTextArea TAPreguntaVF;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
+    private javax.swing.JTabbedPane TabbedPreguntas;
     private javax.swing.JTabbedPane TabbedRegistro;
     private javax.swing.JButton btnElimClases;
     private javax.swing.JButton btn_tipoUser;
@@ -2700,6 +2998,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2709,13 +3008,22 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2724,11 +3032,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lb_AlumnosMat;
     private javax.swing.JLabel lb_AsigAlum;
     private javax.swing.JLabel lb_ClasesMatri;
     private javax.swing.JLabel lb_Crai;
     private javax.swing.JLabel lb_UnitecAlum;
+    private javax.swing.JLabel lb_UnitecColor;
     private javax.swing.JLabel lb_ayudaCanvas;
     private javax.swing.JLabel lb_bienvenidoAlumno;
     private javax.swing.JLabel lb_bienvenidoMaestro;
@@ -2772,9 +3083,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_periodoModif;
     private javax.swing.JLabel lb_profesion;
     private javax.swing.JLabel lb_registro;
+    private javax.swing.JLabel lb_respCorrecta;
     private javax.swing.JLabel lb_semestre;
     private javax.swing.JLabel lb_sueldo;
     private javax.swing.JLabel lb_tipo;
+    private javax.swing.JLabel lb_unitecBlanco;
     private javax.swing.JLabel lb_username;
     private javax.swing.JLabel lb_usernameCrud;
     private javax.swing.JRadioButton modifAlumno;
