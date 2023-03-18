@@ -44,6 +44,11 @@ public class Pregunta {
     public Object getRespuesta() {
         return respuesta;
     }
+
+    @Override
+    public String toString() {
+        return "Pregunta{" + "puntaje=" + puntaje + ", pregunta=" + pregunta + ", respuesta=" + respuesta + '}';
+    }
     
     
 }

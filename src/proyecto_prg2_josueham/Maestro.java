@@ -79,5 +79,10 @@ public class Maestro extends Usuario implements Serializable {
     public String toString() {
         return nombre;
     }
+    
+    public String toString2() {
+        return "Maestro{" + "nombre=" + nombre + ", identidad=" + identidad + ", profesion=" + profesion + ", sueldo=" + sueldo + ", clases=" + clases + ", alumnos=" + alumnos + '}';
+    }
 
+    
 }

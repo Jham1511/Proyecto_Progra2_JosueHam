@@ -5,11 +5,13 @@
 package proyecto_prg2_josueham;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Curso implements Serializable {
 
     private String nombre, codigo, hora,semestre,periodo,anio;
     private  int UV;
+    private ArrayList<Examen> examenes = new ArrayList();
 
     public Curso() {
     }
@@ -79,6 +81,16 @@ public class Curso implements Serializable {
     public void setUV(int UV) {
         this.UV = UV;
     }
+
+    public ArrayList<Examen> getExamenes() {
+        return examenes;
+    }
+
+    public void setExamenes(ArrayList<Examen> examenes) {
+        this.examenes = examenes;
+    }
+    
+    
 
     @Override
     public String toString() {
