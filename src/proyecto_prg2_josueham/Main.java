@@ -1682,8 +1682,8 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(306, 306, 306)
-                .addComponent(BtnVF)
+                .addGap(323, 323, 323)
+                .addComponent(BtnVF, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -2270,6 +2270,11 @@ public class Main extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
         aAlumnos.cargarArchivo();
+        
+        aAlumnos.setAlumno(alum);
+        
+        
+        
         aAlumnos.escribirArchivo();
         System.out.println(alum.getClases());
     }//GEN-LAST:event_BtnAsigClasesActionPerformed
