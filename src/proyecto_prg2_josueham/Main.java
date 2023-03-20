@@ -153,8 +153,8 @@ public class Main extends javax.swing.JFrame {
         btngrupoModifEstado = new javax.swing.ButtonGroup();
         DiaElimUsuarios = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lb_elimUsuarios = new javax.swing.JLabel();
+        lb_buscarUsuarioElim = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         JListElimUser = new javax.swing.JList<>();
         FieldBuscarElim = new javax.swing.JTextField();
@@ -178,7 +178,7 @@ public class Main extends javax.swing.JFrame {
         lb_nueSemestre = new javax.swing.JLabel();
         FieldNueSemestre = new javax.swing.JTextField();
         lb_periodoModif = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lb_nueAnio = new javax.swing.JLabel();
         FieldNueAnio = new javax.swing.JTextField();
         lb_nueUV = new javax.swing.JLabel();
         FieldModifUV = new javax.swing.JTextField();
@@ -191,23 +191,24 @@ public class Main extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         JListElimClases = new javax.swing.JList<>();
         BtnElimClase = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lb_elimClases = new javax.swing.JLabel();
+        lb_buscarClaseElim = new javax.swing.JLabel();
         MenuMaestros = new javax.swing.JDialog();
         PNELMaestros = new javax.swing.JPanel();
         lb_misClasesMaestros = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         JListClasesMaestros = new javax.swing.JList<>();
         BtnIngresarClase = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnCrearExamen = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         JListClasesExamen = new javax.swing.JList<>();
         lb_misClasesMaestros1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        BtnModifExamen = new javax.swing.JButton();
+        BtnElimExamen = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         BtnCursosMaestros = new javax.swing.JButton();
+        BtnRegMenuMaes = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         InicioMaestros = new javax.swing.JDialog();
@@ -269,12 +270,28 @@ public class Main extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         lb_UnitecColor = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        TACompletacion = new javax.swing.JTextArea();
         lb_respCorrecta = new javax.swing.JLabel();
         FieldRespCorrecta = new javax.swing.JTextField();
         BtnCompletacion = new javax.swing.JButton();
         BtngrupoVF = new javax.swing.ButtonGroup();
         BtngrupoSeleccion = new javax.swing.ButtonGroup();
+        DiaInfoExamen = new javax.swing.JDialog();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        lb_nomExamen = new javax.swing.JLabel();
+        FieldNomExamen = new javax.swing.JTextField();
+        lb_fechaInicio = new javax.swing.JLabel();
+        ChooserFechaInicio = new com.toedter.calendar.JDateChooser();
+        lb_fecheCierre = new javax.swing.JLabel();
+        ChooserFechaCierre = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        BtnGuardarInfoExamen = new javax.swing.JButton();
+        SpinnerDuracion = new javax.swing.JSpinner();
+        DiaInfoExamenModif = new javax.swing.JDialog();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        DiaModifPreguntas = new javax.swing.JDialog();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -851,13 +868,13 @@ public class Main extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(96, 150, 180));
 
-        jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Eliminar Usuarios");
+        lb_elimUsuarios.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_elimUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        lb_elimUsuarios.setText("Eliminar Usuarios");
 
-        jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Buscar Usuario a eliminar");
+        lb_buscarUsuarioElim.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_buscarUsuarioElim.setForeground(new java.awt.Color(255, 255, 255));
+        lb_buscarUsuarioElim.setText("Buscar Usuario a eliminar");
 
         JListElimUser.setModel(new DefaultListModel());
         jScrollPane5.setViewportView(JListElimUser);
@@ -895,8 +912,8 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane5)
                             .addComponent(FieldBuscarElim)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
+                            .addComponent(lb_buscarUsuarioElim)
+                            .addComponent(lb_elimUsuarios)
                             .addComponent(BtnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
@@ -909,9 +926,9 @@ public class Main extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(lb_elimUsuarios)
                 .addGap(33, 33, 33)
-                .addComponent(jLabel6)
+                .addComponent(lb_buscarUsuarioElim)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(FieldBuscarElim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -991,9 +1008,9 @@ public class Main extends javax.swing.JFrame {
         lb_periodoModif.setForeground(new java.awt.Color(255, 255, 255));
         lb_periodoModif.setText("Periodo");
 
-        jLabel9.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Año en que se cursa");
+        lb_nueAnio.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nueAnio.setForeground(new java.awt.Color(255, 255, 255));
+        lb_nueAnio.setText("Año en que se cursa");
 
         lb_nueUV.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueUV.setForeground(new java.awt.Color(255, 255, 255));
@@ -1042,7 +1059,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(FieldNueSemestre)
                             .addComponent(lb_periodoModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(FieldNueAnio)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_nueAnio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cb_nuePeriodo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnGuardarModifClase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(125, 125, 125))))
@@ -1089,7 +1106,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb_horaModif)
-                            .addComponent(jLabel9))
+                            .addComponent(lb_nueAnio))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cb_horasModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1143,13 +1160,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Eliminar Clases");
+        lb_elimClases.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_elimClases.setForeground(new java.awt.Color(255, 255, 255));
+        lb_elimClases.setText("Eliminar Clases");
 
-        jLabel8.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Buscar Clase a Eliminar");
+        lb_buscarClaseElim.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_buscarClaseElim.setForeground(new java.awt.Color(255, 255, 255));
+        lb_buscarClaseElim.setText("Buscar Clase a Eliminar");
 
         javax.swing.GroupLayout PanelElimClasesLayout = new javax.swing.GroupLayout(PanelElimClases);
         PanelElimClases.setLayout(PanelElimClasesLayout);
@@ -1161,11 +1178,11 @@ public class Main extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(BtnRegresarElimClases)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
+                        .addComponent(lb_elimClases))
                     .addGroup(PanelElimClasesLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(PanelElimClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                            .addComponent(lb_buscarClaseElim)
                             .addGroup(PanelElimClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(FieldElimClases)
                                 .addComponent(jScrollPane6)
@@ -1181,9 +1198,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(BtnRegresarElimClases))
                     .addGroup(PanelElimClasesLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel7)))
+                        .addComponent(lb_elimClases)))
                 .addGap(24, 24, 24)
-                .addComponent(jLabel8)
+                .addComponent(lb_buscarClaseElim)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(FieldElimClases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1224,10 +1241,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Crear examen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnCrearExamen.setText("Crear examen");
+        BtnCrearExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnCrearExamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnCrearExamenActionPerformed(evt);
             }
         });
 
@@ -1239,21 +1257,24 @@ public class Main extends javax.swing.JFrame {
         lb_misClasesMaestros1.setForeground(new java.awt.Color(51, 102, 255));
         lb_misClasesMaestros1.setText("Examenes");
 
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BtnModifExamen.setText("Modificar Examen");
+        BtnModifExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnModifExamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnModifExamenActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Eliminar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        BtnElimExamen.setText("Eliminar Examen");
+        BtnElimExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnElimExamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                BtnElimExamenActionPerformed(evt);
             }
         });
 
         jButton5.setText("jButton5");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -1273,16 +1294,13 @@ public class Main extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                         .addGap(32, 32, 32)
-                        .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton5)))
+                        .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(140, 140, 140))
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(lb_misClasesMaestros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1304,14 +1322,14 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BtnIngresarClase))
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(BtnCrearExamen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(BtnModifExamen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(BtnElimExamen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         MenuMaestros.getContentPane().add(PNELMaestros, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 90, 510, 360));
@@ -1320,9 +1338,21 @@ public class Main extends javax.swing.JFrame {
 
         BtnCursosMaestros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/curso-por-internet.png"))); // NOI18N
         BtnCursosMaestros.setBorder(null);
+        BtnCursosMaestros.setBorderPainted(false);
+        BtnCursosMaestros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCursosMaestros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCursosMaestrosActionPerformed(evt);
+            }
+        });
+
+        BtnRegMenuMaes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back-arrow.png"))); // NOI18N
+        BtnRegMenuMaes.setBorder(null);
+        BtnRegMenuMaes.setBorderPainted(false);
+        BtnRegMenuMaes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnRegMenuMaes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegMenuMaesActionPerformed(evt);
             }
         });
 
@@ -1332,7 +1362,9 @@ public class Main extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(BtnCursosMaestros)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtnRegMenuMaes)
+                    .addComponent(BtnCursosMaestros))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1340,7 +1372,9 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(BtnCursosMaestros)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(BtnRegMenuMaes)
+                .addGap(86, 86, 86))
         );
 
         MenuMaestros.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 360));
@@ -1709,17 +1743,17 @@ public class Main extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(220, Short.MAX_VALUE)
                 .addComponent(lb_unitecBlanco)
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addGap(208, 208, 208))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb_unitecBlanco)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         TAPreguntaVF.setColumns(20);
@@ -1733,6 +1767,11 @@ public class Main extends javax.swing.JFrame {
         Rbtn_Falso.setText("Falso");
 
         BtnVF.setText("Guardar Pregunta");
+        BtnVF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1851,7 +1890,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(340, 340, 340)
                         .addComponent(BtnSeleccion)))
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1907,15 +1946,20 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane12.setViewportView(jTextArea2);
+        TACompletacion.setColumns(20);
+        TACompletacion.setRows(5);
+        jScrollPane12.setViewportView(TACompletacion);
 
         lb_respCorrecta.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_respCorrecta.setForeground(new java.awt.Color(51, 51, 51));
         lb_respCorrecta.setText("Respuesta Correcta");
 
         BtnCompletacion.setText("Guardar Pregunta");
+        BtnCompletacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCompletacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1935,7 +1979,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(292, 292, 292)
                         .addComponent(BtnCompletacion)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1962,7 +2006,119 @@ public class Main extends javax.swing.JFrame {
         );
         DiaExamenMaestrosLayout.setVerticalGroup(
             DiaExamenMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabbedPreguntas)
+            .addComponent(TabbedPreguntas, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
+        DiaInfoExamen.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+
+        DiaInfoExamen.getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 370));
+
+        jPanel15.setBackground(new java.awt.Color(0, 51, 102));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        DiaInfoExamen.getContentPane().add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 80));
+
+        lb_nomExamen.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nomExamen.setForeground(new java.awt.Color(51, 102, 255));
+        lb_nomExamen.setText("Nombre del Examen");
+        DiaInfoExamen.getContentPane().add(lb_nomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+
+        FieldNomExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DiaInfoExamen.getContentPane().add(FieldNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 110, 30));
+
+        lb_fechaInicio.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_fechaInicio.setForeground(new java.awt.Color(51, 102, 255));
+        lb_fechaInicio.setText("Fecha de inicio");
+        DiaInfoExamen.getContentPane().add(lb_fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        DiaInfoExamen.getContentPane().add(ChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 110, 30));
+
+        lb_fecheCierre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_fecheCierre.setForeground(new java.awt.Color(51, 102, 255));
+        lb_fecheCierre.setText("Fecha de Cierre");
+        DiaInfoExamen.getContentPane().add(lb_fecheCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+        DiaInfoExamen.getContentPane().add(ChooserFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 110, 30));
+
+        jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel5.setText("Duración del Examen en minutos");
+        DiaInfoExamen.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
+
+        BtnGuardarInfoExamen.setText("Guardar Informacion");
+        BtnGuardarInfoExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnGuardarInfoExamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarInfoExamenActionPerformed(evt);
+            }
+        });
+        DiaInfoExamen.getContentPane().add(BtnGuardarInfoExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 140, 30));
+
+        SpinnerDuracion.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        DiaInfoExamen.getContentPane().add(SpinnerDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 110, 30));
+
+        DiaInfoExamenModif.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
+
+        DiaInfoExamenModif.getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 80));
+
+        jPanel17.setBackground(new java.awt.Color(0, 51, 102));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+
+        DiaInfoExamenModif.getContentPane().add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 310));
+
+        javax.swing.GroupLayout DiaModifPreguntasLayout = new javax.swing.GroupLayout(DiaModifPreguntas.getContentPane());
+        DiaModifPreguntas.getContentPane().setLayout(DiaModifPreguntasLayout);
+        DiaModifPreguntasLayout.setHorizontalGroup(
+            DiaModifPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DiaModifPreguntasLayout.setVerticalGroup(
+            DiaModifPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2354,11 +2510,9 @@ public class Main extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
         aAlumnos.cargarArchivo();
-        
+
         aAlumnos.setAlumno(alum);
-        
-        
-        
+
         aAlumnos.escribirArchivo();
         System.out.println(alum.getClases());
     }//GEN-LAST:event_BtnAsigClasesActionPerformed
@@ -2710,55 +2864,69 @@ public class Main extends javax.swing.JFrame {
         InicioAlumnos.setVisible(true);
     }//GEN-LAST:event_BtnRegAlumnosActionPerformed
 
-    
     Examen examenSeleccionado = null;
     Curso cursoSeleccionado = null;
     private void BtnIngresarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarClaseActionPerformed
-        DefaultListModel modelo = (DefaultListModel)JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso)modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+
+        DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
+        for (Examen examen : cursoSeleccionado.getExamenes()) {
+            modelExamen.addElement(examen);
+        }
+
+    }//GEN-LAST:event_BtnIngresarClaseActionPerformed
+
+    private void BtnCrearExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearExamenActionPerformed
+        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+        Curso clase = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        examenSeleccionado = new Examen();
         
-        DefaultListModel modelExamen = (DefaultListModel)JListClasesExamen.getModel();
+        clase.getExamenes().add(examenSeleccionado);
+        abrirInfoExamen();
+        DiaExamenMaestros.pack();
+        DiaExamenMaestros.setLocationRelativeTo(this);
+        DiaExamenMaestros.setVisible(true);
+    }//GEN-LAST:event_BtnCrearExamenActionPerformed
+
+    private void BtnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionActionPerformed
+        if (BtngrupoSeleccion.getSelection() != null) {
+            PSelMultiple p = new PSelMultiple();
+            p.pregunta = jta_preguntaSelMul.getText();
+            if (cb_respuestaUno.isSelected()) {
+                p.respuesta = 1;
+            } else if (cb_respuestaDos.isSelected()) {
+                p.respuesta = 2;
+            } else if (cb_respuestaTres.isSelected()) {
+                p.respuesta = 3;
+            } else if (cb_respuestaCuatro.isSelected()) {
+                p.respuesta = 4;
+            }
+
+            p.setOpciones(new String[]{FieldCHBOp1.getText(), FieldCHBOp2.getText(), FieldCHBOp3.getText(), FieldCHBOp4.getText()});
+            examenSeleccionado.getPreguntas().add(p);
+            JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
+            jta_preguntaSelMul.setText("");
+            BtngrupoSeleccion.clearSelection();
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor seleccione una opcion");
+        }
+    }//GEN-LAST:event_BtnSeleccionActionPerformed
+
+    private void BtnModifExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifExamenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnModifExamenActionPerformed
+
+    private void BtnElimExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimExamenActionPerformed
+      cursoSeleccionado.getExamenes().remove(examenSeleccionado);
+      
+      DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
         for (Examen examen : cursoSeleccionado.getExamenes()) {
             modelExamen.addElement(examen);
         }
         
-    }//GEN-LAST:event_BtnIngresarClaseActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        DefaultListModel modelo = (DefaultListModel)JListClasesMaestros.getModel();
-        Curso clase = (Curso)modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-        examenSeleccionado = new Examen();
-        clase.getExamenes().add(examenSeleccionado);
-        
-        DiaExamenMaestros.pack();
-        DiaExamenMaestros.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void BtnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionActionPerformed
-        PSelMultiple p = new PSelMultiple();
-        p.pregunta = jta_preguntaSelMul.getText();
-        if(cb_respuestaUno.isSelected()){
-            p.respuesta = 1;
-        }else if(cb_respuestaDos.isSelected()){
-            p.respuesta = 2;
-        }else if(cb_respuestaTres.isSelected()){
-            p.respuesta = 3;
-        }else if(cb_respuestaCuatro.isSelected()){
-            p.respuesta = 4;
-        }
-        
-        p.setOpciones(new String[] {FieldCHBOp1.getText(),FieldCHBOp2.getText(),FieldCHBOp3.getText(),FieldCHBOp4.getText()});
-        examenSeleccionado.getPreguntas().add(p);
-        JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
-    }//GEN-LAST:event_BtnSeleccionActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+      JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
+    }//GEN-LAST:event_BtnElimExamenActionPerformed
 
     private void cb_respuestaDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_respuestaDosActionPerformed
         // TODO add your handling code here:
@@ -2773,6 +2941,56 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void BtnVFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVFActionPerformed
+        if (BtngrupoVF.getSelection() != null) {
+            PTrueOrFalse ptf = new PTrueOrFalse();
+            ptf.pregunta = TAPreguntaVF.getText();
+
+            if (Rbtn_verdadero.isSelected()) {
+                ptf.respuesta = true;
+            } else if (Rbtn_Falso.isSelected()) {
+                ptf.respuesta = false;
+            }
+
+            examenSeleccionado.getPreguntas().add(ptf);
+            JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
+            TAPreguntaVF.setText("");
+            BtngrupoVF.clearSelection();
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor seleccione una opcion");
+        }
+    }//GEN-LAST:event_BtnVFActionPerformed
+
+    private void BtnCompletacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCompletacionActionPerformed
+        if (FieldRespCorrecta.getText() != null && TACompletacion.getText() != null) {
+            PCompletacion pc = new PCompletacion();
+            pc.pregunta = TACompletacion.getText();
+            pc.respuesta = FieldRespCorrecta.getText();
+
+            examenSeleccionado.getPreguntas().add(pc);
+            JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
+            TACompletacion.setText("");
+            FieldRespCorrecta.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Ingrese la información de la pregunta o de la respuesta");
+        }
+    }//GEN-LAST:event_BtnCompletacionActionPerformed
+
+    private void BtnGuardarInfoExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarInfoExamenActionPerformed
+        examenSeleccionado.setFechaFinal(ChooserFechaCierre.getDate());
+        examenSeleccionado.setFechaInicio(ChooserFechaInicio.getDate());
+        examenSeleccionado.setNombre(FieldNomExamen.getText());
+        int duracion = Integer.parseInt(SpinnerDuracion.getValue().toString()) * 60;
+        examenSeleccionado.setDuracion(duracion);
+        JOptionPane.showMessageDialog(this, "Informacion del examen guardada");
+        DiaInfoExamen.setVisible(false);
+    }//GEN-LAST:event_BtnGuardarInfoExamenActionPerformed
+
+    private void BtnRegMenuMaesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegMenuMaesActionPerformed
+        MenuMaestros.setVisible(false);
+        InicioMaestros.setVisible(true);
+    }//GEN-LAST:event_BtnRegMenuMaesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2808,7 +3026,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    public void abrirInfoExamen(){
+        DiaInfoExamen.setModal(true);
+        DiaInfoExamen.pack();
+        DiaInfoExamen.setLocationRelativeTo(this);
+        DiaInfoExamen.setVisible(true);
+    }
     public DefaultListModel llenarCursosAlum(Alumno a) {
         DefaultListModel modelo = new DefaultListModel();
         for (Curso clase : a.getClases()) {
@@ -3011,25 +3234,30 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnCompletacion;
     private javax.swing.JButton BtnCorreo;
     private javax.swing.JButton BtnCrai;
+    private javax.swing.JButton BtnCrearExamen;
     private javax.swing.JButton BtnCursosAlumnos;
     private javax.swing.JButton BtnCursosMaestros;
     private javax.swing.JButton BtnElimClase;
+    private javax.swing.JButton BtnElimExamen;
     private javax.swing.JButton BtnElimUsuarios;
     private javax.swing.JButton BtnEliminarUsuario;
     private javax.swing.JButton BtnEscogerUser;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnGuardarCambiosUser;
     private javax.swing.JButton BtnGuardarClase;
+    private javax.swing.JButton BtnGuardarInfoExamen;
     private javax.swing.JButton BtnGuardarModifClase;
     private javax.swing.JButton BtnIngresar;
     private javax.swing.JButton BtnIngresarAlum;
     private javax.swing.JButton BtnIngresarClase;
     private javax.swing.JButton BtnLogOutAlum;
     private javax.swing.JButton BtnModifClases;
+    private javax.swing.JButton BtnModifExamen;
     private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnMostrarCamposModif;
     private javax.swing.JButton BtnRegAlumnos;
     private javax.swing.JButton BtnRegMaestros;
+    private javax.swing.JButton BtnRegMenuMaes;
     private javax.swing.JButton BtnRegistro;
     private javax.swing.JButton BtnRegresar;
     private javax.swing.JButton BtnRegresarElimClases;
@@ -3043,6 +3271,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup BtngrupoSeleccion;
     private javax.swing.ButtonGroup BtngrupoVF;
     private javax.swing.JComboBox<String> Cb_listaClases;
+    private com.toedter.calendar.JDateChooser ChooserFechaCierre;
+    private com.toedter.calendar.JDateChooser ChooserFechaInicio;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
@@ -3050,7 +3280,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog DiaElimClases;
     private javax.swing.JDialog DiaElimUsuarios;
     private javax.swing.JDialog DiaExamenMaestros;
+    private javax.swing.JDialog DiaInfoExamen;
+    private javax.swing.JDialog DiaInfoExamenModif;
     private javax.swing.JDialog DiaModifClases;
+    private javax.swing.JDialog DiaModifPreguntas;
     private javax.swing.JDialog DiaModifUsuarios;
     private javax.swing.JTextField FieldAnio;
     private javax.swing.JTextField FieldBuscar;
@@ -3065,6 +3298,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldElimClases;
     private javax.swing.JTextField FieldModifClase;
     private javax.swing.JTextField FieldModifUV;
+    private javax.swing.JTextField FieldNomExamen;
     private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldNombreClase;
     private javax.swing.JTextField FieldNueAnio;
@@ -3126,6 +3360,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton Rbtn_alumno;
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JRadioButton Rbtn_verdadero;
+    private javax.swing.JSpinner SpinnerDuracion;
+    private javax.swing.JTextArea TACompletacion;
     private javax.swing.JTextArea TAPreguntaVF;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedPreguntas;
@@ -3148,9 +3384,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_respuestaTres;
     private javax.swing.JCheckBox cb_respuestaUno;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3161,15 +3394,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3191,7 +3424,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jta_preguntaSelMul;
     private javax.swing.JLabel lb_AlumnosMat;
     private javax.swing.JLabel lb_AsigAlum;
@@ -3203,11 +3435,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_bienvenidoAlumno;
     private javax.swing.JLabel lb_bienvenidoMaestro;
     private javax.swing.JLabel lb_buscar;
+    private javax.swing.JLabel lb_buscarClaseElim;
+    private javax.swing.JLabel lb_buscarUsuarioElim;
     private javax.swing.JLabel lb_carrera;
     private javax.swing.JLabel lb_clasesMaes;
     private javax.swing.JLabel lb_codClase;
     private javax.swing.JLabel lb_contra;
+    private javax.swing.JLabel lb_elimClases;
+    private javax.swing.JLabel lb_elimUsuarios;
     private javax.swing.JLabel lb_estado;
+    private javax.swing.JLabel lb_fechaInicio;
+    private javax.swing.JLabel lb_fecheCierre;
     private javax.swing.JLabel lb_horaClase;
     private javax.swing.JLabel lb_horaModif;
     private javax.swing.JLabel lb_howie;
@@ -3225,6 +3463,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nacimiento;
     private javax.swing.JLabel lb_nom;
     private javax.swing.JLabel lb_nomClase;
+    private javax.swing.JLabel lb_nomExamen;
+    private javax.swing.JLabel lb_nueAnio;
     private javax.swing.JLabel lb_nueCarrera;
     private javax.swing.JLabel lb_nueCodigoClase;
     private javax.swing.JLabel lb_nueFechaBirth;

@@ -9,9 +9,18 @@ import java.util.Date;
 
 
 public class Examen {
+    private String nombre;
     private int duracion;
     private Date fechaInicio, fechaFinal;
     private ArrayList<Pregunta> preguntas = new ArrayList();
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public int getDuracion() {
         return duracion;
