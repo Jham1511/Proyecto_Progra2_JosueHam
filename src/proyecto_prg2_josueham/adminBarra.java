@@ -19,9 +19,10 @@ public class adminBarra extends Thread{
     public adminBarra() {
     }
 
-    public adminBarra(Examen examen, int duracion) {
+    public adminBarra(Examen examen, int duracion, JProgressBar barra) {
         this.examen = examen;
         this.duracion = duracion;
+        this.barra = barra;
     }
 
     public Examen getExamen() {

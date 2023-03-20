@@ -332,6 +332,8 @@ public class Main extends javax.swing.JFrame {
         Rbtn_VerdaderoAlum = new javax.swing.JRadioButton();
         Rbtn_FalsoAlum = new javax.swing.JRadioButton();
         BtnSiguienteExamen = new javax.swing.JButton();
+        lb_escribaRespuesta = new javax.swing.JLabel();
+        FieldRespAlumno = new javax.swing.JTextField();
         BtngrupoSelMulAlum = new javax.swing.ButtonGroup();
         BtngrupoVFAlum = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
@@ -2383,6 +2385,11 @@ public class Main extends javax.swing.JFrame {
         BtnSiguienteExamen.setText("Siguiente");
         DiaExamenAlumnos.getContentPane().add(BtnSiguienteExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
+        lb_escribaRespuesta.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_escribaRespuesta.setText("Escriba la respuesta");
+        DiaExamenAlumnos.getContentPane().add(lb_escribaRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+        DiaExamenAlumnos.getContentPane().add(FieldRespAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 170, 30));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanelLogIn.setBackground(new java.awt.Color(0, 51, 102));
@@ -3143,7 +3150,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
         Curso clase = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
         examenSeleccionado = new Examen();
-        
+
         clase.getExamenes().add(examenSeleccionado);
         abrirInfoExamen();
         DiaExamenMaestros.pack();
@@ -3155,7 +3162,8 @@ public class Main extends javax.swing.JFrame {
         if (BtngrupoSeleccion.getSelection() != null) {
             PSelMultiple p = new PSelMultiple();
             p.pregunta = jta_preguntaSelMul.getText();
-            p.puntaje = Integer.parseInt(SpinnerPuntajeSel.getValue().toString());
+            String strPuntaje = SpinnerPuntajeSel.getValue().toString();
+            p.puntaje = Integer.parseInt(strPuntaje);
             if (cb_respuestaUno.isSelected()) {
                 p.respuesta = 1;
             } else if (cb_respuestaDos.isSelected()) {
@@ -3177,18 +3185,27 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSeleccionActionPerformed
 
     private void BtnModifExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifExamenActionPerformed
-        // TODO add your handling code here:
+        DiaInfoExamenModif.pack();
+        DiaInfoExamenModif.setLocationRelativeTo(this);
+        DiaInfoExamenModif.setVisible(true);
+
+        DiaModifPreguntas.setModal(true);
+        DiaModifPreguntas.pack();
+        DiaModifPreguntas.setLocationRelativeTo(this);
+        DiaModifPreguntas.setVisible(true);
     }//GEN-LAST:event_BtnModifExamenActionPerformed
 
     private void BtnElimExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimExamenActionPerformed
-      cursoSeleccionado.getExamenes().remove(examenSeleccionado);
-      
-      DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
+        DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+        cursoSeleccionado.getExamenes().remove(examenSeleccionado);
+
+        DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
         for (Examen examen : cursoSeleccionado.getExamenes()) {
             modelExamen.addElement(examen);
         }
-        
-      JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
+
+        JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
     }//GEN-LAST:event_BtnElimExamenActionPerformed
 
     private void cb_respuestaDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_respuestaDosActionPerformed
@@ -3209,7 +3226,8 @@ public class Main extends javax.swing.JFrame {
         if (BtngrupoVF.getSelection() != null) {
             PTrueOrFalse ptf = new PTrueOrFalse();
             ptf.pregunta = TAPreguntaVF.getText();
-            ptf.puntaje = Integer.parseInt(SpinnerPuntajeTF.getValue().toString());
+            String strPuntaje = SpinnerPuntajeTF.getValue().toString();
+            ptf.puntaje = Integer.parseInt(strPuntaje);
             if (Rbtn_verdadero.isSelected()) {
                 ptf.respuesta = true;
             } else if (Rbtn_Falso.isSelected()) {
@@ -3230,7 +3248,8 @@ public class Main extends javax.swing.JFrame {
             PCompletacion pc = new PCompletacion();
             pc.pregunta = TACompletacion.getText();
             pc.respuesta = FieldRespCorrecta.getText();
-            pc.puntaje = Integer.parseInt(SpinnerPuntajeComp.getValue().toString());
+            String strPuntaje = SpinnerPuntajeComp.getValue().toString();
+            pc.puntaje = Integer.parseInt(strPuntaje);
 
             examenSeleccionado.getPreguntas().add(pc);
             JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
@@ -3267,7 +3286,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnGuardarModifExamenActionPerformed
 
     private void BtnIngresarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarAlumActionPerformed
-       DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
+        DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
 
         DefaultListModel modelExamen = (DefaultListModel) JlistExamenesAlum.getModel();
@@ -3280,10 +3299,52 @@ public class Main extends javax.swing.JFrame {
     private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
         if (JlistExamenesAlum.getSelectedIndex() >= 0) {
             abrirExamen();
+            for (Pregunta pre : examenSeleccionado.getPreguntas()) {
+                if (pre instanceof PSelMultiple) {
+                    FieldCheckAlum1.setVisible(true);
+                    FieldCheckAlum2.setVisible(true);
+                    FieldCheckAlum3.setVisible(true);
+                    FieldCheckAlum4.setVisible(true);
+                    CheckBoxAlum1.setVisible(true);
+                    CheckBoxAlum2.setVisible(true);
+                    CheckBoxAlum3.setVisible(true);
+                    CheckBoxAlum4.setVisible(true);
+                    Rbtn_FalsoAlum.setVisible(false);
+                    Rbtn_VerdaderoAlum.setVisible(false);
+                    FieldRespAlumno.setVisible(false);
+                    lb_escribaRespuesta.setVisible(false);
+                } else if (pre instanceof PTrueOrFalse) {
+                    FieldCheckAlum1.setVisible(false);
+                    FieldCheckAlum2.setVisible(false);
+                    FieldCheckAlum3.setVisible(false);
+                    FieldCheckAlum4.setVisible(false);
+                    CheckBoxAlum1.setVisible(false);
+                    CheckBoxAlum2.setVisible(false);
+                    CheckBoxAlum3.setVisible(false);
+                    CheckBoxAlum4.setVisible(false);
+                    Rbtn_FalsoAlum.setVisible(true);
+                    Rbtn_VerdaderoAlum.setVisible(true);
+                    FieldRespAlumno.setVisible(false);
+                    lb_escribaRespuesta.setVisible(false);
+                } else if (pre instanceof PCompletacion) {
+                    FieldCheckAlum1.setVisible(false);
+                    FieldCheckAlum2.setVisible(false);
+                    FieldCheckAlum3.setVisible(false);
+                    FieldCheckAlum4.setVisible(false);
+                    CheckBoxAlum1.setVisible(false);
+                    CheckBoxAlum2.setVisible(false);
+                    CheckBoxAlum3.setVisible(false);
+                    CheckBoxAlum4.setVisible(false);
+                    Rbtn_FalsoAlum.setVisible(false);
+                    Rbtn_VerdaderoAlum.setVisible(false);
+                    FieldRespAlumno.setVisible(true);
+                    lb_escribaRespuesta.setVisible(true);
+                }
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Seleccione un examen a realizar");
         }
-        
+
     }//GEN-LAST:event_BtnRealizarExamenActionPerformed
 
     /**
@@ -3320,22 +3381,48 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    public void abrirExamen(){
+
+    public void abrirExamen() {
+        TAPregunta.setEditable(false);
+        FieldCheckAlum1.setEditable(false);
+        FieldCheckAlum2.setEditable(false);
+        FieldCheckAlum3.setEditable(false);
+        FieldCheckAlum4.setEditable(false);
+
+        FieldCheckAlum1.setVisible(false);
+        FieldCheckAlum2.setVisible(false);
+        FieldCheckAlum3.setVisible(false);
+        FieldCheckAlum4.setVisible(false);
+
+        CheckBoxAlum1.setVisible(false);
+        CheckBoxAlum2.setVisible(false);
+        CheckBoxAlum3.setVisible(false);
+        CheckBoxAlum4.setVisible(false);
+
+        Rbtn_FalsoAlum.setVisible(false);
+        Rbtn_VerdaderoAlum.setVisible(false);
+
+        FieldRespAlumno.setVisible(false);
+        lb_escribaRespuesta.setVisible(false);
+
+        adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion(), PBDuracion);
+        Thread hilo = new Thread(ab);
+        hilo.start();
+
         DiaExamenAlumnos.setModal(true);
         DiaExamenAlumnos.pack();
         DiaExamenAlumnos.setLocationRelativeTo(this);
         DiaExamenAlumnos.setVisible(true);
-        
-        adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion());
-        Thread hilo = new Thread(ab);
-        hilo.start();
+
     }
-    public void abrirInfoExamen(){
+
+    public void abrirInfoExamen() {
         DiaInfoExamen.setModal(true);
         DiaInfoExamen.pack();
         DiaInfoExamen.setLocationRelativeTo(this);
         DiaInfoExamen.setVisible(true);
     }
+
     public DefaultListModel llenarCursosAlum(Alumno a) {
         DefaultListModel modelo = new DefaultListModel();
         for (Curso clase : a.getClases()) {
@@ -3633,6 +3720,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldNueSueldo;
     private javax.swing.JTextField FieldNuevoUsername;
     private javax.swing.JTextField FieldProfesion;
+    private javax.swing.JTextField FieldRespAlumno;
     private javax.swing.JTextField FieldRespCorrecta;
     private javax.swing.JTextField FieldSemestre;
     private javax.swing.JTextField FieldSueldo;
@@ -3781,6 +3869,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_contra;
     private javax.swing.JLabel lb_elimClases;
     private javax.swing.JLabel lb_elimUsuarios;
+    private javax.swing.JLabel lb_escribaRespuesta;
     private javax.swing.JLabel lb_estado;
     private javax.swing.JLabel lb_examenesAlum;
     private javax.swing.JLabel lb_fechaInicio;
