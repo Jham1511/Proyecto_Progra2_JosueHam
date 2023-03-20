@@ -242,6 +242,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         JListClasesAlum = new javax.swing.JList<>();
         BtnIngresarAlum = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        JlistExamenesAlum = new javax.swing.JList<>();
+        lb_examenesAlum = new javax.swing.JLabel();
+        BtnRealizarExamen = new javax.swing.JButton();
+        BtnTareas = new javax.swing.JButton();
         DiaExamenMaestros = new javax.swing.JDialog();
         TabbedPreguntas = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -309,6 +314,26 @@ public class Main extends javax.swing.JFrame {
         DiaModifPreguntas = new javax.swing.JDialog();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
+        DiaExamenAlumnos = new javax.swing.JDialog();
+        jPanel20 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        PBDuracion = new javax.swing.JProgressBar();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        TAPregunta = new javax.swing.JTextArea();
+        CheckBoxAlum1 = new javax.swing.JCheckBox();
+        CheckBoxAlum2 = new javax.swing.JCheckBox();
+        CheckBoxAlum3 = new javax.swing.JCheckBox();
+        CheckBoxAlum4 = new javax.swing.JCheckBox();
+        FieldCheckAlum4 = new javax.swing.JTextField();
+        FieldCheckAlum1 = new javax.swing.JTextField();
+        FieldCheckAlum2 = new javax.swing.JTextField();
+        FieldCheckAlum3 = new javax.swing.JTextField();
+        Rbtn_VerdaderoAlum = new javax.swing.JRadioButton();
+        Rbtn_FalsoAlum = new javax.swing.JRadioButton();
+        BtnSiguienteExamen = new javax.swing.JButton();
+        BtngrupoSelMulAlum = new javax.swing.ButtonGroup();
+        BtngrupoVFAlum = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -1722,6 +1747,28 @@ public class Main extends javax.swing.JFrame {
 
         BtnIngresarAlum.setText("Ingresar");
         BtnIngresarAlum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnIngresarAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIngresarAlumActionPerformed(evt);
+            }
+        });
+
+        JlistExamenesAlum.setModel(new DefaultListModel()
+        );
+        jScrollPane15.setViewportView(JlistExamenesAlum);
+
+        lb_examenesAlum.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
+        lb_examenesAlum.setForeground(new java.awt.Color(51, 102, 255));
+        lb_examenesAlum.setText("Examenes");
+
+        BtnRealizarExamen.setText("Realizar Examen");
+        BtnRealizarExamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRealizarExamenActionPerformed(evt);
+            }
+        });
+
+        BtnTareas.setText("Ver Tareas");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1729,23 +1776,42 @@ public class Main extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lb_misClasesAlum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnIngresarAlum, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lb_misClasesAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BtnIngresarAlum, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnRealizarExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lb_examenesAlum))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(lb_misClasesAlum)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnIngresarAlum)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_misClasesAlum)
+                    .addComponent(lb_examenesAlum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane15)
+                            .addComponent(jScrollPane9))
+                        .addGap(26, 26, 26)
+                        .addComponent(BtnIngresarAlum))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(BtnRealizarExamen)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnTareas)))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         MenuAlumnos.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 560, 390));
@@ -2235,6 +2301,87 @@ public class Main extends javax.swing.JFrame {
         );
 
         DiaModifPreguntas.getContentPane().add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 550, -1));
+
+        DiaExamenAlumnos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel20.setBackground(new java.awt.Color(51, 102, 255));
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        DiaExamenAlumnos.getContentPane().add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 440));
+
+        jPanel21.setBackground(new java.awt.Color(153, 153, 153));
+
+        PBDuracion.setBackground(new java.awt.Color(71, 71, 75));
+
+        jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel6.setText("Tiempo restante del examen:");
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(PBDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(PBDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+        );
+
+        DiaExamenAlumnos.getContentPane().add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 80));
+
+        TAPregunta.setColumns(20);
+        TAPregunta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        TAPregunta.setRows(5);
+        jScrollPane14.setViewportView(TAPregunta);
+
+        DiaExamenAlumnos.getContentPane().add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 540, 110));
+
+        BtngrupoSelMulAlum.add(CheckBoxAlum1);
+        DiaExamenAlumnos.getContentPane().add(CheckBoxAlum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        BtngrupoSelMulAlum.add(CheckBoxAlum2);
+        DiaExamenAlumnos.getContentPane().add(CheckBoxAlum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+
+        BtngrupoSelMulAlum.add(CheckBoxAlum3);
+        DiaExamenAlumnos.getContentPane().add(CheckBoxAlum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
+
+        BtngrupoSelMulAlum.add(CheckBoxAlum4);
+        DiaExamenAlumnos.getContentPane().add(CheckBoxAlum4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, -1, -1));
+        DiaExamenAlumnos.getContentPane().add(FieldCheckAlum4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 110, 30));
+        DiaExamenAlumnos.getContentPane().add(FieldCheckAlum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, 30));
+        DiaExamenAlumnos.getContentPane().add(FieldCheckAlum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, 30));
+        DiaExamenAlumnos.getContentPane().add(FieldCheckAlum3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 110, 30));
+
+        BtngrupoVFAlum.add(Rbtn_VerdaderoAlum);
+        Rbtn_VerdaderoAlum.setText("Verdadero");
+        DiaExamenAlumnos.getContentPane().add(Rbtn_VerdaderoAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+
+        BtngrupoVFAlum.add(Rbtn_FalsoAlum);
+        Rbtn_FalsoAlum.setText("Falso");
+        DiaExamenAlumnos.getContentPane().add(Rbtn_FalsoAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
+
+        BtnSiguienteExamen.setText("Siguiente");
+        DiaExamenAlumnos.getContentPane().add(BtnSiguienteExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -3119,6 +3266,26 @@ public class Main extends javax.swing.JFrame {
         DiaInfoExamenModif.setVisible(false);
     }//GEN-LAST:event_BtnGuardarModifExamenActionPerformed
 
+    private void BtnIngresarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarAlumActionPerformed
+       DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
+
+        DefaultListModel modelExamen = (DefaultListModel) JlistExamenesAlum.getModel();
+        for (Examen examen : cursoSeleccionado.getExamenes()) {
+            modelExamen.addElement(examen);
+        }
+
+    }//GEN-LAST:event_BtnIngresarAlumActionPerformed
+
+    private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
+        if (JlistExamenesAlum.getSelectedIndex() >= 0) {
+            abrirExamen();
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un examen a realizar");
+        }
+        
+    }//GEN-LAST:event_BtnRealizarExamenActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3152,6 +3319,16 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+    }
+    public void abrirExamen(){
+        DiaExamenAlumnos.setModal(true);
+        DiaExamenAlumnos.pack();
+        DiaExamenAlumnos.setLocationRelativeTo(this);
+        DiaExamenAlumnos.setVisible(true);
+        
+        adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion());
+        Thread hilo = new Thread(ab);
+        hilo.start();
     }
     public void abrirInfoExamen(){
         DiaInfoExamen.setModal(true);
@@ -3383,6 +3560,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnModifExamen;
     private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnMostrarCamposModif;
+    private javax.swing.JButton BtnRealizarExamen;
     private javax.swing.JButton BtnRegAlumnos;
     private javax.swing.JButton BtnRegMaestros;
     private javax.swing.JButton BtnRegMenuMaes;
@@ -3395,10 +3573,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalirMaestros;
     private javax.swing.JButton BtnSelecClaseModif;
     private javax.swing.JButton BtnSeleccion;
+    private javax.swing.JButton BtnSiguienteExamen;
+    private javax.swing.JButton BtnTareas;
     private javax.swing.JButton BtnVF;
+    private javax.swing.ButtonGroup BtngrupoSelMulAlum;
     private javax.swing.ButtonGroup BtngrupoSeleccion;
     private javax.swing.ButtonGroup BtngrupoVF;
+    private javax.swing.ButtonGroup BtngrupoVFAlum;
     private javax.swing.JComboBox<String> Cb_listaClases;
+    private javax.swing.JCheckBox CheckBoxAlum1;
+    private javax.swing.JCheckBox CheckBoxAlum2;
+    private javax.swing.JCheckBox CheckBoxAlum3;
+    private javax.swing.JCheckBox CheckBoxAlum4;
     private com.toedter.calendar.JDateChooser ChooserFechaCierre;
     private com.toedter.calendar.JDateChooser ChooserFechaInicio;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
@@ -3409,6 +3595,7 @@ public class Main extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser DateChooserModif;
     private javax.swing.JDialog DiaElimClases;
     private javax.swing.JDialog DiaElimUsuarios;
+    private javax.swing.JDialog DiaExamenAlumnos;
     private javax.swing.JDialog DiaExamenMaestros;
     private javax.swing.JDialog DiaInfoExamen;
     private javax.swing.JDialog DiaInfoExamenModif;
@@ -3423,6 +3610,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldCHBOp3;
     private javax.swing.JTextField FieldCHBOp4;
     private javax.swing.JTextField FieldCarrera;
+    private javax.swing.JTextField FieldCheckAlum1;
+    private javax.swing.JTextField FieldCheckAlum2;
+    private javax.swing.JTextField FieldCheckAlum3;
+    private javax.swing.JTextField FieldCheckAlum4;
     private javax.swing.JTextField FieldCodigo;
     private javax.swing.JPasswordField FieldContra;
     private javax.swing.JTextField FieldElimClases;
@@ -3462,10 +3653,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> JListElimUser;
     private javax.swing.JList<String> JListMaestros;
     private javax.swing.JList<String> JListUsuariosModif;
+    private javax.swing.JList<String> JlistExamenesAlum;
     private javax.swing.JDialog MenuAlumnos;
     private javax.swing.JDialog MenuMaestros;
     private javax.swing.JDialog MenuRegistro;
     private javax.swing.JLabel ModifUsuarios;
+    private javax.swing.JProgressBar PBDuracion;
     private javax.swing.JPasswordField PField_Contra;
     private javax.swing.JPanel PNAsignarMaes;
     private javax.swing.JPanel PNELMaestros;
@@ -3487,7 +3680,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel Portal;
     private javax.swing.JRadioButton RbtnActiva;
     private javax.swing.JRadioButton Rbtn_Falso;
+    private javax.swing.JRadioButton Rbtn_FalsoAlum;
     private javax.swing.JRadioButton Rbtn_Inactiva;
+    private javax.swing.JRadioButton Rbtn_VerdaderoAlum;
     private javax.swing.JRadioButton Rbtn_alumno;
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JRadioButton Rbtn_verdadero;
@@ -3497,6 +3692,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner SpinnerPuntajeSel;
     private javax.swing.JSpinner SpinnerPuntajeTF;
     private javax.swing.JTextArea TACompletacion;
+    private javax.swing.JTextArea TAPregunta;
     private javax.swing.JTextArea TAPreguntaVF;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedPreguntas;
@@ -3529,6 +3725,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -3541,6 +3738,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -3553,6 +3752,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3581,6 +3782,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_elimClases;
     private javax.swing.JLabel lb_elimUsuarios;
     private javax.swing.JLabel lb_estado;
+    private javax.swing.JLabel lb_examenesAlum;
     private javax.swing.JLabel lb_fechaInicio;
     private javax.swing.JLabel lb_fecheCierre;
     private javax.swing.JLabel lb_horaClase;
