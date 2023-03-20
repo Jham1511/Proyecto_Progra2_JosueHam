@@ -314,6 +314,17 @@ public class Main extends javax.swing.JFrame {
         DiaModifPreguntas = new javax.swing.JDialog();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        TAModifPreguntas = new javax.swing.JTextArea();
+        CheckBoxModif1 = new javax.swing.JCheckBox();
+        CheckBoxModif2 = new javax.swing.JCheckBox();
+        CheckBoxModif3 = new javax.swing.JCheckBox();
+        CheckBoxModif4 = new javax.swing.JCheckBox();
+        BtnExamenModif = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        FieldRespModif = new javax.swing.JTextField();
+        Rbtn_verdaderoModif = new javax.swing.JRadioButton();
+        Rbtn_falsoModif = new javax.swing.JRadioButton();
         DiaExamenAlumnos = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -336,6 +347,8 @@ public class Main extends javax.swing.JFrame {
         FieldRespAlumno = new javax.swing.JTextField();
         BtngrupoSelMulAlum = new javax.swing.ButtonGroup();
         BtngrupoVFAlum = new javax.swing.ButtonGroup();
+        BtngrupoModifSelMul = new javax.swing.ButtonGroup();
+        BtngrupoTFModif = new javax.swing.ButtonGroup();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -2284,10 +2297,10 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
 
-        DiaModifPreguntas.getContentPane().add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
+        DiaModifPreguntas.getContentPane().add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         jPanel19.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -2295,14 +2308,52 @@ public class Main extends javax.swing.JFrame {
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        DiaModifPreguntas.getContentPane().add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 550, -1));
+        DiaModifPreguntas.getContentPane().add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 610, -1));
+
+        TAModifPreguntas.setColumns(20);
+        TAModifPreguntas.setRows(5);
+        jScrollPane16.setViewportView(TAModifPreguntas);
+
+        DiaModifPreguntas.getContentPane().add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 500, 100));
+
+        BtngrupoModifSelMul.add(CheckBoxModif1);
+        CheckBoxModif1.setText("jCheckBox1");
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+
+        BtngrupoModifSelMul.add(CheckBoxModif2);
+        CheckBoxModif2.setText("jCheckBox2");
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+
+        BtngrupoModifSelMul.add(CheckBoxModif3);
+        CheckBoxModif3.setText("jCheckBox3");
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
+
+        BtngrupoModifSelMul.add(CheckBoxModif4);
+        CheckBoxModif4.setText("jCheckBox4");
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
+
+        BtnExamenModif.setText("Hacer modificaciones");
+        DiaModifPreguntas.getContentPane().add(BtnExamenModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 150, 50));
+
+        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel7.setText("Ingrese la respuesta correcta:");
+        DiaModifPreguntas.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
+        DiaModifPreguntas.getContentPane().add(FieldRespModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 110, 30));
+
+        BtngrupoTFModif.add(Rbtn_verdaderoModif);
+        Rbtn_verdaderoModif.setText("Verdadero");
+        DiaModifPreguntas.getContentPane().add(Rbtn_verdaderoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
+
+        BtngrupoTFModif.add(Rbtn_falsoModif);
+        Rbtn_falsoModif.setText("Falso");
+        DiaModifPreguntas.getContentPane().add(Rbtn_falsoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
 
         DiaExamenAlumnos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -3633,6 +3684,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnElimUsuarios;
     private javax.swing.JButton BtnEliminarUsuario;
     private javax.swing.JButton BtnEscogerUser;
+    private javax.swing.JButton BtnExamenModif;
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnGuardarCambiosUser;
     private javax.swing.JButton BtnGuardarClase;
@@ -3663,8 +3715,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSiguienteExamen;
     private javax.swing.JButton BtnTareas;
     private javax.swing.JButton BtnVF;
+    private javax.swing.ButtonGroup BtngrupoModifSelMul;
     private javax.swing.ButtonGroup BtngrupoSelMulAlum;
     private javax.swing.ButtonGroup BtngrupoSeleccion;
+    private javax.swing.ButtonGroup BtngrupoTFModif;
     private javax.swing.ButtonGroup BtngrupoVF;
     private javax.swing.ButtonGroup BtngrupoVFAlum;
     private javax.swing.JComboBox<String> Cb_listaClases;
@@ -3672,6 +3726,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBoxAlum2;
     private javax.swing.JCheckBox CheckBoxAlum3;
     private javax.swing.JCheckBox CheckBoxAlum4;
+    private javax.swing.JCheckBox CheckBoxModif1;
+    private javax.swing.JCheckBox CheckBoxModif2;
+    private javax.swing.JCheckBox CheckBoxModif3;
+    private javax.swing.JCheckBox CheckBoxModif4;
     private com.toedter.calendar.JDateChooser ChooserFechaCierre;
     private com.toedter.calendar.JDateChooser ChooserFechaInicio;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
@@ -3722,6 +3780,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldProfesion;
     private javax.swing.JTextField FieldRespAlumno;
     private javax.swing.JTextField FieldRespCorrecta;
+    private javax.swing.JTextField FieldRespModif;
     private javax.swing.JTextField FieldSemestre;
     private javax.swing.JTextField FieldSueldo;
     private javax.swing.JTextField FieldUV;
@@ -3772,14 +3831,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton Rbtn_Inactiva;
     private javax.swing.JRadioButton Rbtn_VerdaderoAlum;
     private javax.swing.JRadioButton Rbtn_alumno;
+    private javax.swing.JRadioButton Rbtn_falsoModif;
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JRadioButton Rbtn_verdadero;
+    private javax.swing.JRadioButton Rbtn_verdaderoModif;
     private javax.swing.JSpinner SpinnerDuracion;
     private javax.swing.JSpinner SpinnerNueDuracion;
     private javax.swing.JSpinner SpinnerPuntajeComp;
     private javax.swing.JSpinner SpinnerPuntajeSel;
     private javax.swing.JSpinner SpinnerPuntajeTF;
     private javax.swing.JTextArea TACompletacion;
+    private javax.swing.JTextArea TAModifPreguntas;
     private javax.swing.JTextArea TAPregunta;
     private javax.swing.JTextArea TAPreguntaVF;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
@@ -3814,6 +3876,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -3842,6 +3905,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
