@@ -12,10 +12,11 @@ public class Curso implements Serializable {
     private String nombre, codigo, hora,semestre,periodo,anio;
     private  int UV;
     private ArrayList<Examen> examenes = new ArrayList();
+    private ArrayList<Tarea> tareas = new ArrayList<>();
 
     public Curso() {
     }
-
+    
     public Curso(String nombre, String codigo, String hora, String semestre, String periodo, String anio, int UV) {
         this.nombre = nombre;
         this.codigo = codigo;
@@ -90,7 +91,13 @@ public class Curso implements Serializable {
         this.examenes = examenes;
     }
     
-    
+    public ArrayList<Tarea> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(ArrayList<Tarea> tareas) {
+        this.tareas = tareas;
+    }
 
     @Override
     public String toString() {

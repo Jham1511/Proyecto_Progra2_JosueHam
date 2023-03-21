@@ -237,6 +237,8 @@ public class Main extends javax.swing.JFrame {
         BtnCursosAlumnos = new javax.swing.JButton();
         BtnRegAlumnos = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        lb_calificaciones = new javax.swing.JLabel();
+        BtnCalificacionesAlum = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         lb_misClasesAlum = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -247,6 +249,7 @@ public class Main extends javax.swing.JFrame {
         lb_examenesAlum = new javax.swing.JLabel();
         BtnRealizarExamen = new javax.swing.JButton();
         BtnTareas = new javax.swing.JButton();
+        BtnVerResultados = new javax.swing.JButton();
         DiaExamenMaestros = new javax.swing.JDialog();
         TabbedPreguntas = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -259,6 +262,7 @@ public class Main extends javax.swing.JFrame {
         BtnVF = new javax.swing.JButton();
         lb_puntajeTF = new javax.swing.JLabel();
         SpinnerPuntajeTF = new javax.swing.JSpinner();
+        BtnTerminarTF = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -275,6 +279,7 @@ public class Main extends javax.swing.JFrame {
         BtnSeleccion = new javax.swing.JButton();
         lb_puntajeSel = new javax.swing.JLabel();
         SpinnerPuntajeSel = new javax.swing.JSpinner();
+        BtnTerminarSelMul = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         lb_UnitecColor = new javax.swing.JLabel();
@@ -285,6 +290,7 @@ public class Main extends javax.swing.JFrame {
         BtnCompletacion = new javax.swing.JButton();
         lb_puntajeComp = new javax.swing.JLabel();
         SpinnerPuntajeComp = new javax.swing.JSpinner();
+        BtnTerminarComp = new javax.swing.JButton();
         BtngrupoVF = new javax.swing.ButtonGroup();
         BtngrupoSeleccion = new javax.swing.ButtonGroup();
         DiaInfoExamen = new javax.swing.JDialog();
@@ -321,10 +327,21 @@ public class Main extends javax.swing.JFrame {
         CheckBoxModif3 = new javax.swing.JCheckBox();
         CheckBoxModif4 = new javax.swing.JCheckBox();
         BtnExamenModif = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        lb_respCorrectaModif = new javax.swing.JLabel();
         FieldRespModif = new javax.swing.JTextField();
         Rbtn_verdaderoModif = new javax.swing.JRadioButton();
         Rbtn_falsoModif = new javax.swing.JRadioButton();
+        FieldSeleccionModif2 = new javax.swing.JTextField();
+        FieldSeleccionModif3 = new javax.swing.JTextField();
+        FieldSeleccionModif4 = new javax.swing.JTextField();
+        FieldSeleccionModif1 = new javax.swing.JTextField();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        JListPreguntasModif = new javax.swing.JList<>();
+        jLabel7 = new javax.swing.JLabel();
+        FieldBuscarPregunta = new javax.swing.JTextField();
+        BtnSeleccionarPregunta = new javax.swing.JButton();
+        SpinnerNuePuntaje = new javax.swing.JSpinner();
+        lb_puntajeModif = new javax.swing.JLabel();
         DiaExamenAlumnos = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -349,6 +366,7 @@ public class Main extends javax.swing.JFrame {
         BtngrupoVFAlum = new javax.swing.ButtonGroup();
         BtngrupoModifSelMul = new javax.swing.ButtonGroup();
         BtngrupoTFModif = new javax.swing.ButtonGroup();
+        DiaVerResultados = new javax.swing.JDialog();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -1703,6 +1721,7 @@ public class Main extends javax.swing.JFrame {
         BtnCursosAlumnos.setBorder(null);
         BtnCursosAlumnos.setBorderPainted(false);
         BtnCursosAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnCursosAlumnos.setOpaque(false);
         BtnCursosAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCursosAlumnosActionPerformed(evt);
@@ -1713,6 +1732,7 @@ public class Main extends javax.swing.JFrame {
         BtnRegAlumnos.setBorder(null);
         BtnRegAlumnos.setBorderPainted(false);
         BtnRegAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnRegAlumnos.setOpaque(false);
         BtnRegAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRegAlumnosActionPerformed(evt);
@@ -1722,6 +1742,19 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         jLabel12.setText("Cursos");
 
+        lb_calificaciones.setFont(new java.awt.Font("Cooper Black", 0, 10)); // NOI18N
+        lb_calificaciones.setText("Calificaciones");
+
+        BtnCalificacionesAlum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calificacion.png"))); // NOI18N
+        BtnCalificacionesAlum.setBorder(null);
+        BtnCalificacionesAlum.setBorderPainted(false);
+        BtnCalificacionesAlum.setOpaque(false);
+        BtnCalificacionesAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCalificacionesAlumActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelTaskbarLayout = new javax.swing.GroupLayout(PanelTaskbar);
         PanelTaskbar.setLayout(PanelTaskbarLayout);
         PanelTaskbarLayout.setHorizontalGroup(
@@ -1729,21 +1762,27 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PanelTaskbarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelTaskbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnRegAlumnos)
+                    .addComponent(BtnCursosAlumnos)
+                    .addComponent(BtnCalificacionesAlum)
                     .addGroup(PanelTaskbarLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel12))
-                    .addComponent(BtnRegAlumnos)
-                    .addComponent(BtnCursosAlumnos))
+                    .addComponent(lb_calificaciones))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelTaskbarLayout.setVerticalGroup(
             PanelTaskbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTaskbarLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(33, 33, 33)
                 .addComponent(BtnCursosAlumnos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnCalificacionesAlum)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(lb_calificaciones)
+                .addGap(35, 35, 35)
                 .addComponent(BtnRegAlumnos)
                 .addGap(75, 75, 75))
         );
@@ -1785,6 +1824,13 @@ public class Main extends javax.swing.JFrame {
 
         BtnTareas.setText("Ver Tareas");
 
+        BtnVerResultados.setText("Ver Resultados");
+        BtnVerResultados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerResultadosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1802,9 +1848,10 @@ public class Main extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnRealizarExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(BtnTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnVerResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(lb_examenesAlum))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1822,10 +1869,11 @@ public class Main extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(BtnIngresarAlum))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
                         .addComponent(BtnRealizarExamen)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnTareas)))
+                        .addComponent(BtnTareas)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnVerResultados)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
@@ -1860,11 +1908,14 @@ public class Main extends javax.swing.JFrame {
 
         BtngrupoVF.add(Rbtn_verdadero);
         Rbtn_verdadero.setText("Verdadero");
+        Rbtn_verdadero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         BtngrupoVF.add(Rbtn_Falso);
         Rbtn_Falso.setText("Falso");
+        Rbtn_Falso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         BtnVF.setText("Guardar Pregunta");
+        BtnVF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnVF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVFActionPerformed(evt);
@@ -1876,6 +1927,15 @@ public class Main extends javax.swing.JFrame {
         lb_puntajeTF.setText("Puntaje de la pregunta");
 
         SpinnerPuntajeTF.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        SpinnerPuntajeTF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        BtnTerminarTF.setText("Terminar Examen");
+        BtnTerminarTF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnTerminarTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTerminarTFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1902,6 +1962,10 @@ public class Main extends javax.swing.JFrame {
                 .addGap(323, 323, 323)
                 .addComponent(BtnVF, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnTerminarTF)
+                .addGap(26, 26, 26))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1921,7 +1985,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(SpinnerPuntajeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(BtnVF)
-                .addGap(0, 70, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnTerminarTF)
+                .addGap(0, 37, Short.MAX_VALUE))
         );
 
         TabbedPreguntas.addTab("Verdadero o Falso", jPanel4);
@@ -1956,11 +2022,6 @@ public class Main extends javax.swing.JFrame {
         BtngrupoSeleccion.add(cb_respuestaUno);
 
         BtngrupoSeleccion.add(cb_respuestaDos);
-        cb_respuestaDos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_respuestaDosActionPerformed(evt);
-            }
-        });
 
         BtngrupoSeleccion.add(cb_respuestaTres);
 
@@ -1979,13 +2040,20 @@ public class Main extends javax.swing.JFrame {
 
         SpinnerPuntajeSel.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
 
+        BtnTerminarSelMul.setText("Terminar Examen");
+        BtnTerminarSelMul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTerminarSelMulActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1999,10 +2067,10 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(cb_respuestaTres)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(FieldCHBOp3))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                     .addComponent(cb_respuestaDos)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(FieldCHBOp2))
+                                    .addComponent(FieldCHBOp2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addComponent(cb_respuestaUno)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2011,7 +2079,10 @@ public class Main extends javax.swing.JFrame {
                         .addGap(340, 340, 340)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lb_puntajeSel)
-                            .addComponent(BtnSeleccion)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(BtnSeleccion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtnTerminarSelMul))
                             .addComponent(SpinnerPuntajeSel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -2019,15 +2090,6 @@ public class Main extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(FieldCHBOp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_respuestaDos)
-                            .addComponent(FieldCHBOp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(cb_respuestaTres))
-                    .addComponent(FieldCHBOp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -2040,14 +2102,29 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addComponent(lb_puntajeSel)))
                         .addGap(2, 2, 2)
-                        .addComponent(SpinnerPuntajeSel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                        .addGap(41, 41, 41)))
-                .addGap(18, 18, 18)
+                        .addComponent(SpinnerPuntajeSel)
+                        .addGap(41, 41, 41))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(FieldCHBOp1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(cb_respuestaDos)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_respuestaTres))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(FieldCHBOp2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(FieldCHBOp3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cb_respuestaCuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_respuestaCuatro, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addComponent(FieldCHBOp4))
                 .addGap(13, 13, 13)
-                .addComponent(BtnSeleccion)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnSeleccion)
+                    .addComponent(BtnTerminarSelMul))
                 .addGap(22, 22, 22))
         );
 
@@ -2097,6 +2174,13 @@ public class Main extends javax.swing.JFrame {
 
         SpinnerPuntajeComp.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
 
+        BtnTerminarComp.setText("Terminar Examen");
+        BtnTerminarComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTerminarCompActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -2117,11 +2201,14 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(lb_puntajeComp)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(SpinnerPuntajeComp)
-                                .addGap(78, 78, 78))))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(BtnCompletacion)))
+                                .addGap(78, 78, 78)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(292, 292, 292)
+                .addComponent(BtnCompletacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnTerminarComp)
+                .addGap(37, 37, 37))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2139,8 +2226,10 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(lb_puntajeComp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SpinnerPuntajeComp)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(BtnCompletacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnCompletacion)
+                    .addComponent(BtnTerminarComp))
                 .addGap(34, 34, 34))
         );
 
@@ -2258,20 +2347,24 @@ public class Main extends javax.swing.JFrame {
 
         DiaInfoExamenModif.getContentPane().add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 310));
 
+        lb_nueNomExamen.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueNomExamen.setText("Nuevo Nombre del Examen");
         DiaInfoExamenModif.getContentPane().add(lb_nueNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
         DiaInfoExamenModif.getContentPane().add(FieldnueNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 130, 30));
 
+        lb_nueFechaInicio.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueFechaInicio.setText("Fecha de Inicio");
         DiaInfoExamenModif.getContentPane().add(lb_nueFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
         DiaInfoExamenModif.getContentPane().add(ChooserNueFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 110, 30));
 
+        lb_nueFechaCierre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueFechaCierre.setText("Fecha de Cierre");
         DiaInfoExamenModif.getContentPane().add(lb_nueFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
         DiaInfoExamenModif.getContentPane().add(ChooserNueFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, 30));
 
+        lb_nueDuracion.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         lb_nueDuracion.setText("Duracion del examen(Minutos)");
-        DiaInfoExamenModif.getContentPane().add(lb_nueDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+        DiaInfoExamenModif.getContentPane().add(lb_nueDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
         SpinnerNueDuracion.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
         SpinnerNueDuracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2324,36 +2417,72 @@ public class Main extends javax.swing.JFrame {
         DiaModifPreguntas.getContentPane().add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 500, 100));
 
         BtngrupoModifSelMul.add(CheckBoxModif1);
-        CheckBoxModif1.setText("jCheckBox1");
-        DiaModifPreguntas.getContentPane().add(CheckBoxModif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
 
         BtngrupoModifSelMul.add(CheckBoxModif2);
-        CheckBoxModif2.setText("jCheckBox2");
-        DiaModifPreguntas.getContentPane().add(CheckBoxModif2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         BtngrupoModifSelMul.add(CheckBoxModif3);
-        CheckBoxModif3.setText("jCheckBox3");
-        DiaModifPreguntas.getContentPane().add(CheckBoxModif3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, -1, -1));
 
         BtngrupoModifSelMul.add(CheckBoxModif4);
-        CheckBoxModif4.setText("jCheckBox4");
-        DiaModifPreguntas.getContentPane().add(CheckBoxModif4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
+        DiaModifPreguntas.getContentPane().add(CheckBoxModif4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
 
         BtnExamenModif.setText("Hacer modificaciones");
-        DiaModifPreguntas.getContentPane().add(BtnExamenModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 150, 50));
+        BtnExamenModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExamenModifActionPerformed(evt);
+            }
+        });
+        DiaModifPreguntas.getContentPane().add(BtnExamenModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 150, 50));
 
-        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        jLabel7.setText("Ingrese la respuesta correcta:");
-        DiaModifPreguntas.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
-        DiaModifPreguntas.getContentPane().add(FieldRespModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 110, 30));
+        lb_respCorrectaModif.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_respCorrectaModif.setText("Ingrese la respuesta correcta:");
+        DiaModifPreguntas.getContentPane().add(lb_respCorrectaModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        DiaModifPreguntas.getContentPane().add(FieldRespModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 110, 30));
 
         BtngrupoTFModif.add(Rbtn_verdaderoModif);
         Rbtn_verdaderoModif.setText("Verdadero");
-        DiaModifPreguntas.getContentPane().add(Rbtn_verdaderoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
+        DiaModifPreguntas.getContentPane().add(Rbtn_verdaderoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         BtngrupoTFModif.add(Rbtn_falsoModif);
         Rbtn_falsoModif.setText("Falso");
-        DiaModifPreguntas.getContentPane().add(Rbtn_falsoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
+        DiaModifPreguntas.getContentPane().add(Rbtn_falsoModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
+        DiaModifPreguntas.getContentPane().add(FieldSeleccionModif2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 110, 30));
+        DiaModifPreguntas.getContentPane().add(FieldSeleccionModif3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 110, 30));
+        DiaModifPreguntas.getContentPane().add(FieldSeleccionModif4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 110, 30));
+        DiaModifPreguntas.getContentPane().add(FieldSeleccionModif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 110, 30));
+
+        JListPreguntasModif.setModel(new DefaultListModel());
+        jScrollPane17.setViewportView(JListPreguntasModif);
+
+        DiaModifPreguntas.getContentPane().add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 100));
+
+        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        jLabel7.setText("Buscar Pregunta");
+        DiaModifPreguntas.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
+
+        FieldBuscarPregunta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                FieldBuscarPreguntaKeyReleased(evt);
+            }
+        });
+        DiaModifPreguntas.getContentPane().add(FieldBuscarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, -1));
+
+        BtnSeleccionarPregunta.setText("Seleccionar Pregunta");
+        BtnSeleccionarPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSeleccionarPreguntaActionPerformed(evt);
+            }
+        });
+        DiaModifPreguntas.getContentPane().add(BtnSeleccionarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 170, -1));
+
+        SpinnerNuePuntaje.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        DiaModifPreguntas.getContentPane().add(SpinnerNuePuntaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 70, -1));
+
+        lb_puntajeModif.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        lb_puntajeModif.setText("Puntaje de la pregunta");
+        DiaModifPreguntas.getContentPane().add(lb_puntajeModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 150, 20));
 
         DiaExamenAlumnos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2434,12 +2563,28 @@ public class Main extends javax.swing.JFrame {
         DiaExamenAlumnos.getContentPane().add(Rbtn_FalsoAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, -1, -1));
 
         BtnSiguienteExamen.setText("Siguiente");
-        DiaExamenAlumnos.getContentPane().add(BtnSiguienteExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        BtnSiguienteExamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSiguienteExamenActionPerformed(evt);
+            }
+        });
+        DiaExamenAlumnos.getContentPane().add(BtnSiguienteExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
 
         lb_escribaRespuesta.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_escribaRespuesta.setText("Escriba la respuesta");
         DiaExamenAlumnos.getContentPane().add(lb_escribaRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
         DiaExamenAlumnos.getContentPane().add(FieldRespAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 170, 30));
+
+        javax.swing.GroupLayout DiaVerResultadosLayout = new javax.swing.GroupLayout(DiaVerResultados.getContentPane());
+        DiaVerResultados.getContentPane().setLayout(DiaVerResultadosLayout);
+        DiaVerResultadosLayout.setHorizontalGroup(
+            DiaVerResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DiaVerResultadosLayout.setVerticalGroup(
+            DiaVerResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2555,6 +2700,11 @@ public class Main extends javax.swing.JFrame {
         lb_registro.setText("Registro UNITEC");
 
         BtnAyudaCanvas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/canvas_resized.png"))); // NOI18N
+        BtnAyudaCanvas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAyudaCanvasActionPerformed(evt);
+            }
+        });
 
         lb_ayudaCanvas.setFont(new java.awt.Font("Cooper Black", 0, 18)); // NOI18N
         lb_ayudaCanvas.setForeground(new java.awt.Color(255, 255, 255));
@@ -3207,22 +3357,26 @@ public class Main extends javax.swing.JFrame {
         DiaExamenMaestros.pack();
         DiaExamenMaestros.setLocationRelativeTo(this);
         DiaExamenMaestros.setVisible(true);
+
+        aCurso.cargarArchivo();
+        aCurso.setCurso(clase);
+        aCurso.escribirArchivo();
     }//GEN-LAST:event_BtnCrearExamenActionPerformed
 
     private void BtnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionActionPerformed
         if (BtngrupoSeleccion.getSelection() != null) {
             PSelMultiple p = new PSelMultiple();
-            p.pregunta = jta_preguntaSelMul.getText();
+            p.setPregunta(jta_preguntaSelMul.getText());
             String strPuntaje = SpinnerPuntajeSel.getValue().toString();
-            p.puntaje = Integer.parseInt(strPuntaje);
+            p.setPuntaje(Double.parseDouble(strPuntaje));
             if (cb_respuestaUno.isSelected()) {
-                p.respuesta = 1;
+                p.setRespuesta(1);
             } else if (cb_respuestaDos.isSelected()) {
-                p.respuesta = 2;
+                p.setRespuesta(2);
             } else if (cb_respuestaTres.isSelected()) {
-                p.respuesta = 3;
+                p.setRespuesta(3);
             } else if (cb_respuestaCuatro.isSelected()) {
-                p.respuesta = 4;
+                p.setRespuesta(4);
             }
 
             p.setOpciones(new String[]{FieldCHBOp1.getText(), FieldCHBOp2.getText(), FieldCHBOp3.getText(), FieldCHBOp4.getText()});
@@ -3233,6 +3387,10 @@ public class Main extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Por favor seleccione una opcion");
         }
+
+        aCurso.cargarArchivo();
+        aCurso.setCurso(cursoSeleccionado);
+        aCurso.escribirArchivo();
     }//GEN-LAST:event_BtnSeleccionActionPerformed
 
     private void BtnModifExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifExamenActionPerformed
@@ -3259,10 +3417,6 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
     }//GEN-LAST:event_BtnElimExamenActionPerformed
 
-    private void cb_respuestaDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_respuestaDosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_respuestaDosActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Maestro m = maestroSeleccionado(aMaestros);
         for (Curso clase : m.getClases()) {
@@ -3276,13 +3430,13 @@ public class Main extends javax.swing.JFrame {
     private void BtnVFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVFActionPerformed
         if (BtngrupoVF.getSelection() != null) {
             PTrueOrFalse ptf = new PTrueOrFalse();
-            ptf.pregunta = TAPreguntaVF.getText();
+            ptf.setPregunta(TAPreguntaVF.getText());
             String strPuntaje = SpinnerPuntajeTF.getValue().toString();
-            ptf.puntaje = Integer.parseInt(strPuntaje);
+            ptf.setPuntaje(Double.parseDouble(strPuntaje));
             if (Rbtn_verdadero.isSelected()) {
-                ptf.respuesta = true;
+                ptf.setRespuesta(true);
             } else if (Rbtn_Falso.isSelected()) {
-                ptf.respuesta = false;
+                ptf.setRespuesta(false);
             }
 
             examenSeleccionado.getPreguntas().add(ptf);
@@ -3297,10 +3451,10 @@ public class Main extends javax.swing.JFrame {
     private void BtnCompletacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCompletacionActionPerformed
         if (FieldRespCorrecta.getText() != null && TACompletacion.getText() != null) {
             PCompletacion pc = new PCompletacion();
-            pc.pregunta = TACompletacion.getText();
-            pc.respuesta = FieldRespCorrecta.getText();
+            pc.setPregunta(TACompletacion.getText());
+            pc.setPregunta(FieldRespCorrecta.getText());
             String strPuntaje = SpinnerPuntajeComp.getValue().toString();
-            pc.puntaje = Integer.parseInt(strPuntaje);
+            pc.setPuntaje(Double.parseDouble(strPuntaje));
 
             examenSeleccionado.getPreguntas().add(pc);
             JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
@@ -3398,6 +3552,218 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnRealizarExamenActionPerformed
 
+    private void BtnAyudaCanvasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAyudaCanvasActionPerformed
+        try {
+            URL url = new URL("https://unitec.edu/canvas/");
+            Desktop.getDesktop().browse(url.toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_BtnAyudaCanvasActionPerformed
+
+    private void BtnSiguienteExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteExamenActionPerformed
+
+        for (Pregunta pre : examenSeleccionado.getPreguntas()) {
+            TAPregunta.setText(pre.pregunta);
+            if (pre instanceof PSelMultiple) {
+                FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
+                FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
+                FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
+                FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
+                FieldCheckAlum1.setVisible(true);
+                FieldCheckAlum2.setVisible(true);
+                FieldCheckAlum3.setVisible(true);
+                FieldCheckAlum4.setVisible(true);
+                CheckBoxAlum1.setVisible(true);
+                CheckBoxAlum2.setVisible(true);
+                CheckBoxAlum3.setVisible(true);
+                CheckBoxAlum4.setVisible(true);
+                Rbtn_FalsoAlum.setVisible(false);
+                Rbtn_VerdaderoAlum.setVisible(false);
+                FieldRespAlumno.setVisible(false);
+                lb_escribaRespuesta.setVisible(false);
+            } else if (pre instanceof PTrueOrFalse) {
+                FieldCheckAlum1.setVisible(false);
+                FieldCheckAlum2.setVisible(false);
+                FieldCheckAlum3.setVisible(false);
+                FieldCheckAlum4.setVisible(false);
+                CheckBoxAlum1.setVisible(false);
+                CheckBoxAlum2.setVisible(false);
+                CheckBoxAlum3.setVisible(false);
+                CheckBoxAlum4.setVisible(false);
+                Rbtn_FalsoAlum.setVisible(true);
+                Rbtn_VerdaderoAlum.setVisible(true);
+                FieldRespAlumno.setVisible(false);
+                lb_escribaRespuesta.setVisible(false);
+            } else if (pre instanceof PCompletacion) {
+                FieldCheckAlum1.setVisible(false);
+                FieldCheckAlum2.setVisible(false);
+                FieldCheckAlum3.setVisible(false);
+                FieldCheckAlum4.setVisible(false);
+                CheckBoxAlum1.setVisible(false);
+                CheckBoxAlum2.setVisible(false);
+                CheckBoxAlum3.setVisible(false);
+                CheckBoxAlum4.setVisible(false);
+                Rbtn_FalsoAlum.setVisible(false);
+                Rbtn_VerdaderoAlum.setVisible(false);
+                FieldRespAlumno.setVisible(true);
+                lb_escribaRespuesta.setVisible(true);
+            }
+        }
+
+    }//GEN-LAST:event_BtnSiguienteExamenActionPerformed
+
+    private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
+        aCurso.cargarArchivo();
+        aCurso.escribirArchivo();
+        DiaExamenMaestros.setVisible(false);
+    }//GEN-LAST:event_BtnTerminarTFActionPerformed
+
+    private void BtnTerminarSelMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarSelMulActionPerformed
+        aCurso.cargarArchivo();
+        aCurso.escribirArchivo();
+        DiaExamenMaestros.setVisible(false);
+    }//GEN-LAST:event_BtnTerminarSelMulActionPerformed
+
+    private void BtnTerminarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarCompActionPerformed
+        aCurso.cargarArchivo();
+        aCurso.escribirArchivo();
+        DiaExamenMaestros.setVisible(false);
+    }//GEN-LAST:event_BtnTerminarCompActionPerformed
+
+    private void BtnCalificacionesAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalificacionesAlumActionPerformed
+
+    }//GEN-LAST:event_BtnCalificacionesAlumActionPerformed
+
+    private void BtnVerResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerResultadosActionPerformed
+        if (JlistExamenesAlum.getSelectedIndex() >= 0) {
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor seleccione un examen");
+        }
+    }//GEN-LAST:event_BtnVerResultadosActionPerformed
+
+    private void FieldBuscarPreguntaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldBuscarPreguntaKeyReleased
+        aCurso.cargarArchivo();
+        DefaultListModel mod = new DefaultListModel();
+        for (Examen e : cursoSeleccionado.getExamenes()) {
+            for (Pregunta pregunta : examenSeleccionado.getPreguntas()) {
+                if (pregunta.getPregunta().startsWith(FieldBuscar.getText())) {
+                    mod.addElement(pregunta);
+                }
+            }
+        }
+        JListPreguntasModif.setModel(mod);
+    }//GEN-LAST:event_FieldBuscarPreguntaKeyReleased
+
+    private void BtnSeleccionarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarPreguntaActionPerformed
+        if (JListPreguntasModif.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) JListPreguntasModif.getModel();
+            Pregunta pre = (Pregunta) modelo.getElementAt(JListPreguntasModif.getSelectedIndex());
+
+            if (pre instanceof PSelMultiple) {
+                SpinnerNuePuntaje.setValue(pre.getPuntaje());
+                CheckBoxModif1.setVisible(true);
+                CheckBoxModif2.setVisible(true);
+                CheckBoxModif3.setVisible(true);
+                CheckBoxModif4.setVisible(true);
+
+                FieldCHBOp1.setVisible(true);
+                FieldCHBOp2.setVisible(true);
+                FieldCHBOp3.setVisible(true);
+                FieldCHBOp4.setVisible(true);
+
+                FieldCHBOp1.setText(((PSelMultiple) pre).getOpciones()[0]);
+                FieldCHBOp2.setText(((PSelMultiple) pre).getOpciones()[1]);
+                FieldCHBOp3.setText(((PSelMultiple) pre).getOpciones()[2]);
+                FieldCHBOp4.setText(((PSelMultiple) pre).getOpciones()[3]);
+
+                Rbtn_falsoModif.setVisible(false);
+                Rbtn_verdaderoModif.setVisible(false);
+
+                lb_respCorrectaModif.setVisible(false);
+                FieldRespModif.setVisible(false);
+
+            } else if (pre instanceof PTrueOrFalse) {
+                SpinnerNuePuntaje.setValue(pre.getPuntaje());
+                Rbtn_falsoModif.setVisible(true);
+                Rbtn_verdaderoModif.setVisible(true);
+
+                lb_respCorrectaModif.setVisible(false);
+                FieldRespModif.setVisible(false);
+            } else if (pre instanceof PCompletacion) {
+                SpinnerNuePuntaje.setValue(pre.getPuntaje());
+                lb_respCorrectaModif.setVisible(true);
+                FieldRespModif.setVisible(true);
+
+                Rbtn_falsoModif.setVisible(false);
+                Rbtn_verdaderoModif.setVisible(false);
+
+                CheckBoxModif1.setVisible(false);
+                CheckBoxModif2.setVisible(false);
+                CheckBoxModif3.setVisible(false);
+                CheckBoxModif4.setVisible(false);
+
+                FieldCHBOp1.setVisible(false);
+                FieldCHBOp2.setVisible(false);
+                FieldCHBOp3.setVisible(false);
+                FieldCHBOp4.setVisible(false);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una pregunta a modificar");
+        }
+    }//GEN-LAST:event_BtnSeleccionarPreguntaActionPerformed
+
+    private void BtnExamenModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExamenModifActionPerformed
+        DefaultListModel modelo = (DefaultListModel) JListPreguntasModif.getModel();
+        Pregunta pre = (Pregunta) modelo.getElementAt(JListPreguntasModif.getSelectedIndex());
+        if (pre instanceof PSelMultiple) {
+            pre = new PSelMultiple();
+            pre.setPregunta(TAModifPreguntas.getText());
+            String strPuntaje = SpinnerNuePuntaje.getValue().toString();
+            pre.setPuntaje(Double.parseDouble(strPuntaje));
+            if (cb_respuestaUno.isSelected()) {
+                pre.setRespuesta(1);
+            } else if (cb_respuestaDos.isSelected()) {
+                pre.setRespuesta(2);
+            } else if (cb_respuestaTres.isSelected()) {
+                pre.setRespuesta(3);
+            } else if (cb_respuestaCuatro.isSelected()) {
+                pre.setRespuesta(4);
+            }
+
+            ((PSelMultiple) pre).setOpciones(new String[]{FieldSeleccionModif1.getText(), FieldSeleccionModif2.getText(), FieldSeleccionModif3.getText(), FieldSeleccionModif1.getText()});
+        } else if (pre instanceof PTrueOrFalse) {
+            if (BtngrupoVF.getSelection() != null) {
+                pre.setPregunta(TAModifPreguntas.getText());
+                String strPuntaje = SpinnerNuePuntaje.getValue().toString();
+                pre.setPuntaje(Double.parseDouble(strPuntaje));
+                if (Rbtn_verdadero.isSelected()) {
+                    pre.setRespuesta(true);
+                } else if (Rbtn_Falso.isSelected()) {
+                    pre.setRespuesta(false);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Por favor seleccione una opcion");
+            }
+        } else if (pre instanceof PCompletacion) {
+            if (FieldRespCorrecta.getText() != null && TACompletacion.getText() != null) {
+                pre.setPregunta(TAModifPreguntas.getText());
+                pre.setPregunta(FieldRespModif.getText());
+                String strPuntaje = SpinnerNuePuntaje.getValue().toString();
+                pre.setPuntaje(Double.parseDouble(strPuntaje));
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Ingrese la información de la pregunta o de la respuesta");
+            }
+        }
+
+        JOptionPane.showMessageDialog(this, "Pregunta modificada correctamente");
+        TAModifPreguntas.setText("");
+        BtngrupoTFModif.clearSelection();
+    }//GEN-LAST:event_BtnExamenModifActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3431,6 +3797,13 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+    }
+
+    public void abrirModifExamen() {
+
+        DiaInfoExamenModif.pack();
+        DiaInfoExamenModif.setLocationRelativeTo(this);
+        DiaInfoExamenModif.setVisible(true);
     }
 
     public void abrirExamen() {
@@ -3671,6 +4044,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnAsigClases;
     private javax.swing.JButton BtnAsignarMaestro;
     private javax.swing.JButton BtnAyudaCanvas;
+    private javax.swing.JButton BtnCalificacionesAlum;
     private javax.swing.JButton BtnCanvasAlumno;
     private javax.swing.JButton BtnCanvasMaestros;
     private javax.swing.JButton BtnCompletacion;
@@ -3712,9 +4086,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalirMaestros;
     private javax.swing.JButton BtnSelecClaseModif;
     private javax.swing.JButton BtnSeleccion;
+    private javax.swing.JButton BtnSeleccionarPregunta;
     private javax.swing.JButton BtnSiguienteExamen;
     private javax.swing.JButton BtnTareas;
+    private javax.swing.JButton BtnTerminarComp;
+    private javax.swing.JButton BtnTerminarSelMul;
+    private javax.swing.JButton BtnTerminarTF;
     private javax.swing.JButton BtnVF;
+    private javax.swing.JButton BtnVerResultados;
     private javax.swing.ButtonGroup BtngrupoModifSelMul;
     private javax.swing.ButtonGroup BtngrupoSelMulAlum;
     private javax.swing.ButtonGroup BtngrupoSeleccion;
@@ -3747,9 +4126,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDialog DiaModifClases;
     private javax.swing.JDialog DiaModifPreguntas;
     private javax.swing.JDialog DiaModifUsuarios;
+    private javax.swing.JDialog DiaVerResultados;
     private javax.swing.JTextField FieldAnio;
     private javax.swing.JTextField FieldBuscar;
     private javax.swing.JTextField FieldBuscarElim;
+    private javax.swing.JTextField FieldBuscarPregunta;
     private javax.swing.JTextField FieldCHBOp1;
     private javax.swing.JTextField FieldCHBOp2;
     private javax.swing.JTextField FieldCHBOp3;
@@ -3781,6 +4162,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldRespAlumno;
     private javax.swing.JTextField FieldRespCorrecta;
     private javax.swing.JTextField FieldRespModif;
+    private javax.swing.JTextField FieldSeleccionModif1;
+    private javax.swing.JTextField FieldSeleccionModif2;
+    private javax.swing.JTextField FieldSeleccionModif3;
+    private javax.swing.JTextField FieldSeleccionModif4;
     private javax.swing.JTextField FieldSemestre;
     private javax.swing.JTextField FieldSueldo;
     private javax.swing.JTextField FieldUV;
@@ -3799,6 +4184,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> JListElimClases;
     private javax.swing.JList<String> JListElimUser;
     private javax.swing.JList<String> JListMaestros;
+    private javax.swing.JList<String> JListPreguntasModif;
     private javax.swing.JList<String> JListUsuariosModif;
     private javax.swing.JList<String> JlistExamenesAlum;
     private javax.swing.JDialog MenuAlumnos;
@@ -3837,6 +4223,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton Rbtn_verdaderoModif;
     private javax.swing.JSpinner SpinnerDuracion;
     private javax.swing.JSpinner SpinnerNueDuracion;
+    private javax.swing.JSpinner SpinnerNuePuntaje;
     private javax.swing.JSpinner SpinnerPuntajeComp;
     private javax.swing.JSpinner SpinnerPuntajeSel;
     private javax.swing.JSpinner SpinnerPuntajeTF;
@@ -3906,6 +4293,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3927,6 +4315,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_buscar;
     private javax.swing.JLabel lb_buscarClaseElim;
     private javax.swing.JLabel lb_buscarUsuarioElim;
+    private javax.swing.JLabel lb_calificaciones;
     private javax.swing.JLabel lb_carrera;
     private javax.swing.JLabel lb_clasesMaes;
     private javax.swing.JLabel lb_codClase;
@@ -3979,10 +4368,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_periodoModif;
     private javax.swing.JLabel lb_profesion;
     private javax.swing.JLabel lb_puntajeComp;
+    private javax.swing.JLabel lb_puntajeModif;
     private javax.swing.JLabel lb_puntajeSel;
     private javax.swing.JLabel lb_puntajeTF;
     private javax.swing.JLabel lb_registro;
     private javax.swing.JLabel lb_respCorrecta;
+    private javax.swing.JLabel lb_respCorrectaModif;
     private javax.swing.JLabel lb_semestre;
     private javax.swing.JLabel lb_sueldo;
     private javax.swing.JLabel lb_tipo;
