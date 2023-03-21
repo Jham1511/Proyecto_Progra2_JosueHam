@@ -4,6 +4,9 @@
  */
 package proyecto_prg2_josueham;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author skxka
@@ -53,7 +56,22 @@ public class PSelMultiple extends Pregunta {
     public void setRespuesta(Object respuesta) {
         this.respuesta = respuesta;
     }
+
+    @Override
+    public String toString() {
+        return "PSelMultiple{" + "opciones=" + Arrays.toString(opciones) + '}';
+    }
     
-    
+    public double getPuntos(Examen a, ArrayList<Pregunta> pre){
+        double suma = 0.0;
+        for (int i = 0; i < pre.size(); i++) {
+            if (pre.get(i) instanceof PSelMultiple) {
+                if (pre.get(i).equals(respuesta)) {
+                    suma+= pre.get(i).getPuntaje();
+                }
+            }
+        }
+        return suma;
+    }
     
 }

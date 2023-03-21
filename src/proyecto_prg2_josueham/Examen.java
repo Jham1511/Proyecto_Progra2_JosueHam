@@ -56,7 +56,7 @@ public class Examen {
 
     @Override
     public String toString() {
-        return "Examen{" + "duracion=" + duracion + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + ", preguntas=" + preguntas + '}';
+        return nombre;
     }
 
     
