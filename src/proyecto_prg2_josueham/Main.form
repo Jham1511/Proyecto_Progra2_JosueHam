@@ -3750,7 +3750,7 @@
                           <Component id="BtnCompletacion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="BtnTerminarComp" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3973,7 +3973,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="150" width="110" height="30"/>
+              <AbsoluteConstraints x="130" y="150" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -3996,7 +3996,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="ChooserFechaInicio">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="240" width="110" height="30"/>
+              <AbsoluteConstraints x="130" y="240" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4019,7 +4019,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="ChooserFechaCierre">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="340" width="110" height="30"/>
+              <AbsoluteConstraints x="130" y="340" width="150" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4141,7 +4141,7 @@
         <Component class="javax.swing.JTextField" name="FieldnueNomExamen">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="130" width="130" height="30"/>
+              <AbsoluteConstraints x="130" y="130" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4161,7 +4161,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="ChooserNueFechaInicio">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="220" width="110" height="30"/>
+              <AbsoluteConstraints x="130" y="220" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4181,7 +4181,7 @@
         <Component class="com.toedter.calendar.JDateChooser" name="ChooserNueFechaCierre">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="320" width="110" height="30"/>
+              <AbsoluteConstraints x="130" y="320" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4606,6 +4606,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cooper Black" size="14" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tiempo restante del examen:"/>
               </Properties>

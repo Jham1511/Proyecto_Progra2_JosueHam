@@ -2211,7 +2211,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(BtnCompletacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnTerminarComp)
-                .addGap(37, 37, 37))
+                .addGap(33, 33, 33))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2287,19 +2287,19 @@ public class Main extends javax.swing.JFrame {
         DiaInfoExamen.getContentPane().add(lb_nomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         FieldNomExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        DiaInfoExamen.getContentPane().add(FieldNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 110, 30));
+        DiaInfoExamen.getContentPane().add(FieldNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 150, 30));
 
         lb_fechaInicio.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_fechaInicio.setForeground(new java.awt.Color(102, 102, 102));
         lb_fechaInicio.setText("Fecha de inicio");
         DiaInfoExamen.getContentPane().add(lb_fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
-        DiaInfoExamen.getContentPane().add(ChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 110, 30));
+        DiaInfoExamen.getContentPane().add(ChooserFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 150, 30));
 
         lb_fecheCierre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_fecheCierre.setForeground(new java.awt.Color(102, 102, 102));
         lb_fecheCierre.setText("Fecha de Cierre");
         DiaInfoExamen.getContentPane().add(lb_fecheCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
-        DiaInfoExamen.getContentPane().add(ChooserFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 110, 30));
+        DiaInfoExamen.getContentPane().add(ChooserFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 150, 30));
 
         jLabel5.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -2353,17 +2353,17 @@ public class Main extends javax.swing.JFrame {
         lb_nueNomExamen.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueNomExamen.setText("Nuevo Nombre del Examen");
         DiaInfoExamenModif.getContentPane().add(lb_nueNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
-        DiaInfoExamenModif.getContentPane().add(FieldnueNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 130, 30));
+        DiaInfoExamenModif.getContentPane().add(FieldnueNomExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, 30));
 
         lb_nueFechaInicio.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueFechaInicio.setText("Fecha de Inicio");
         DiaInfoExamenModif.getContentPane().add(lb_nueFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
-        DiaInfoExamenModif.getContentPane().add(ChooserNueFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 110, 30));
+        DiaInfoExamenModif.getContentPane().add(ChooserNueFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 160, 30));
 
         lb_nueFechaCierre.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_nueFechaCierre.setText("Fecha de Cierre");
         DiaInfoExamenModif.getContentPane().add(lb_nueFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
-        DiaInfoExamenModif.getContentPane().add(ChooserNueFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 110, 30));
+        DiaInfoExamenModif.getContentPane().add(ChooserNueFechaCierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, 30));
 
         lb_nueDuracion.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
         lb_nueDuracion.setText("Duracion del examen(Minutos)");
@@ -2509,6 +2509,7 @@ public class Main extends javax.swing.JFrame {
         PBDuracion.setBackground(new java.awt.Color(71, 71, 75));
 
         jLabel6.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Tiempo restante del examen:");
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
@@ -3365,27 +3366,27 @@ public class Main extends javax.swing.JFrame {
     Examen examenSeleccionado = null;
     Curso cursoSeleccionado = null;
     private void BtnIngresarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarClaseActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+        DefaultListModel modelo = (DefaultListModel)JListClasesMaestros.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
 
-        DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
+        DefaultListModel modelExamen = new DefaultListModel();
         for (Examen examen : cursoSeleccionado.getExamenes()) {
             modelExamen.addElement(examen);
         }
-
+        JListClasesExamen.setModel(modelExamen);
     }//GEN-LAST:event_BtnIngresarClaseActionPerformed
 
     private void BtnCrearExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearExamenActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        Curso clase = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+//        Curso clase = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
         examenSeleccionado = new Examen();
 
-        clase.getExamenes().add(examenSeleccionado);
+//        clase.getExamenes().add(examenSeleccionado);
         abrirInfoExamen();
         DiaExamenMaestros.pack();
         DiaExamenMaestros.setLocationRelativeTo(this);
         DiaExamenMaestros.setVisible(true);
-        System.out.println("Lleis");
 
 //        aCurso.cargarArchivo();
 //        clase.getExamenes().add(examenSeleccionado);
@@ -3419,9 +3420,7 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor seleccione una opcion");
         }
 
-        aCurso.cargarArchivo();
-        aCurso.setCurso(cursoSeleccionado);
-        aCurso.escribirArchivo();
+        
     }//GEN-LAST:event_BtnSeleccionActionPerformed
 
     private void BtnModifExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifExamenActionPerformed
@@ -3429,7 +3428,7 @@ public class Main extends javax.swing.JFrame {
         DiaInfoExamenModif.setLocationRelativeTo(this);
         DiaInfoExamenModif.setVisible(true);
 
-        DiaModifPreguntas.setModal(true);
+
         DiaModifPreguntas.pack();
         DiaModifPreguntas.setLocationRelativeTo(this);
         DiaModifPreguntas.setVisible(true);
@@ -3529,10 +3528,11 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
 
-        DefaultListModel modelExamen = (DefaultListModel) JlistExamenesAlum.getModel();
+        DefaultListModel modelExamen = new DefaultListModel();// (DefaultListModel) JlistExamenesAlum.getModel();
         for (Examen examen : cursoSeleccionado.getExamenes()) {
             modelExamen.addElement(examen);
         }
+        System.out.println(cursoSeleccionado.getExamenes());
         JlistExamenesAlum.setModel(modelExamen);
     }//GEN-LAST:event_BtnIngresarAlumActionPerformed
 
@@ -3540,19 +3540,23 @@ public class Main extends javax.swing.JFrame {
         if (JlistExamenesAlum.getSelectedIndex() >= 0) {
             abrirExamen();
             for (Pregunta pre : examenSeleccionado.getPreguntas()) {
+                TAPregunta.setText(pre.getPregunta());
                 if (pre instanceof PSelMultiple) {
                     FieldCheckAlum1.setVisible(true);
                     FieldCheckAlum2.setVisible(true);
                     FieldCheckAlum3.setVisible(true);
                     FieldCheckAlum4.setVisible(true);
+                    
                     CheckBoxAlum1.setVisible(true);
                     CheckBoxAlum2.setVisible(true);
                     CheckBoxAlum3.setVisible(true);
                     CheckBoxAlum4.setVisible(true);
+                    
                     Rbtn_FalsoAlum.setVisible(false);
                     Rbtn_VerdaderoAlum.setVisible(false);
                     FieldRespAlumno.setVisible(false);
                     lb_escribaRespuesta.setVisible(false);
+                    
                 } else if (pre instanceof PTrueOrFalse) {
                     FieldCheckAlum1.setVisible(false);
                     FieldCheckAlum2.setVisible(false);
@@ -3597,7 +3601,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAyudaCanvasActionPerformed
 
     private void BtnSiguienteExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteExamenActionPerformed
+        if (cont == examenSeleccionado.getPreguntas().size() - 1) {
+            BtnSiguienteExamen.setEnabled(false);
+        }
         cont++;
+        DefaultListModel modelo = (DefaultListModel) JlistExamenesAlum.getModel();
+        examenSeleccionado = (Examen) modelo.getElementAt(JlistExamenesAlum.getSelectedIndex());
         examenSeleccionado.getPreguntas().get(cont);
         for (Pregunta pre : examenSeleccionado.getPreguntas()) {
             for (int i = 0; i < examenSeleccionado.getPreguntas().size(); i++) {
@@ -3655,8 +3664,9 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
         aCurso.cargarArchivo();
+        cursoSeleccionado.getExamenes().add(examenSeleccionado);
         aCurso.getListaCursos().add(cursoSeleccionado);
         aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
@@ -3664,8 +3674,9 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnTerminarSelMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarSelMulActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
         aCurso.cargarArchivo();
+        cursoSeleccionado.getExamenes().add(examenSeleccionado);
         aCurso.getListaCursos().add(cursoSeleccionado);
         aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
@@ -3673,9 +3684,18 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnTerminarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarCompActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+        cursoSeleccionado.getExamenes().add(examenSeleccionado);
+        
         aCurso.cargarArchivo();
-        aCurso.getListaCursos().add(cursoSeleccionado);
+        for (Curso curso : aCurso.getListaCursos()) {
+            if (curso == cursoSeleccionado) {
+                curso.getExamenes().add(examenSeleccionado);
+                System.out.println(curso.getExamenes().size());
+                break;
+            }
+        }
+//        aCurso.getListaCursos().add(cursoSeleccionado);
         aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
     }//GEN-LAST:event_BtnTerminarCompActionPerformed
@@ -3826,6 +3846,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExamenModifActionPerformed
 
     private void BtnRegresarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarExamenActionPerformed
+        if (cont == 0) {
+            BtnRegresarExamen.setEnabled(false);
+        }
         cont--;
         examenSeleccionado.getPreguntas().get(cont);
         for (Pregunta pre : examenSeleccionado.getPreguntas()) {
