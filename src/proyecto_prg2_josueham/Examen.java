@@ -18,6 +18,16 @@ public class Examen {
         return nombre;
     }
 
+    public Examen() {
+    }
+
+    public Examen(String nombre, int duracion, Date fechaInicio, Date fechaFinal) {
+        this.nombre = nombre;
+        this.duracion = duracion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

@@ -18,7 +18,7 @@ public class PTrueOrFalse extends Pregunta {
     }
     
     
-    @Override
+
     public double getPuntos(Examen a, ArrayList<Pregunta> pre){
         double suma = 0.0;
         for (int i = 0; i < pre.size() - 1; i++) {

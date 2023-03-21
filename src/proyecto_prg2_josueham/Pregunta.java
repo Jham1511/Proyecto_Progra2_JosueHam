@@ -54,7 +54,7 @@ public class Pregunta {
         return  pregunta ;
     }
     
-    public double getPuntos(Examen a, ArrayList<Pregunta> pre){
+    public double getPuntos(){
         return 0;
     }
 }

@@ -5,6 +5,7 @@
 package proyecto_prg2_josueham;
 
 import java.util.ArrayList;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,12 +17,13 @@ public class PCompletacion extends Pregunta {
         super.respuesta = new String();
     }
     
-    @Override
-    public double getPuntos(Examen a, ArrayList<Pregunta> pre){
+    public double getPuntos(Examen a, ArrayList<Pregunta> pre, JTextField field){
         double suma = 0.0;
         for (int i = 0; i < pre.size() - 1; i++) {
-            if (pre.get(i).equals(respuesta)) {
+            if (field.equals(respuesta)) {
                 suma+= pre.get(i).getPuntaje();
+            } else {
+                suma+=0;
             }
         }
         return suma;
