@@ -74,5 +74,13 @@ public class PSelMultiple extends Pregunta implements Serializable{
         }
         return suma;
     }
+
+    @Override
+    public double getPuntos() {
+        if (((int)this.getRespuesta()) == ((int) respuestaUsuario)) {
+            return this.getPuntaje();
+        }
+        return 0;
+    }
     
 }

@@ -11,10 +11,19 @@ import java.util.ArrayList;
  *
  * @author SKX Kafei
  */
-public class Pregunta implements Serializable{
+public abstract class Pregunta implements Serializable{
     protected double puntaje;
     protected String pregunta;
     protected Object respuesta;
+    protected Object respuestaUsuario;
+
+    public Object getRespuestaUsuario() {
+        return respuestaUsuario;
+    }
+
+    public void setRespuestaUsuario(Object respuestaUsuario) {
+        this.respuestaUsuario = respuestaUsuario;
+    }
 
     public Pregunta() {
     }
@@ -55,7 +64,5 @@ public class Pregunta implements Serializable{
         return  pregunta ;
     }
     
-    public double getPuntos(){
-        return 0;
-    }
+    public abstract double getPuntos();
 }

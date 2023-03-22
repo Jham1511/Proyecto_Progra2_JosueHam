@@ -29,4 +29,12 @@ public class PCompletacion extends Pregunta  implements Serializable{
         }
         return suma;
     }
+
+    @Override
+    public double getPuntos() {
+         if (((String)this.getRespuesta()).equals((String) respuestaUsuario)) {
+            return this.getPuntaje();
+        }
+        return 0;
+    }
 }

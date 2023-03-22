@@ -375,6 +375,7 @@ public class Main extends javax.swing.JFrame {
         FieldRespAlumno = new javax.swing.JTextField();
         BtnRegresarExamen = new javax.swing.JButton();
         BtnEnviar = new javax.swing.JButton();
+        jPanel24 = new javax.swing.JPanel();
         BtngrupoSelMulAlum = new javax.swing.ButtonGroup();
         BtngrupoVFAlum = new javax.swing.ButtonGroup();
         BtngrupoModifSelMul = new javax.swing.ButtonGroup();
@@ -2652,6 +2653,21 @@ public class Main extends javax.swing.JFrame {
         });
         DiaExamenAlumnos.getContentPane().add(BtnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
 
+        jPanel24.setBackground(new java.awt.Color(51, 102, 255));
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        DiaExamenAlumnos.getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 440));
+
         DiaVerResultados.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
@@ -3620,16 +3636,10 @@ public class Main extends javax.swing.JFrame {
         aMaestros.cargarArchivo();
 
         for (Maestro m : aMaestros.getListaMaestros()) {
-            System.out.println("For maestro m");
             for (Curso c : m.getClases()) {
-                System.out.println("Curso c");
                 for (Examen e : c.getExamenes()) {
-                    System.out.println("Examen e");
-                    System.out.println("Codigo e " + e.getCodigo());
-                    System.out.println("Codigo cursoSelec" +cursoSeleccionado.getCodigo());
                     if (cursoSeleccionado.getCodigo().equals(e.getCodigo())) {
                         modelito.addElement(e);
-                        System.out.println("Dentro del if");
                     }
                 }
             }
@@ -3638,59 +3648,118 @@ public class Main extends javax.swing.JFrame {
 
         System.out.println(cursoSeleccionado.getExamenes());
     }//GEN-LAST:event_BtnIngresarAlumActionPerformed
+    public void actualizarPregunta() {
 
-    private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
-        if (JlistExamenesAlum.getSelectedIndex() >= 0) {
-            abrirExamen();
-            for (Pregunta pre : examenSeleccionado.getPreguntas()) {
-                TAPregunta.setText(examenSeleccionado.getPreguntas().get(0).getPregunta());
-                if (pre instanceof PSelMultiple) {
-                    FieldCheckAlum1.setVisible(true);
-                    FieldCheckAlum2.setVisible(true);
-                    FieldCheckAlum3.setVisible(true);
-                    FieldCheckAlum4.setVisible(true);
-
-                    CheckBoxAlum1.setVisible(true);
-                    CheckBoxAlum2.setVisible(true);
-                    CheckBoxAlum3.setVisible(true);
-                    CheckBoxAlum4.setVisible(true);
-
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-
-                } else if (pre instanceof PTrueOrFalse) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(true);
-                    Rbtn_VerdaderoAlum.setVisible(true);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-                } else if (pre instanceof PCompletacion) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(true);
-                    lb_escribaRespuesta.setVisible(true);
+        if (cont == examenSeleccionado.getPreguntas().size() - 1) {
+            BtnEnviar.setEnabled(true);
+        } else {
+            BtnEnviar.setEnabled(false);
+        }
+        TAPregunta.setText(examenSeleccionado.getPreguntas().get(cont).getPregunta());
+        Pregunta pre = examenSeleccionado.getPreguntas().get(cont);
+        if (pre instanceof PSelMultiple) {
+            if (pre.getRespuestaUsuario() != null) {
+                if ((int) pre.getRespuestaUsuario() == 1) {
+                    CheckBoxAlum1.setSelected(true);
+                } else if ((int) pre.getRespuestaUsuario() == 2) {
+                    CheckBoxAlum2.setSelected(true);
+                } else if ((int) pre.getRespuestaUsuario() == 3) {
+                    CheckBoxAlum3.setSelected(true);
+                } else if ((int) pre.getRespuestaUsuario() == 4) {
+                    CheckBoxAlum4.setSelected(true);
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un examen a realizar");
+
+            FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
+            FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
+            FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
+            FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
+
+            FieldCheckAlum1.setVisible(true);
+            FieldCheckAlum2.setVisible(true);
+            FieldCheckAlum3.setVisible(true);
+            FieldCheckAlum4.setVisible(true);
+
+            CheckBoxAlum1.setVisible(true);
+            CheckBoxAlum2.setVisible(true);
+            CheckBoxAlum3.setVisible(true);
+            CheckBoxAlum4.setVisible(true);
+
+            Rbtn_FalsoAlum.setVisible(false);
+            Rbtn_VerdaderoAlum.setVisible(false);
+            FieldRespAlumno.setVisible(false);
+            lb_escribaRespuesta.setVisible(false);
+            System.out.println("Seleccion");
+
+        } else if (pre instanceof PTrueOrFalse) {
+            if (pre.getRespuestaUsuario() != null) {
+                if ((Boolean) pre.getRespuestaUsuario()) {
+                    Rbtn_VerdaderoAlum.setSelected(true);
+                } else if (!(Boolean) pre.getRespuestaUsuario()) {
+                    Rbtn_FalsoAlum.setSelected(true);
+                }
+            }
+
+            FieldCheckAlum1.setVisible(false);
+            FieldCheckAlum2.setVisible(false);
+            FieldCheckAlum3.setVisible(false);
+            FieldCheckAlum4.setVisible(false);
+
+            CheckBoxAlum1.setVisible(false);
+            CheckBoxAlum2.setVisible(false);
+            CheckBoxAlum3.setVisible(false);
+            CheckBoxAlum4.setVisible(false);
+
+            Rbtn_FalsoAlum.setVisible(true);
+            Rbtn_VerdaderoAlum.setVisible(true);
+
+            FieldRespAlumno.setVisible(false);
+            lb_escribaRespuesta.setVisible(false);
+            System.out.println("TF");
+        } else if (pre instanceof PCompletacion) {
+            if (pre.getRespuestaUsuario() != null) {
+                FieldRespAlumno.setText((String) pre.getRespuestaUsuario());
+            }
+
+            FieldCheckAlum1.setVisible(false);
+            FieldCheckAlum2.setVisible(false);
+            FieldCheckAlum3.setVisible(false);
+            FieldCheckAlum4.setVisible(false);
+
+            CheckBoxAlum1.setVisible(false);
+            CheckBoxAlum2.setVisible(false);
+            CheckBoxAlum3.setVisible(false);
+            CheckBoxAlum4.setVisible(false);
+            Rbtn_FalsoAlum.setVisible(false);
+            Rbtn_VerdaderoAlum.setVisible(false);
+
+            FieldRespAlumno.setVisible(true);
+            lb_escribaRespuesta.setVisible(true);
+            System.out.println("Completacion");
         }
+    }
+
+
+    private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
+//        if (JlistExamenesAlum.getSelectedIndex() >= 0) {
+        DefaultListModel modelo = (DefaultListModel) JlistExamenesAlum.getModel();
+        examenSeleccionado = (Examen) modelo.getElementAt(JlistExamenesAlum.getSelectedIndex());
+        actualizarPregunta();
+        if (cont >= examenSeleccionado.getPreguntas().size() - 1) {
+            BtnSiguienteExamen.setEnabled(false);
+        }
+        BtnRegresarExamen.setEnabled(false);
+        System.out.println("Inicio: " + examenSeleccionado.getFechaInicio().getTime());
+        System.out.println("New Date: " + new Date().getTime());
+        System.out.println("Final: " + examenSeleccionado.getFechaFinal().getTime());
+        if (examenSeleccionado.getFechaInicio().getTime() > (new Date().getTime())
+                || examenSeleccionado.getFechaFinal().getTime() < (new Date()).getTime()) {
+            JOptionPane.showMessageDialog(this, "Examen no disponible");
+
+        } else {
+            abrirExamen();
+        }
+
 
     }//GEN-LAST:event_BtnRealizarExamenActionPerformed
 
@@ -3704,68 +3773,38 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAyudaCanvasActionPerformed
 
     private void BtnSiguienteExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteExamenActionPerformed
-        if (cont == examenSeleccionado.getPreguntas().size() - 1) {
+
+        if (cont < examenSeleccionado.getPreguntas().size() - 1) {
+            validarPregunta();
+            cont++;
+            actualizarPregunta();
+            BtnRegresarExamen.setEnabled(true);
+        } else {
             BtnSiguienteExamen.setEnabled(false);
-            BtnEnviar.setEnabled(true);
         }
-        cont++;
-        DefaultListModel modelo = (DefaultListModel) JlistExamenesAlum.getModel();
-        examenSeleccionado = (Examen) modelo.getElementAt(JlistExamenesAlum.getSelectedIndex());
-        examenSeleccionado.getPreguntas().get(cont);
-        for (Pregunta pre : examenSeleccionado.getPreguntas()) {
-            for (int i = 0; i < examenSeleccionado.getPreguntas().size(); i++) {
-                TAPregunta.setText(examenSeleccionado.getPreguntas().get(cont).getPregunta());
-                if (pre instanceof PSelMultiple) {
-                    FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
-                    FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
-                    FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
-                    FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
-
-                    FieldCheckAlum1.setVisible(true);
-                    FieldCheckAlum2.setVisible(true);
-                    FieldCheckAlum3.setVisible(true);
-                    FieldCheckAlum4.setVisible(true);
-                    CheckBoxAlum1.setVisible(true);
-                    CheckBoxAlum2.setVisible(true);
-                    CheckBoxAlum3.setVisible(true);
-                    CheckBoxAlum4.setVisible(true);
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-                } else if (pre instanceof PTrueOrFalse) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(true);
-                    Rbtn_VerdaderoAlum.setVisible(true);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-                } else if (pre instanceof PCompletacion) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(true);
-                    lb_escribaRespuesta.setVisible(true);
-                }
-            }
-
-        }
-
     }//GEN-LAST:event_BtnSiguienteExamenActionPerformed
-
+    public void validarPregunta() {
+        Pregunta pre = examenSeleccionado.getPreguntas().get(cont);
+        if (pre instanceof PSelMultiple) {
+            if (CheckBoxAlum1.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(1);
+            } else if (CheckBoxAlum2.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(2);
+            } else if (CheckBoxAlum3.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(3);
+            } else if (CheckBoxAlum4.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(4);
+            }
+        } else if (pre instanceof PTrueOrFalse) {
+            if (Rbtn_VerdaderoAlum.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(true);
+            } else if (Rbtn_FalsoAlum.isSelected()) {
+                examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(false);
+            }
+        } else if (pre instanceof PCompletacion) {
+            examenSeleccionado.getPreguntas().get(cont).setRespuestaUsuario(FieldRespAlumno.getText());
+        }
+    }
     private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
         crearExamen();
     }//GEN-LAST:event_BtnTerminarTFActionPerformed
@@ -3925,69 +3964,29 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExamenModifActionPerformed
 
     private void BtnRegresarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarExamenActionPerformed
-        if (cont == 0) {
-            cont = 0;
+
+        if (cont > 0) {
+            validarPregunta();
+            cont--;
+            actualizarPregunta();
+            BtnSiguienteExamen.setEnabled(true);
+        } else {
             BtnRegresarExamen.setEnabled(false);
         }
-        cont--;
-        examenSeleccionado.getPreguntas().get(cont);
-        for (Pregunta pre : examenSeleccionado.getPreguntas()) {
-
-            TAPregunta.setText(examenSeleccionado.getPreguntas().get(cont).getPregunta());
-            if (pre instanceof PSelMultiple) {
-                FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
-                FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
-                FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
-                FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
-
-                FieldCheckAlum1.setVisible(true);
-                FieldCheckAlum2.setVisible(true);
-                FieldCheckAlum3.setVisible(true);
-                FieldCheckAlum4.setVisible(true);
-                CheckBoxAlum1.setVisible(true);
-                CheckBoxAlum2.setVisible(true);
-                CheckBoxAlum3.setVisible(true);
-                CheckBoxAlum4.setVisible(true);
-                Rbtn_FalsoAlum.setVisible(false);
-                Rbtn_VerdaderoAlum.setVisible(false);
-                FieldRespAlumno.setVisible(false);
-                lb_escribaRespuesta.setVisible(false);
-            } else if (pre instanceof PTrueOrFalse) {
-                FieldCheckAlum1.setVisible(false);
-                FieldCheckAlum2.setVisible(false);
-                FieldCheckAlum3.setVisible(false);
-                FieldCheckAlum4.setVisible(false);
-                CheckBoxAlum1.setVisible(false);
-                CheckBoxAlum2.setVisible(false);
-                CheckBoxAlum3.setVisible(false);
-                CheckBoxAlum4.setVisible(false);
-                Rbtn_FalsoAlum.setVisible(true);
-                Rbtn_VerdaderoAlum.setVisible(true);
-                FieldRespAlumno.setVisible(false);
-                lb_escribaRespuesta.setVisible(false);
-            } else if (pre instanceof PCompletacion) {
-                FieldCheckAlum1.setVisible(false);
-                FieldCheckAlum2.setVisible(false);
-                FieldCheckAlum3.setVisible(false);
-                FieldCheckAlum4.setVisible(false);
-                CheckBoxAlum1.setVisible(false);
-                CheckBoxAlum2.setVisible(false);
-                CheckBoxAlum3.setVisible(false);
-                CheckBoxAlum4.setVisible(false);
-                Rbtn_FalsoAlum.setVisible(false);
-                Rbtn_VerdaderoAlum.setVisible(false);
-                FieldRespAlumno.setVisible(true);
-                lb_escribaRespuesta.setVisible(true);
-            }
-
-        }
-
     }//GEN-LAST:event_BtnRegresarExamenActionPerformed
 
     private void BtnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEnviarActionPerformed
-
+        tiempoAcabado();
     }//GEN-LAST:event_BtnEnviarActionPerformed
-
+    public void tiempoAcabado() {
+        validarPregunta();
+        double nota = 0;
+        for (Pregunta p : examenSeleccionado.getPreguntas()) {
+            nota += p.getPuntos();
+        }
+        JOptionPane.showMessageDialog(this, "Puntaje: " + nota);
+        DiaExamenAlumnos.setVisible(false);
+    }
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         DiaModifPreguntas.setVisible(false);
     }//GEN-LAST:event_BtnVoltarActionPerformed
@@ -4057,10 +4056,10 @@ public class Main extends javax.swing.JFrame {
         FieldRespAlumno.setVisible(false);
         lb_escribaRespuesta.setVisible(false);
 
-        adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion(), PBDuracion);
+        adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion(), PBDuracion, this);
         Thread hilo = new Thread(ab);
         hilo.start();
-
+        actualizarPregunta();
         DiaExamenAlumnos.setModal(true);
         DiaExamenAlumnos.pack();
         DiaExamenAlumnos.setLocationRelativeTo(this);
@@ -4578,6 +4577,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

@@ -4,6 +4,8 @@
  */
 package proyecto_prg2_josueham;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 /**
@@ -15,15 +17,19 @@ public class adminBarra extends Thread{
     private Examen examen;
     private int duracion;
     private JProgressBar barra;
+    private Main pantalla;
 
     public adminBarra() {
     }
 
-    public adminBarra(Examen examen, int duracion, JProgressBar barra) {
+    public adminBarra(Examen examen, int duracion, JProgressBar barra, Main pantalla) {
         this.examen = examen;
         this.duracion = duracion;
         this.barra = barra;
+        this.pantalla = pantalla;
     }
+
+    
 
     public Examen getExamen() {
         return examen;
@@ -49,7 +55,11 @@ public class adminBarra extends Thread{
             try {
                 Thread.sleep(1000);
                 barra.setValue(barra.getValue() + 1);
-
+                if (barra.getValue() == barra.getMaximum()) {
+                    JOptionPane.showMessageDialog(pantalla, "Tiempo finalizado");
+                    pantalla.tiempoAcabado();
+                    break;
+                }
             } catch (Exception ex) {
             }
         }
