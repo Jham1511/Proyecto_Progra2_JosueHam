@@ -208,7 +208,7 @@ public class Main extends javax.swing.JFrame {
         BtnCrearExamen = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
         JListExamenesMaestros = new javax.swing.JList<>();
-        lb_misClasesMaestros1 = new javax.swing.JLabel();
+        lb_examenesMaestros = new javax.swing.JLabel();
         BtnModifExamen = new javax.swing.JButton();
         BtnElimExamen = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
@@ -383,6 +383,25 @@ public class Main extends javax.swing.JFrame {
         DiaVerResultados = new javax.swing.JDialog();
         jPanel22 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        TAVerResultados = new javax.swing.JTextArea();
+        BtnAnterior = new javax.swing.JButton();
+        BtnNext = new javax.swing.JButton();
+        BtnTerminar = new javax.swing.JButton();
+        CBVerResultados1 = new javax.swing.JCheckBox();
+        CBVerResultados2 = new javax.swing.JCheckBox();
+        CBVerResultados3 = new javax.swing.JCheckBox();
+        CBVerResultados4 = new javax.swing.JCheckBox();
+        FieldCBVerResultados1 = new javax.swing.JTextField();
+        FieldCBVerResultados2 = new javax.swing.JTextField();
+        FieldCBVerResultados3 = new javax.swing.JTextField();
+        FieldCBVerResultados4 = new javax.swing.JTextField();
+        lb_respuestaResultados = new javax.swing.JLabel();
+        FieldRespUsuarioVerResultados = new javax.swing.JTextField();
+        Rbtn_verdaderoResultados = new javax.swing.JRadioButton();
+        Rbtn_FalsoResultados = new javax.swing.JRadioButton();
+        lb_correcta = new javax.swing.JLabel();
+        lb_incorrecta = new javax.swing.JLabel();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -1345,9 +1364,9 @@ public class Main extends javax.swing.JFrame {
         );
         jScrollPane13.setViewportView(JListExamenesMaestros);
 
-        lb_misClasesMaestros1.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
-        lb_misClasesMaestros1.setForeground(new java.awt.Color(51, 102, 255));
-        lb_misClasesMaestros1.setText("Examenes");
+        lb_examenesMaestros.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_examenesMaestros.setForeground(new java.awt.Color(51, 102, 255));
+        lb_examenesMaestros.setText("Examenes");
 
         BtnModifExamen.setText("Modificar Examen");
         BtnModifExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1371,23 +1390,23 @@ public class Main extends javax.swing.JFrame {
             PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNELMaestrosLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(BtnIngresarClase, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lb_misClasesMaestros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
+                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lb_misClasesMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BtnIngresarClase, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
                 .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                        .addComponent(lb_misClasesMaestros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 65, 65))
+                    .addGroup(PNELMaestrosLayout.createSequentialGroup()
+                        .addComponent(lb_examenesMaestros)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PNELMaestrosLayout.setVerticalGroup(
             PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1395,7 +1414,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lb_misClasesMaestros)
-                    .addComponent(lb_misClasesMaestros1))
+                    .addComponent(lb_examenesMaestros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
@@ -1437,6 +1456,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lb_CursosMaes.setBackground(new java.awt.Color(255, 255, 255));
         lb_CursosMaes.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_CursosMaes.setText("Cursos");
 
@@ -2670,6 +2690,8 @@ public class Main extends javax.swing.JFrame {
 
         DiaVerResultados.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel22.setBackground(new java.awt.Color(51, 102, 255));
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -2678,25 +2700,95 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        DiaVerResultados.getContentPane().add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 380));
+        DiaVerResultados.getContentPane().add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 470));
+
+        jPanel23.setBackground(new java.awt.Color(255, 102, 102));
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        DiaVerResultados.getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 380, 80));
+        DiaVerResultados.getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 550, 80));
+
+        TAVerResultados.setEditable(false);
+        TAVerResultados.setColumns(20);
+        TAVerResultados.setRows(5);
+        jScrollPane18.setViewportView(TAVerResultados);
+
+        DiaVerResultados.getContentPane().add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 450, -1));
+
+        BtnAnterior.setText("<- Anterior");
+        BtnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAnteriorActionPerformed(evt);
+            }
+        });
+        DiaVerResultados.getContentPane().add(BtnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, -1, -1));
+
+        BtnNext.setText("Siguiente ->");
+        BtnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnNextActionPerformed(evt);
+            }
+        });
+        DiaVerResultados.getContentPane().add(BtnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
+
+        BtnTerminar.setText("Terminar");
+        BtnTerminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTerminarActionPerformed(evt);
+            }
+        });
+        DiaVerResultados.getContentPane().add(BtnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, -1));
+        DiaVerResultados.getContentPane().add(CBVerResultados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+        DiaVerResultados.getContentPane().add(CBVerResultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
+        DiaVerResultados.getContentPane().add(CBVerResultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
+        DiaVerResultados.getContentPane().add(CBVerResultados4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+
+        FieldCBVerResultados1.setEditable(false);
+        DiaVerResultados.getContentPane().add(FieldCBVerResultados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 120, 30));
+
+        FieldCBVerResultados2.setEditable(false);
+        DiaVerResultados.getContentPane().add(FieldCBVerResultados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 120, 30));
+
+        FieldCBVerResultados3.setEditable(false);
+        DiaVerResultados.getContentPane().add(FieldCBVerResultados3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 120, 30));
+
+        FieldCBVerResultados4.setEditable(false);
+        DiaVerResultados.getContentPane().add(FieldCBVerResultados4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 120, 30));
+
+        lb_respuestaResultados.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_respuestaResultados.setText("Respuesta Introducida:");
+        DiaVerResultados.getContentPane().add(lb_respuestaResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+
+        FieldRespUsuarioVerResultados.setEditable(false);
+        DiaVerResultados.getContentPane().add(FieldRespUsuarioVerResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 160, 30));
+
+        Rbtn_verdaderoResultados.setText("Verdarero");
+        DiaVerResultados.getContentPane().add(Rbtn_verdaderoResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
+
+        Rbtn_FalsoResultados.setText("Falso");
+        DiaVerResultados.getContentPane().add(Rbtn_FalsoResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
+
+        lb_correcta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/comprobado.png"))); // NOI18N
+        DiaVerResultados.getContentPane().add(lb_correcta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, -1));
+
+        lb_incorrecta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
+        DiaVerResultados.getContentPane().add(lb_incorrecta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TabbedPanePrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         PanelLogIn.setBackground(new java.awt.Color(0, 51, 102));
         PanelLogIn.setForeground(new java.awt.Color(255, 255, 255));
@@ -2772,6 +2864,7 @@ public class Main extends javax.swing.JFrame {
 
         BtnCrai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fav-crai_resized.png"))); // NOI18N
         BtnCrai.setBorder(null);
+        BtnCrai.setContentAreaFilled(false);
         BtnCrai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCrai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2785,6 +2878,8 @@ public class Main extends javax.swing.JFrame {
 
         BtnCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gmail.png"))); // NOI18N
         BtnCorreo.setBorder(null);
+        BtnCorreo.setBorderPainted(false);
+        BtnCorreo.setContentAreaFilled(false);
         BtnCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2798,6 +2893,7 @@ public class Main extends javax.swing.JFrame {
 
         BtnRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/unitec_resized.png"))); // NOI18N
         BtnRegistro.setBorder(null);
+        BtnRegistro.setBorderPainted(false);
         BtnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2995,7 +3091,6 @@ public class Main extends javax.swing.JFrame {
             aAlumnos.cargarArchivo();
             aAlumnos.setAlumno(p);
             aAlumnos.escribirArchivo();
-            System.out.println(aAlumnos.getListaAlumnos().size());
             JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
 
         } else if (Rbtn_maestro.isSelected()) {
@@ -3415,7 +3510,6 @@ public class Main extends javax.swing.JFrame {
         aMaestros.cargarArchivo();
         Maestro maestroSeleccionado = maestroSeleccionado(aMaestros);
         abrirMenuMaestros(maestroSeleccionado);
-        System.out.println(maestroSeleccionado.getNombre());
     }//GEN-LAST:event_BtnCanvasMaestrosActionPerformed
 
     private void BtnSalirMaestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirMaestrosActionPerformed
@@ -3434,12 +3528,15 @@ public class Main extends javax.swing.JFrame {
         aMaestros.cargarArchivo();
         aCurso.cargarArchivo();
         Maestro maestroSeleccionado = maestroSeleccionado(aMaestros);
-        System.out.println(maestroSeleccionado.toString2());
+        JListExamenesMaestros.setVisible(false);
+        lb_examenesMaestros.setVisible(false);
+        BtnCrearExamen.setVisible(false);
+        BtnModifExamen.setVisible(false);
+        BtnElimExamen.setVisible(false);
         JListClasesMaestros.setVisible(true);
         lb_misClasesMaestros.setVisible(true);
         BtnIngresarClase.setVisible(true);
         JListClasesMaestros.setModel(llenarCursosMaestros(maestroSeleccionado));
-        System.out.println(maestroSeleccionado.getClases());
     }//GEN-LAST:event_BtnCursosMaestrosActionPerformed
 
     private void BtnLogOutAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogOutAlumActionPerformed
@@ -3456,12 +3553,15 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnCursosAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCursosAlumnosActionPerformed
         Alumno alumnoSeleccionado = alumnoSeleccionado(aAlumnos);
-        System.out.println(alumnoSeleccionado.getNom());
         JListClasesAlum.setVisible(true);
         lb_misClasesAlum.setVisible(true);
         BtnIngresarAlum.setVisible(true);
+        JlistExamenesAlum.setVisible(true);
+        BtnRealizarExamen.setVisible(true);
+        BtnTareas.setVisible(true);
+        BtnVerResultados.setVisible(true);
+        lb_examenesAlum.setVisible(true);
         JListClasesAlum.setModel(llenarCursosAlum(alumnoSeleccionado));
-        System.out.println(alumnoSeleccionado.getClases());
     }//GEN-LAST:event_BtnCursosAlumnosActionPerformed
 
     private void BtnCanvasAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCanvasAlumnoActionPerformed
@@ -3594,7 +3694,6 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Pregunta agregada correctamente");
             TACompletacion.setText("");
             FieldRespCorrecta.setText("");
-            System.out.println(pc.toString());
         } else {
             JOptionPane.showMessageDialog(this, "Ingrese la información de la pregunta o de la respuesta");
         }
@@ -3630,23 +3729,29 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnGuardarModifExamenActionPerformed
 
     private void BtnIngresarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarAlumActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
-        DefaultListModel modelito = (DefaultListModel) JlistExamenesAlum.getModel();
-        aMaestros.cargarArchivo();
+        if (JListClasesAlum.getSelectedIndex() >= 0) {
+            try {
+                DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
+                cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
+                DefaultListModel modelito = (DefaultListModel) JlistExamenesAlum.getModel();
+                aMaestros.cargarArchivo();
 
-        for (Maestro m : aMaestros.getListaMaestros()) {
-            for (Curso c : m.getClases()) {
-                for (Examen e : c.getExamenes()) {
-                    if (cursoSeleccionado.getCodigo().equals(e.getCodigo())) {
-                        modelito.addElement(e);
+                for (Maestro m : aMaestros.getListaMaestros()) {
+                    for (Curso c : m.getClases()) {
+                        for (Examen e : c.getExamenes()) {
+                            if (cursoSeleccionado.getCodigo().equals(e.getCodigo())) {
+                                modelito.addElement(e);
+                            }
+                        }
                     }
-                }
-            }
 
+                }
+            } catch (NullPointerException e) {
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una clase");
         }
 
-        System.out.println(cursoSeleccionado.getExamenes());
     }//GEN-LAST:event_BtnIngresarAlumActionPerformed
     public void actualizarPregunta() {
 
@@ -3689,7 +3794,6 @@ public class Main extends javax.swing.JFrame {
             Rbtn_VerdaderoAlum.setVisible(false);
             FieldRespAlumno.setVisible(false);
             lb_escribaRespuesta.setVisible(false);
-            System.out.println("Seleccion");
 
         } else if (pre instanceof PTrueOrFalse) {
             if (pre.getRespuestaUsuario() != null) {
@@ -3715,7 +3819,6 @@ public class Main extends javax.swing.JFrame {
 
             FieldRespAlumno.setVisible(false);
             lb_escribaRespuesta.setVisible(false);
-            System.out.println("TF");
         } else if (pre instanceof PCompletacion) {
             if (pre.getRespuestaUsuario() != null) {
                 FieldRespAlumno.setText((String) pre.getRespuestaUsuario());
@@ -3735,11 +3838,120 @@ public class Main extends javax.swing.JFrame {
 
             FieldRespAlumno.setVisible(true);
             lb_escribaRespuesta.setVisible(true);
-            System.out.println("Completacion");
         }
     }
+    int contador = 0;
 
+    public void actualizarPreguntaResultados() {
 
+        TAVerResultados.setText(examenSeleccionado.getPreguntas().get(contador).getPregunta());
+        Pregunta pre = examenSeleccionado.getPreguntas().get(contador);
+        if (pre instanceof PSelMultiple) {
+            if (pre.getRespuestaUsuario() != null) {
+                if ((int) pre.getRespuestaUsuario() == 1 && (int) pre.getRespuesta() == 1) {
+                    CBVerResultados1.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else if ((int) pre.getRespuestaUsuario() == 2 && (int) pre.getRespuesta() == 2) {
+                    CBVerResultados2.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else if ((int) pre.getRespuestaUsuario() == 3 && (int) pre.getRespuesta() == 3) {
+                    CBVerResultados3.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else if ((int) pre.getRespuestaUsuario() == 4 && (int) pre.getRespuesta() == 4) {
+                    CBVerResultados4.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else {
+                    lb_incorrecta.setVisible(true);
+                    lb_correcta.setVisible(false);
+                }
+            }
+
+            FieldCBVerResultados1.setText(((PSelMultiple) pre).getOpciones()[0]);
+            FieldCBVerResultados2.setText(((PSelMultiple) pre).getOpciones()[1]);
+            FieldCBVerResultados3.setText(((PSelMultiple) pre).getOpciones()[2]);
+            FieldCBVerResultados4.setText(((PSelMultiple) pre).getOpciones()[3]);
+
+            FieldCBVerResultados1.setVisible(true);
+            FieldCBVerResultados2.setVisible(true);
+            FieldCBVerResultados3.setVisible(true);
+            FieldCBVerResultados4.setVisible(true);
+
+            CBVerResultados1.setVisible(true);
+            CBVerResultados2.setVisible(true);
+            CBVerResultados3.setVisible(true);
+            CBVerResultados4.setVisible(true);
+
+            Rbtn_FalsoResultados.setVisible(false);
+            Rbtn_verdaderoResultados.setVisible(false);
+
+            FieldRespUsuarioVerResultados.setVisible(false);
+            lb_respuestaResultados.setVisible(false);
+
+        } else if (pre instanceof PTrueOrFalse) {
+            if (pre.getRespuestaUsuario() != null) {
+                if ((Boolean) pre.getRespuestaUsuario().equals((Boolean) pre.getRespuesta())) {
+                    Rbtn_verdaderoResultados.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else if (!(Boolean) pre.getRespuestaUsuario().equals((Boolean) pre.getRespuesta())) {
+                    Rbtn_FalsoResultados.setSelected(true);
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else {
+                    lb_incorrecta.setVisible(true);
+                    lb_correcta.setVisible(false);
+                }
+            }
+
+            FieldCBVerResultados1.setVisible(false);
+            FieldCBVerResultados2.setVisible(false);
+            FieldCBVerResultados3.setVisible(false);
+            FieldCBVerResultados4.setVisible(false);
+
+            CBVerResultados1.setVisible(false);
+            CBVerResultados2.setVisible(false);
+            CBVerResultados3.setVisible(false);
+            CBVerResultados4.setVisible(false);
+
+            Rbtn_FalsoResultados.setVisible(true);
+            Rbtn_verdaderoResultados.setVisible(true);
+
+            FieldRespUsuarioVerResultados.setVisible(false);
+            lb_respuestaResultados.setVisible(false);
+
+        } else if (pre instanceof PCompletacion) {
+            if (pre.getRespuestaUsuario() != null) {
+                if (((String) pre.getRespuesta()).equals((String) pre.getRespuestaUsuario())) {
+                    lb_correcta.setVisible(true);
+                    lb_incorrecta.setVisible(false);
+                } else {
+                    lb_incorrecta.setVisible(true);
+                    lb_correcta.setVisible(false);
+                }
+
+            }
+
+            FieldCBVerResultados1.setVisible(false);
+            FieldCBVerResultados2.setVisible(false);
+            FieldCBVerResultados3.setVisible(false);
+            FieldCBVerResultados4.setVisible(false);
+
+            CBVerResultados1.setVisible(false);
+            CBVerResultados2.setVisible(false);
+            CBVerResultados3.setVisible(false);
+            CBVerResultados4.setVisible(false);
+
+            Rbtn_FalsoResultados.setVisible(false);
+            Rbtn_verdaderoResultados.setVisible(false);
+
+            FieldRespUsuarioVerResultados.setVisible(true);
+            lb_respuestaResultados.setVisible(true);
+        }
+    }
     private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
 //        if (JlistExamenesAlum.getSelectedIndex() >= 0) {
         DefaultListModel modelo = (DefaultListModel) JlistExamenesAlum.getModel();
@@ -3749,9 +3961,6 @@ public class Main extends javax.swing.JFrame {
             BtnSiguienteExamen.setEnabled(false);
         }
         BtnRegresarExamen.setEnabled(false);
-        System.out.println("Inicio: " + examenSeleccionado.getFechaInicio().getTime());
-        System.out.println("New Date: " + new Date().getTime());
-        System.out.println("Final: " + examenSeleccionado.getFechaFinal().getTime());
         if (examenSeleccionado.getFechaInicio().getTime() > (new Date().getTime())
                 || examenSeleccionado.getFechaFinal().getTime() < (new Date()).getTime()) {
             JOptionPane.showMessageDialog(this, "Examen no disponible");
@@ -3823,6 +4032,15 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnVerResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerResultadosActionPerformed
         if (JlistExamenesAlum.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) JlistExamenesAlum.getModel();
+            examenSeleccionado = (Examen) modelo.getElementAt(JlistExamenesAlum.getSelectedIndex());
+            for (Pregunta pre : examenSeleccionado.getPreguntas()) {
+                if (pre.getRespuestaUsuario() == null) {
+                    JOptionPane.showMessageDialog(this, "Este examen no ha sido realizado");
+                } else {
+                    abrirResultados();
+                }
+            }
 
         } else {
             JOptionPane.showMessageDialog(this, "Por favor seleccione un examen");
@@ -3979,6 +4197,7 @@ public class Main extends javax.swing.JFrame {
         tiempoAcabado();
     }//GEN-LAST:event_BtnEnviarActionPerformed
     public void tiempoAcabado() {
+        cont = 0;
         validarPregunta();
         double nota = 0;
         for (Pregunta p : examenSeleccionado.getPreguntas()) {
@@ -3990,6 +4209,31 @@ public class Main extends javax.swing.JFrame {
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         DiaModifPreguntas.setVisible(false);
     }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarActionPerformed
+        DiaVerResultados.setVisible(false);
+    }//GEN-LAST:event_BtnTerminarActionPerformed
+
+    private void BtnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAnteriorActionPerformed
+        if (contador > 0) {
+            validarPregunta();
+            contador--;
+            actualizarPreguntaResultados();
+            BtnNext.setEnabled(true);
+        } else {
+            BtnAnterior.setEnabled(false);
+        }
+    }//GEN-LAST:event_BtnAnteriorActionPerformed
+
+    private void BtnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNextActionPerformed
+        if (contador < examenSeleccionado.getPreguntas().size() - 1) {
+            contador++;
+            actualizarPreguntaResultados();
+            BtnAnterior.setEnabled(true);
+        } else {
+            BtnNext.setEnabled(false);
+        }
+    }//GEN-LAST:event_BtnNextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4059,12 +4303,37 @@ public class Main extends javax.swing.JFrame {
         adminBarra ab = new adminBarra(examenSeleccionado, examenSeleccionado.getDuracion(), PBDuracion, this);
         Thread hilo = new Thread(ab);
         hilo.start();
+
         actualizarPregunta();
         DiaExamenAlumnos.setModal(true);
         DiaExamenAlumnos.pack();
         DiaExamenAlumnos.setLocationRelativeTo(this);
         DiaExamenAlumnos.setVisible(true);
 
+    }
+
+    public void abrirResultados() {
+
+        FieldCBVerResultados1.setVisible(false);
+        FieldCBVerResultados2.setVisible(false);
+        FieldCBVerResultados3.setVisible(false);
+        FieldCBVerResultados4.setVisible(false);
+
+        CBVerResultados1.setVisible(false);
+        CBVerResultados2.setVisible(false);
+        CBVerResultados3.setVisible(false);
+        CBVerResultados4.setVisible(false);
+
+        Rbtn_FalsoResultados.setVisible(false);
+        Rbtn_verdaderoResultados.setVisible(false);
+
+        FieldRespUsuarioVerResultados.setVisible(false);
+        lb_respuestaResultados.setVisible(false);
+
+        actualizarPreguntaResultados();
+        DiaVerResultados.pack();
+        DiaVerResultados.setLocationRelativeTo(this);
+        DiaVerResultados.setVisible(true);
     }
 
     public void abrirInfoExamen() {
@@ -4244,6 +4513,11 @@ public class Main extends javax.swing.JFrame {
         InicioMaestros.setVisible(false);
         MenuMaestros.pack();
         MenuMaestros.setLocationRelativeTo(this);
+        JListExamenesMaestros.setVisible(false);
+        lb_examenesMaestros.setVisible(false);
+        BtnCrearExamen.setVisible(false);
+        BtnModifExamen.setVisible(false);
+        BtnElimExamen.setVisible(false);
         lb_misClasesMaestros.setVisible(false);
         JListClasesMaestros.setVisible(false);
         BtnIngresarClase.setVisible(false);
@@ -4256,6 +4530,11 @@ public class Main extends javax.swing.JFrame {
         MenuAlumnos.setLocationRelativeTo(this);
         lb_misClasesAlum.setVisible(false);
         JListClasesAlum.setVisible(false);
+        JlistExamenesAlum.setVisible(false);
+        BtnRealizarExamen.setVisible(false);
+        BtnTareas.setVisible(false);
+        BtnVerResultados.setVisible(false);
+        lb_examenesAlum.setVisible(false);
         BtnIngresarAlum.setVisible(false);
         MenuAlumnos.setVisible(true);
     }
@@ -4309,29 +4588,26 @@ public class Main extends javax.swing.JFrame {
         aMaestros.cargarArchivo();
         aCurso.cargarArchivo();
         Maestro m = maestroSeleccionado(aMaestros);
-        System.out.println(examenSeleccionado.toString2());
-        System.out.println("Size acurso " + aCurso.getListaCursos().size());
         for (Curso c : m.getClases()) {
-            System.out.println("Para saber " + c.getCodigo());
             if (cursoSeleccionado.getCodigo().equals(c.getCodigo())) {
                 c.getExamenes().add(examenSeleccionado);
-                System.out.println("caca");
             }
         }
         aMaestros.escribirArchivo();
         aMaestros.cargarArchivo();
         aCurso.cargarArchivo();
         Maestro maestroSeleccionado = maestroSeleccionado(aMaestros);
-        System.out.println(maestroSeleccionado.toString2());
         JListClasesMaestros.setVisible(true);
         lb_misClasesMaestros.setVisible(true);
         BtnIngresarClase.setVisible(true);
         JListClasesMaestros.setModel(llenarCursosMaestros(maestroSeleccionado));
-        System.out.println(maestroSeleccionado.getClases());
         DiaExamenMaestros.setVisible(false);
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
+    private javax.swing.JButton BtnAnterior;
     private javax.swing.JButton BtnAsigClases;
     private javax.swing.JButton BtnAsignarMaestro;
     private javax.swing.JButton BtnAyudaCanvas;
@@ -4365,6 +4641,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnModifExamen;
     private javax.swing.JButton BtnModifUsuarios;
     private javax.swing.JButton BtnMostrarCamposModif;
+    private javax.swing.JButton BtnNext;
     private javax.swing.JButton BtnRealizarExamen;
     private javax.swing.JButton BtnRegAlumnos;
     private javax.swing.JButton BtnRegMaestros;
@@ -4382,6 +4659,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSeleccionarPregunta;
     private javax.swing.JButton BtnSiguienteExamen;
     private javax.swing.JButton BtnTareas;
+    private javax.swing.JButton BtnTerminar;
     private javax.swing.JButton BtnTerminarComp;
     private javax.swing.JButton BtnTerminarSelMul;
     private javax.swing.JButton BtnTerminarTF;
@@ -4394,6 +4672,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup BtngrupoTFModif;
     private javax.swing.ButtonGroup BtngrupoVF;
     private javax.swing.ButtonGroup BtngrupoVFAlum;
+    private javax.swing.JCheckBox CBVerResultados1;
+    private javax.swing.JCheckBox CBVerResultados2;
+    private javax.swing.JCheckBox CBVerResultados3;
+    private javax.swing.JCheckBox CBVerResultados4;
     private javax.swing.JComboBox<String> Cb_listaClases;
     private javax.swing.JCheckBox CheckBoxAlum1;
     private javax.swing.JCheckBox CheckBoxAlum2;
@@ -4425,6 +4707,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldBuscar;
     private javax.swing.JTextField FieldBuscarElim;
     private javax.swing.JTextField FieldBuscarPregunta;
+    private javax.swing.JTextField FieldCBVerResultados1;
+    private javax.swing.JTextField FieldCBVerResultados2;
+    private javax.swing.JTextField FieldCBVerResultados3;
+    private javax.swing.JTextField FieldCBVerResultados4;
     private javax.swing.JTextField FieldCHBOp1;
     private javax.swing.JTextField FieldCHBOp2;
     private javax.swing.JTextField FieldCHBOp3;
@@ -4456,6 +4742,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldRespAlumno;
     private javax.swing.JTextField FieldRespCorrecta;
     private javax.swing.JTextField FieldRespModif;
+    private javax.swing.JTextField FieldRespUsuarioVerResultados;
     private javax.swing.JTextField FieldSeleccionModif1;
     private javax.swing.JTextField FieldSeleccionModif2;
     private javax.swing.JTextField FieldSeleccionModif3;
@@ -4508,6 +4795,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton RbtnActiva;
     private javax.swing.JRadioButton Rbtn_Falso;
     private javax.swing.JRadioButton Rbtn_FalsoAlum;
+    private javax.swing.JRadioButton Rbtn_FalsoResultados;
     private javax.swing.JRadioButton Rbtn_Inactiva;
     private javax.swing.JRadioButton Rbtn_VerdaderoAlum;
     private javax.swing.JRadioButton Rbtn_alumno;
@@ -4515,6 +4803,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton Rbtn_maestro;
     private javax.swing.JRadioButton Rbtn_verdadero;
     private javax.swing.JRadioButton Rbtn_verdaderoModif;
+    private javax.swing.JRadioButton Rbtn_verdaderoResultados;
     private javax.swing.JSpinner SpinnerDuracion;
     private javax.swing.JSpinner SpinnerNueDuracion;
     private javax.swing.JSpinner SpinnerNuePuntaje;
@@ -4525,6 +4814,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea TAModifPreguntas;
     private javax.swing.JTextArea TAPregunta;
     private javax.swing.JTextArea TAPreguntaVF;
+    private javax.swing.JTextArea TAVerResultados;
     private javax.swing.JTabbedPane TabbedPanePrincipal;
     private javax.swing.JTabbedPane TabbedPreguntas;
     private javax.swing.JTabbedPane TabbedRegistro;
@@ -4594,6 +4884,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4621,11 +4912,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_clasesMaes;
     private javax.swing.JLabel lb_codClase;
     private javax.swing.JLabel lb_contra;
+    private javax.swing.JLabel lb_correcta;
     private javax.swing.JLabel lb_elimClases;
     private javax.swing.JLabel lb_elimUsuarios;
     private javax.swing.JLabel lb_escribaRespuesta;
     private javax.swing.JLabel lb_estado;
     private javax.swing.JLabel lb_examenesAlum;
+    private javax.swing.JLabel lb_examenesMaestros;
     private javax.swing.JLabel lb_fechaInicio;
     private javax.swing.JLabel lb_fecheCierre;
     private javax.swing.JLabel lb_horaClase;
@@ -4634,12 +4927,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_howieMochila;
     private javax.swing.JLabel lb_hylianAlum;
     private javax.swing.JLabel lb_hylianMaestros;
+    private javax.swing.JLabel lb_incorrecta;
     private javax.swing.JLabel lb_maestros;
     private javax.swing.JLabel lb_maestrosAsig;
     private javax.swing.JLabel lb_menuAyuda;
     private javax.swing.JLabel lb_misClasesAlum;
     private javax.swing.JLabel lb_misClasesMaestros;
-    private javax.swing.JLabel lb_misClasesMaestros1;
     private javax.swing.JLabel lb_modifEstado;
     private javax.swing.JLabel lb_modificarClases;
     private javax.swing.JLabel lb_nacimiento;
@@ -4675,6 +4968,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_registro;
     private javax.swing.JLabel lb_respCorrecta;
     private javax.swing.JLabel lb_respCorrectaModif;
+    private javax.swing.JLabel lb_respuestaResultados;
     private javax.swing.JLabel lb_semestre;
     private javax.swing.JLabel lb_sueldo;
     private javax.swing.JLabel lb_tipo;
