@@ -211,6 +211,7 @@ public class Main extends javax.swing.JFrame {
         lb_misClasesMaestros1 = new javax.swing.JLabel();
         BtnModifExamen = new javax.swing.JButton();
         BtnElimExamen = new javax.swing.JButton();
+        BtnGuardarExamen = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         BtnCursosMaestros = new javax.swing.JButton();
         BtnRegMenuMaes = new javax.swing.JButton();
@@ -325,6 +326,7 @@ public class Main extends javax.swing.JFrame {
         BtnGuardarModifExamen = new javax.swing.JButton();
         DiaModifPreguntas = new javax.swing.JDialog();
         jPanel18 = new javax.swing.JPanel();
+        BtnVoltar = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
         TAModifPreguntas = new javax.swing.JTextArea();
@@ -1359,6 +1361,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BtnGuardarExamen.setText("Guardar Examen");
+        BtnGuardarExamen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarExamenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PNELMaestrosLayout = new javax.swing.GroupLayout(PNELMaestros);
         PNELMaestros.setLayout(PNELMaestrosLayout);
         PNELMaestrosLayout.setHorizontalGroup(
@@ -1380,7 +1389,8 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnGuardarExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(65, 65, 65))))
         );
         PNELMaestrosLayout.setVerticalGroup(
@@ -1403,7 +1413,9 @@ public class Main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(BtnModifExamen)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnElimExamen)))
+                        .addComponent(BtnElimExamen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnGuardarExamen)))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
@@ -1946,7 +1958,7 @@ public class Main extends javax.swing.JFrame {
         lb_puntajeTF.setForeground(new java.awt.Color(0, 0, 0));
         lb_puntajeTF.setText("Puntaje de la pregunta");
 
-        SpinnerPuntajeTF.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        SpinnerPuntajeTF.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, null, 0.1d));
         SpinnerPuntajeTF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         BtnTerminarTF.setText("Terminar Examen");
@@ -2058,7 +2070,7 @@ public class Main extends javax.swing.JFrame {
         lb_puntajeSel.setForeground(new java.awt.Color(0, 0, 0));
         lb_puntajeSel.setText("Puntaje de la pregunta");
 
-        SpinnerPuntajeSel.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        SpinnerPuntajeSel.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, null, 0.1d));
 
         BtnTerminarSelMul.setText("Terminar Examen");
         BtnTerminarSelMul.addActionListener(new java.awt.event.ActionListener() {
@@ -2192,7 +2204,7 @@ public class Main extends javax.swing.JFrame {
         lb_puntajeComp.setForeground(new java.awt.Color(0, 0, 0));
         lb_puntajeComp.setText("Puntaje de la pregunta");
 
-        SpinnerPuntajeComp.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        SpinnerPuntajeComp.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, null, 0.1d));
 
         BtnTerminarComp.setText("Terminar Examen");
         BtnTerminarComp.addActionListener(new java.awt.event.ActionListener() {
@@ -2332,7 +2344,7 @@ public class Main extends javax.swing.JFrame {
         });
         DiaInfoExamen.getContentPane().add(BtnGuardarInfoExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 180, 30));
 
-        SpinnerDuracion.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        SpinnerDuracion.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         DiaInfoExamen.getContentPane().add(SpinnerDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 110, 30));
 
         DiaInfoExamenModif.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2386,7 +2398,7 @@ public class Main extends javax.swing.JFrame {
         lb_nueDuracion.setText("Duracion del examen(Minutos)");
         DiaInfoExamenModif.getContentPane().add(lb_nueDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
-        SpinnerNueDuracion.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        SpinnerNueDuracion.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         SpinnerNueDuracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DiaInfoExamenModif.getContentPane().add(SpinnerNueDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 70, 30));
 
@@ -2402,15 +2414,32 @@ public class Main extends javax.swing.JFrame {
 
         jPanel18.setBackground(new java.awt.Color(153, 153, 153));
 
+        BtnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back-arrow.png"))); // NOI18N
+        BtnVoltar.setBorder(null);
+        BtnVoltar.setBorderPainted(false);
+        BtnVoltar.setContentAreaFilled(false);
+        BtnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnVoltar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(BtnVoltar)
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         DiaModifPreguntas.getContentPane().add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -2497,7 +2526,7 @@ public class Main extends javax.swing.JFrame {
         });
         DiaModifPreguntas.getContentPane().add(BtnSeleccionarPregunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 170, -1));
 
-        SpinnerNuePuntaje.setModel(new javax.swing.SpinnerNumberModel(0.1d, null, null, 0.1d));
+        SpinnerNuePuntaje.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, null, 0.1d));
         DiaModifPreguntas.getContentPane().add(SpinnerNuePuntaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 70, -1));
 
         lb_puntajeModif.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
@@ -3189,13 +3218,16 @@ public class Main extends javax.swing.JFrame {
             aMaestros.escribirArchivo();
         }
 
-        user.setUsername(nueUsername);
-        user.setPassword(nuePass);
-        user.setFechaCrea(nueFecha);
-        user.setTipo(tipo);
-        user.setEstado(estado);
         aUsuarios.cargarArchivo();
-        aUsuarios.setUsuario(user);
+        for (int i = 0; i < aUsuarios.getListaUsuarios().size(); i++) {
+            if (user.getUsername().equals(aUsuarios.getListaUsuarios().get(i).getUsername())) {
+                aUsuarios.getListaUsuarios().get(i).setUsername(nueUsername);
+                aUsuarios.getListaUsuarios().get(i).setPassword(nuePass);
+                aUsuarios.getListaUsuarios().get(i).setFechaCrea(nueFecha);
+                aUsuarios.getListaUsuarios().get(i).setTipo(tipo);
+                aUsuarios.getListaUsuarios().get(i).setEstado(estado);
+            }
+        }
         aUsuarios.escribirArchivo();
 
         JOptionPane.showMessageDialog(this, "Cambios realizados");
@@ -3428,12 +3460,7 @@ public class Main extends javax.swing.JFrame {
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
         System.out.println(cursoSeleccionado.getExamenes());
 
-        DefaultListModel modelExamen = new DefaultListModel();
-        for (Examen ex : cursoSeleccionado.getExamenes()) {
-            modelExamen.addElement(ex);
-        }
-
-        JListExamenesMaestros.setModel(modelExamen);
+        JListExamenesMaestros.setModel(llenarExamenesMaestros(cursoSeleccionado));
     }//GEN-LAST:event_BtnIngresarClaseActionPerformed
 
     private void BtnCrearExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearExamenActionPerformed
@@ -3710,16 +3737,20 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        cursoSeleccionado.getExamenes().add(examenSeleccionado);
         aExamenes.cargarArchivo();
         aExamenes.getListaExamenes().add(examenSeleccionado);
         aExamenes.escribirArchivo();
         DiaInfoExamen.setVisible(false);
 
-//        aCurso.cargarArchivo();
-//        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-//        //aCurso.getListaCursos().add(cursoSeleccionado);
-//        aCurso.escribirArchivo();
+        aCurso.cargarArchivo();
+        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+            if (aCurso.getListaCursos().get(i).getNombre().equals(cursoSeleccionado.getNombre())) {
+                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
+            }
+        }
+        aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
     }//GEN-LAST:event_BtnTerminarTFActionPerformed
 
@@ -3742,9 +3773,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnTerminarSelMulActionPerformed
 
     private void BtnTerminarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarCompActionPerformed
+        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+        Curso cla = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        cursoSeleccionado.getExamenes().add(examenSeleccionado);
         aCurso.cargarArchivo();
         for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
-            if (cursoSeleccionado.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+            if (cla.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
                 aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
             }
         }
@@ -3899,6 +3933,7 @@ public class Main extends javax.swing.JFrame {
 
     private void BtnRegresarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarExamenActionPerformed
         if (cont == 0) {
+            cont = 0;
             BtnRegresarExamen.setEnabled(false);
         }
         cont--;
@@ -3959,6 +3994,32 @@ public class Main extends javax.swing.JFrame {
     private void BtnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEnviarActionPerformed
 
     }//GEN-LAST:event_BtnEnviarActionPerformed
+
+    private void BtnGuardarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarExamenActionPerformed
+        if (JListClasesMaestros.getSelectedIndex() >= 0 && JListExamenesMaestros.getSelectedIndex() >= 0) {
+            try {
+                DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+                Curso cla = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+                DefaultListModel modelito = (DefaultListModel) JListExamenesMaestros.getModel();
+                Examen ex = (Examen) modelito.getElementAt(JListExamenesMaestros.getSelectedIndex());
+
+                aCurso.cargarArchivo();
+                for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+                    if (cla.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+                        aCurso.getListaCursos().get(i).getExamenes().add(ex);
+                    }
+                }
+                aCurso.escribirArchivo();
+            } catch (Exception e) {
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un objeto en las listas");
+        }
+    }//GEN-LAST:event_BtnGuardarExamenActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        DiaModifPreguntas.setVisible(false);
+    }//GEN-LAST:event_BtnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4243,6 +4304,14 @@ public class Main extends javax.swing.JFrame {
         }
         return modelo;
     }
+
+    public DefaultListModel llenarExamenesMaestros(Curso curso) {
+        DefaultListModel modelExamen = new DefaultListModel();
+        for (Examen ex : curso.getExamenes()) {
+            modelExamen.addElement(ex);
+        }
+        return modelExamen;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
     private javax.swing.JButton BtnAsigClases;
@@ -4267,6 +4336,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnGuardarCambiosUser;
     private javax.swing.JButton BtnGuardarClase;
+    private javax.swing.JButton BtnGuardarExamen;
     private javax.swing.JButton BtnGuardarInfoExamen;
     private javax.swing.JButton BtnGuardarModifClase;
     private javax.swing.JButton BtnGuardarModifExamen;
@@ -4300,6 +4370,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnTerminarTF;
     private javax.swing.JButton BtnVF;
     private javax.swing.JButton BtnVerResultados;
+    private javax.swing.JButton BtnVoltar;
     private javax.swing.ButtonGroup BtngrupoModifSelMul;
     private javax.swing.ButtonGroup BtngrupoSelMulAlum;
     private javax.swing.ButtonGroup BtngrupoSeleccion;

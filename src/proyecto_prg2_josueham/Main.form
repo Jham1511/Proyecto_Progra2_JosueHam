@@ -2233,6 +2233,7 @@
                                   <Component id="BtnCrearExamen" max="32767" attributes="0"/>
                                   <Component id="BtnModifExamen" max="32767" attributes="0"/>
                                   <Component id="BtnElimExamen" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BtnGuardarExamen" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                           </Group>
@@ -2264,6 +2265,8 @@
                               <Component id="BtnModifExamen" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="BtnElimExamen" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="BtnGuardarExamen" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="110" max="32767" attributes="0"/>
@@ -2374,6 +2377,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnElimExamenActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BtnGuardarExamen">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar Examen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGuardarExamenActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -3466,7 +3477,7 @@
                 <Component class="javax.swing.JSpinner" name="SpinnerPuntajeTF">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+                      <SpinnerModel initial="0.1" minimum="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -3717,7 +3728,7 @@
                 <Component class="javax.swing.JSpinner" name="SpinnerPuntajeSel">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+                      <SpinnerModel initial="0.1" minimum="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -3899,7 +3910,7 @@
                 <Component class="javax.swing.JSpinner" name="SpinnerPuntajeComp">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+                      <SpinnerModel initial="0.1" minimum="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -4086,7 +4097,7 @@
         <Component class="javax.swing.JSpinner" name="SpinnerDuracion">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+              <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
           </Properties>
           <Constraints>
@@ -4229,7 +4240,7 @@
         <Component class="javax.swing.JSpinner" name="SpinnerNueDuracion">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+              <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -4277,15 +4288,43 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="BtnVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="490" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="BtnVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="397" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="BtnVoltar">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/back-arrow.png"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel19">
           <Properties>
@@ -4530,7 +4569,7 @@
         <Component class="javax.swing.JSpinner" name="SpinnerNuePuntaje">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+              <SpinnerModel initial="0.1" minimum="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
             </Property>
           </Properties>
           <Constraints>
