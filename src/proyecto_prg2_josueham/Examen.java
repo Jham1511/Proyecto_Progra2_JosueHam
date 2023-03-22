@@ -4,11 +4,12 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Examen {
+public class Examen implements Serializable{
     private String nombre;
     private int duracion;
     private Date fechaInicio, fechaFinal;

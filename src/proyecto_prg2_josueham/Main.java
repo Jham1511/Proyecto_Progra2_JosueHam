@@ -24,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     adminCurso aCurso = new adminCurso("./clases.cla");
     adminMaestros aMaestros = new adminMaestros("./maestros.tch");
     adminUsuarios aUsuarios = new adminUsuarios("./usuarios.usr");
+    adminExamenes aExamenes = new adminExamenes("./examenes.ex");
 
     Registro registro1 = new Registro("registro", "admin", "Registro", "Activa", new Date().from(Instant.now()));
     Registro registro2 = new Registro("a", "a", "Registro", "Activa", new Date().from(Instant.now()));
@@ -35,6 +36,7 @@ public class Main extends javax.swing.JFrame {
         aMaestros.cargarArchivo();
         aAlumnos.cargarArchivo();
         aUsuarios.cargarArchivo();
+        aExamenes.cargarArchivo();
         aCurso.cargarArchivo();
     }
 
@@ -205,14 +207,14 @@ public class Main extends javax.swing.JFrame {
         BtnIngresarClase = new javax.swing.JButton();
         BtnCrearExamen = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
-        JListClasesExamen = new javax.swing.JList<>();
+        JListExamenesMaestros = new javax.swing.JList<>();
         lb_misClasesMaestros1 = new javax.swing.JLabel();
         BtnModifExamen = new javax.swing.JButton();
         BtnElimExamen = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         BtnCursosMaestros = new javax.swing.JButton();
         BtnRegMenuMaes = new javax.swing.JButton();
+        lb_CursosMaes = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         InicioMaestros = new javax.swing.JDialog();
@@ -968,6 +970,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BtnEliminarUsuario.setBackground(new java.awt.Color(153, 153, 255));
         BtnEliminarUsuario.setText("Eliminar Usuario");
         BtnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1332,9 +1335,9 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        JListClasesExamen.setModel(new DefaultListModel()
+        JListExamenesMaestros.setModel(new DefaultListModel()
         );
-        jScrollPane13.setViewportView(JListClasesExamen);
+        jScrollPane13.setViewportView(JListExamenesMaestros);
 
         lb_misClasesMaestros1.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
         lb_misClasesMaestros1.setForeground(new java.awt.Color(51, 102, 255));
@@ -1356,14 +1359,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("jButton5");
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PNELMaestrosLayout = new javax.swing.GroupLayout(PNELMaestros);
         PNELMaestros.setLayout(PNELMaestrosLayout);
         PNELMaestrosLayout.setHorizontalGroup(
@@ -1377,17 +1372,16 @@ public class Main extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
+                        .addComponent(lb_misClasesMaestros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(65, 65, 65))
-                    .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                        .addComponent(lb_misClasesMaestros1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(65, 65, 65))))
         );
         PNELMaestrosLayout.setVerticalGroup(
             PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,12 +1400,10 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(BtnIngresarClase))
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(BtnCrearExamen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(BtnModifExamen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnElimExamen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnElimExamen)))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
@@ -1422,6 +1414,7 @@ public class Main extends javax.swing.JFrame {
         BtnCursosMaestros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/curso-por-internet.png"))); // NOI18N
         BtnCursosMaestros.setBorder(null);
         BtnCursosMaestros.setBorderPainted(false);
+        BtnCursosMaestros.setContentAreaFilled(false);
         BtnCursosMaestros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCursosMaestros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1432,6 +1425,7 @@ public class Main extends javax.swing.JFrame {
         BtnRegMenuMaes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back-arrow.png"))); // NOI18N
         BtnRegMenuMaes.setBorder(null);
         BtnRegMenuMaes.setBorderPainted(false);
+        BtnRegMenuMaes.setContentAreaFilled(false);
         BtnRegMenuMaes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRegMenuMaes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1439,15 +1433,22 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lb_CursosMaes.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_CursosMaes.setText("Cursos");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnRegMenuMaes)
-                    .addComponent(BtnCursosMaestros))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lb_CursosMaes))
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(BtnRegMenuMaes)
+                        .addComponent(BtnCursosMaestros)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1455,9 +1456,11 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(BtnCursosMaestros)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lb_CursosMaes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(BtnRegMenuMaes)
-                .addGap(86, 86, 86))
+                .addGap(73, 73, 73))
         );
 
         MenuMaestros.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 360));
@@ -1728,6 +1731,7 @@ public class Main extends javax.swing.JFrame {
         BtnCursosAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/curso-por-internet.png"))); // NOI18N
         BtnCursosAlumnos.setBorder(null);
         BtnCursosAlumnos.setBorderPainted(false);
+        BtnCursosAlumnos.setContentAreaFilled(false);
         BtnCursosAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCursosAlumnos.setOpaque(false);
         BtnCursosAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -1739,6 +1743,7 @@ public class Main extends javax.swing.JFrame {
         BtnRegAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back-arrow.png"))); // NOI18N
         BtnRegAlumnos.setBorder(null);
         BtnRegAlumnos.setBorderPainted(false);
+        BtnRegAlumnos.setContentAreaFilled(false);
         BtnRegAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRegAlumnos.setOpaque(false);
         BtnRegAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -1748,14 +1753,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         jLabel12.setFont(new java.awt.Font("Cooper Black", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Cursos");
 
         lb_calificaciones.setFont(new java.awt.Font("Cooper Black", 0, 10)); // NOI18N
+        lb_calificaciones.setForeground(new java.awt.Color(255, 255, 255));
         lb_calificaciones.setText("Calificaciones");
 
         BtnCalificacionesAlum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calificacion.png"))); // NOI18N
         BtnCalificacionesAlum.setBorder(null);
         BtnCalificacionesAlum.setBorderPainted(false);
+        BtnCalificacionesAlum.setContentAreaFilled(false);
+        BtnCalificacionesAlum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCalificacionesAlum.setOpaque(false);
         BtnCalificacionesAlum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1824,6 +1833,7 @@ public class Main extends javax.swing.JFrame {
         lb_examenesAlum.setText("Examenes");
 
         BtnRealizarExamen.setText("Realizar Examen");
+        BtnRealizarExamen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRealizarExamen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRealizarExamenActionPerformed(evt);
@@ -1831,8 +1841,10 @@ public class Main extends javax.swing.JFrame {
         });
 
         BtnTareas.setText("Ver Tareas");
+        BtnTareas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         BtnVerResultados.setText("Ver Resultados");
+        BtnVerResultados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnVerResultados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVerResultadosActionPerformed(evt);
@@ -3008,17 +3020,15 @@ public class Main extends javax.swing.JFrame {
 
         Curso clase = (Curso) Cb_listaClases.getSelectedItem();
 
-        for (int i = 0; i < ticher.getClases().size() - 1; i++) {
-            if (ticher.getClases().get(i) != clase) {
-                ticher.getClases().add(clase);
-            } else {
-                JOptionPane.showMessageDialog(this, "El maestro ya pertenece a esta clase");
-            }
-        }
+        ticher.getClases().add(clase);
 
         JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
         aMaestros.cargarArchivo();
-        aMaestros.setMaestro(ticher);
+        for (int i = 0; i < aMaestros.getListaMaestros().size(); i++) {
+            if (ticher.getUsername().equals(aMaestros.getListaMaestros().get(i).getUsername())) {
+                aMaestros.getListaMaestros().get(i).getClases().add(clase);
+            }
+        }
         aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnAsignarMaestroActionPerformed
 
@@ -3028,16 +3038,15 @@ public class Main extends javax.swing.JFrame {
 
         Curso clase = (Curso) cb_ClasesAlum.getSelectedItem();
 
-        for (int i = 0; i < alum.getClases().size() - 1; i++) {
-            if (alum.getClases().get(i) != clase) {
-                alum.getClases().add(clase);
-            } else {
-                JOptionPane.showMessageDialog(this, "Este alumno ya pertenece a esta clase");
+        alum.getClases().add(clase);
+        JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
+
+        aAlumnos.cargarArchivo();
+        for (int i = 0; i < aAlumnos.getListaAlumnos().size(); i++) {
+            if (alum.getUsername().equals(aAlumnos.getListaAlumnos().get(i).getUsername())) {
+                aAlumnos.getListaAlumnos().get(i).getClases().add(clase);
             }
         }
-
-        JOptionPane.showMessageDialog(this, "Clase asignada correctamente");
-        aAlumnos.cargarArchivo();
         aAlumnos.escribirArchivo();
     }//GEN-LAST:event_BtnAsigClasesActionPerformed
 
@@ -3047,16 +3056,15 @@ public class Main extends javax.swing.JFrame {
 
         Maestro ticher = (Maestro) cb_maestros.getSelectedItem();
 
-        for (int i = 0; i < ticher.getAlumnos().size() - 1; i++) {
-            if (ticher.getAlumnos().get(i) != alum) {
-                ticher.getAlumnos().add(alum);
-            } else {
-                JOptionPane.showMessageDialog(this, "Este alumno ya pertenece a la lista");
-            }
-        }
+        ticher.getAlumnos().add(alum);
 
         JOptionPane.showMessageDialog(this, "Alumno asignado correctamente");
         aMaestros.cargarArchivo();
+        for (int i = 0; i < ticher.getAlumnos().size(); i++) {
+            if (alum.getUsername().equals(ticher.getAlumnos().get(i).getUsername())) {
+                aMaestros.getListaMaestros().get(i).getAlumnos().add(alum);
+            }
+        }
         aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnAlumAsigActionPerformed
 
@@ -3148,30 +3156,36 @@ public class Main extends javax.swing.JFrame {
         Date nueFecha = DateChooserModif.getDate();
         if (modelito.getElementAt(JListUsuariosModif.getSelectedIndex()) instanceof Alumno) {
             Alumno alum = (Alumno) modelito.getElementAt(JListUsuariosModif.getSelectedIndex());
-            alum.setNom(nueNombre);
-            alum.setUsername(nueUsername);
-            alum.setPassword(nuePass);
-            alum.setFechaCrea(nueFecha);
-            alum.setTipo(tipo);
-            alum.setEstado(estado);
-            alum.setCarrera(nueCarrera);
 
             aAlumnos.cargarArchivo();
-            aAlumnos.setAlumno(alum);
+            for (int i = 0; i < aAlumnos.getListaAlumnos().size(); i++) {
+                if (alum.getUsername().equals(aAlumnos.getListaAlumnos().get(i).getUsername())) {
+                    aAlumnos.getListaAlumnos().get(i).setNom(nueNombre);
+                    aAlumnos.getListaAlumnos().get(i).setUsername(nueUsername);
+                    aAlumnos.getListaAlumnos().get(i).setPassword(nuePass);
+                    aAlumnos.getListaAlumnos().get(i).setFechaCrea(nueFecha);
+                    aAlumnos.getListaAlumnos().get(i).setTipo(tipo);
+                    aAlumnos.getListaAlumnos().get(i).setEstado(estado);
+                    aAlumnos.getListaAlumnos().get(i).setCarrera(nueCarrera);
+                }
+            }
             aAlumnos.escribirArchivo();
         } else if (modelito.getElementAt(JListUsuariosModif.getSelectedIndex()) instanceof Maestro) {
             Maestro ticher = (Maestro) modelito.getElementAt(JListUsuariosModif.getSelectedIndex());
 
-            ticher.setNombre(nueNombre);
-            ticher.setUsername(nueUsername);
-            ticher.setPassword(nuePass);
-            ticher.setFechaCrea(nueFecha);
-            ticher.setTipo(tipo);
-            ticher.setEstado(estado);
-            ticher.setProfesion(nueProfesion);
-            ticher.setSueldo(nueSueldo);
             aMaestros.cargarArchivo();
-            aMaestros.setMaestro(ticher);
+            for (int i = 0; i < aMaestros.getListaMaestros().size(); i++) {
+                if (ticher.getIdentidad().equals(aMaestros.getListaMaestros().get(i).getIdentidad())) {
+                    aMaestros.getListaMaestros().get(i).setNombre(nueNombre);
+                    aMaestros.getListaMaestros().get(i).setUsername(nueUsername);
+                    aMaestros.getListaMaestros().get(i).setPassword(nuePass);
+                    aMaestros.getListaMaestros().get(i).setFechaCrea(nueFecha);
+                    aMaestros.getListaMaestros().get(i).setTipo(tipo);
+                    aMaestros.getListaMaestros().get(i).setEstado(estado);
+                    aMaestros.getListaMaestros().get(i).setProfesion(nueProfesion);
+                    aMaestros.getListaMaestros().get(i).setSueldo(nueSueldo);
+                }
+            }
             aMaestros.escribirArchivo();
         }
 
@@ -3211,7 +3225,11 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel modelito = (DefaultListModel) JListUsuariosModif.getModel();
         Usuario user = (Usuario) modelito.getElementAt(JListUsuariosModif.getSelectedIndex());
         aUsuarios.cargarArchivo();
-        aUsuarios.getListaUsuarios().remove(user);
+        for (int i = 0; i < aUsuarios.getListaUsuarios().size(); i++) {
+            if (user.getUsername().equals(aUsuarios.getListaUsuarios().get(i).getUsername())) {
+                aUsuarios.getListaUsuarios().remove(i);
+            }
+        }
         aUsuarios.escribirArchivo();
 
         JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente");
@@ -3246,7 +3264,11 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel modelito = (DefaultListModel) JListElimClases.getModel();
         Curso cur = (Curso) modelito.getElementAt(JListElimClases.getSelectedIndex());
         aCurso.cargarArchivo();
-        aCurso.getListaCursos().remove(cur);
+        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+            if (cur.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+                aCurso.getListaCursos().remove(i);
+            }
+        }
         aCurso.escribirArchivo();
 
         JOptionPane.showMessageDialog(this, "Curso eliminado correctamente");
@@ -3289,17 +3311,19 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel modelito = (DefaultListModel) JListElimClases.getModel();
         Curso cur = (Curso) modelito.getElementAt(JListElimClases.getSelectedIndex());
 
-        cur.setNombre(FieldNueNomClase.getText());
-        cur.setCodigo(FieldNueCodigoClase.getText());
-        cur.setHora(cb_horasModif.getSelectedItem().toString());
-        cur.setSemestre(FieldNueSemestre.getText());
-        cur.setPeriodo(cb_nuePeriodo.getSelectedItem().toString());
-        cur.setAnio(FieldNueAnio.getText());
-        String strNueUV = FieldModifUV.getText();
-        cur.setUV(Integer.parseInt(strNueUV));
-
         aCurso.cargarArchivo();
-        aCurso.getListaCursos().add(cur);
+        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+            if (cur.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+                aCurso.getListaCursos().get(i).setNombre(FieldNueNomClase.getText());
+                aCurso.getListaCursos().get(i).setCodigo(FieldNueCodigoClase.getText());
+                aCurso.getListaCursos().get(i).setHora(cb_horasModif.getSelectedItem().toString());
+                aCurso.getListaCursos().get(i).setSemestre(FieldNueSemestre.getText());
+                aCurso.getListaCursos().get(i).setPeriodo(cb_nuePeriodo.getSelectedItem().toString());
+                aCurso.getListaCursos().get(i).setAnio(FieldNueAnio.getText());
+                String strNueUV = FieldModifUV.getText();
+                aCurso.getListaCursos().get(i).setUV(Integer.parseInt(strNueUV));
+            }
+        }
         aCurso.escribirArchivo();
 
         JOptionPane.showMessageDialog(this, "Cambios realizados correctamente");
@@ -3352,6 +3376,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnRegMaestrosActionPerformed
 
     private void BtnCursosMaestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCursosMaestrosActionPerformed
+        aMaestros.cargarArchivo();
+        aCurso.cargarArchivo();
         Maestro maestroSeleccionado = maestroSeleccionado(aMaestros);
         System.out.println(maestroSeleccionado.toString2());
         JListClasesMaestros.setVisible(true);
@@ -3397,14 +3423,17 @@ public class Main extends javax.swing.JFrame {
     Examen examenSeleccionado = null;
     Curso cursoSeleccionado = null;
     private void BtnIngresarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarClaseActionPerformed
+        aCurso.cargarArchivo();
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        System.out.println(cursoSeleccionado.getExamenes());
 
         DefaultListModel modelExamen = new DefaultListModel();
-        for (Examen examen : cursoSeleccionado.getExamenes()) {
-            modelExamen.addElement(examen);
+        for (Examen ex : cursoSeleccionado.getExamenes()) {
+            modelExamen.addElement(ex);
         }
-        JListClasesExamen.setModel(modelExamen);
+
+        JListExamenesMaestros.setModel(modelExamen);
     }//GEN-LAST:event_BtnIngresarClaseActionPerformed
 
     private void BtnCrearExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearExamenActionPerformed
@@ -3459,29 +3488,20 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModifExamenActionPerformed
 
     private void BtnElimExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnElimExamenActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
-        examenSeleccionado = cursoSeleccionado.getExamenes().get(JlistExamenesAlum.getSelectedIndex());
+        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+        DefaultListModel modeloExamen = (DefaultListModel) JListExamenesMaestros.getModel();
+        examenSeleccionado = (Examen) modeloExamen.getElementAt(JListExamenesMaestros.getSelectedIndex());
+
         cursoSeleccionado.getExamenes().remove(examenSeleccionado);
 
-        DefaultListModel modelExamen = (DefaultListModel) JListClasesExamen.getModel();
-        for (Examen examen : cursoSeleccionado.getExamenes()) {
-            modelExamen.addElement(examen);
-        }
-        JListClasesExamen.setModel(modelExamen);
+        aExamenes.cargarArchivo();
+        aExamenes.getListaExamenes().remove(examenSeleccionado);
+        aExamenes.escribirArchivo();
+        JListExamenesMaestros.setModel(llenarExamenes(aExamenes));
 
         JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
     }//GEN-LAST:event_BtnElimExamenActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Maestro m = maestroSeleccionado(aMaestros);
-        for (Curso clase : m.getClases()) {
-            System.out.println("CLASE: " + clase);
-            for (Examen examen : clase.getExamenes()) {
-                System.out.println("EXAMEN: " + examen.toString());
-            }
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void BtnVFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVFActionPerformed
         if (BtngrupoVF.getSelection() != null) {
@@ -3552,20 +3572,20 @@ public class Main extends javax.swing.JFrame {
     private void BtnIngresarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarAlumActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
+        DefaultListModel modelito = (DefaultListModel) JlistExamenesAlum.getModel();
 
-        DefaultListModel modelExamen = new DefaultListModel();// (DefaultListModel) JlistExamenesAlum.getModel();
-        for (Examen examen : cursoSeleccionado.getExamenes()) {
-            modelExamen.addElement(examen);
+        for (Examen ex : cursoSeleccionado.getExamenes()) {
+            modelito.addElement(ex);
         }
         System.out.println(cursoSeleccionado.getExamenes());
-        JlistExamenesAlum.setModel(modelExamen);
+        JlistExamenesAlum.setModel(modelito);
     }//GEN-LAST:event_BtnIngresarAlumActionPerformed
 
     private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
         if (JlistExamenesAlum.getSelectedIndex() >= 0) {
             abrirExamen();
             for (Pregunta pre : examenSeleccionado.getPreguntas()) {
-                TAPregunta.setText(pre.getPregunta());
+                TAPregunta.setText(examenSeleccionado.getPreguntas().get(0).getPregunta());
                 if (pre instanceof PSelMultiple) {
                     FieldCheckAlum1.setVisible(true);
                     FieldCheckAlum2.setVisible(true);
@@ -3636,7 +3656,7 @@ public class Main extends javax.swing.JFrame {
         examenSeleccionado.getPreguntas().get(cont);
         for (Pregunta pre : examenSeleccionado.getPreguntas()) {
             for (int i = 0; i < examenSeleccionado.getPreguntas().size(); i++) {
-                TAPregunta.setText(pre.pregunta);
+                TAPregunta.setText(examenSeleccionado.getPreguntas().get(cont).getPregunta());
                 if (pre instanceof PSelMultiple) {
                     FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
                     FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
@@ -3691,46 +3711,43 @@ public class Main extends javax.swing.JFrame {
     private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
 //        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
-
-        examenSeleccionado.setFechaFinal(ChooserFechaCierre.getDate());
-        examenSeleccionado.setFechaInicio(ChooserFechaInicio.getDate());
-        examenSeleccionado.setNombre(FieldNomExamen.getText());
-        int duracion = Integer.parseInt(SpinnerDuracion.getValue().toString()) * 60;
-        examenSeleccionado.setDuracion(duracion);
-        JOptionPane.showMessageDialog(this, "Informacion del examen guardada");
+        aExamenes.cargarArchivo();
+        aExamenes.getListaExamenes().add(examenSeleccionado);
+        aExamenes.escribirArchivo();
         DiaInfoExamen.setVisible(false);
 
-        aCurso.cargarArchivo();
-        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-        //aCurso.getListaCursos().add(cursoSeleccionado);
-        aCurso.escribirArchivo();
+//        aCurso.cargarArchivo();
+//        cursoSeleccionado.getExamenes().add(examenSeleccionado);
+//        //aCurso.getListaCursos().add(cursoSeleccionado);
+//        aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
     }//GEN-LAST:event_BtnTerminarTFActionPerformed
 
     private void BtnTerminarSelMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarSelMulActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
+        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
+//        aCurso.cargarArchivo();
+//        cursoSeleccionado.getExamenes().add(examenSeleccionado);
+//        //aCurso.getListaCursos().add(cursoSeleccionado);
+//        aCurso.escribirArchivo();
+
         aCurso.cargarArchivo();
-        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-        //aCurso.getListaCursos().add(cursoSeleccionado);
+        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+            if (cursoSeleccionado.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
+            }
+        }
         aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
     }//GEN-LAST:event_BtnTerminarSelMulActionPerformed
 
     private void BtnTerminarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarCompActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-//        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesExamen.getSelectedIndex());
-        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-
         aCurso.cargarArchivo();
-        for (Curso curso : aCurso.getListaCursos()) {
-            if (curso == cursoSeleccionado) {
-                curso.getExamenes().add(examenSeleccionado);
-                System.out.println(curso.getExamenes().size());
-                break;
+        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
+            if (cursoSeleccionado.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
+                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
             }
         }
-//        aCurso.getListaCursos().add(cursoSeleccionado);
         aCurso.escribirArchivo();
         DiaExamenMaestros.setVisible(false);
     }//GEN-LAST:event_BtnTerminarCompActionPerformed
@@ -3887,53 +3904,52 @@ public class Main extends javax.swing.JFrame {
         cont--;
         examenSeleccionado.getPreguntas().get(cont);
         for (Pregunta pre : examenSeleccionado.getPreguntas()) {
-            for (int i = 0; i < examenSeleccionado.getPreguntas().size(); i++) {
-                TAPregunta.setText(pre.pregunta);
-                if (pre instanceof PSelMultiple) {
-                    FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
-                    FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
-                    FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
-                    FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
 
-                    FieldCheckAlum1.setVisible(true);
-                    FieldCheckAlum2.setVisible(true);
-                    FieldCheckAlum3.setVisible(true);
-                    FieldCheckAlum4.setVisible(true);
-                    CheckBoxAlum1.setVisible(true);
-                    CheckBoxAlum2.setVisible(true);
-                    CheckBoxAlum3.setVisible(true);
-                    CheckBoxAlum4.setVisible(true);
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-                } else if (pre instanceof PTrueOrFalse) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(true);
-                    Rbtn_VerdaderoAlum.setVisible(true);
-                    FieldRespAlumno.setVisible(false);
-                    lb_escribaRespuesta.setVisible(false);
-                } else if (pre instanceof PCompletacion) {
-                    FieldCheckAlum1.setVisible(false);
-                    FieldCheckAlum2.setVisible(false);
-                    FieldCheckAlum3.setVisible(false);
-                    FieldCheckAlum4.setVisible(false);
-                    CheckBoxAlum1.setVisible(false);
-                    CheckBoxAlum2.setVisible(false);
-                    CheckBoxAlum3.setVisible(false);
-                    CheckBoxAlum4.setVisible(false);
-                    Rbtn_FalsoAlum.setVisible(false);
-                    Rbtn_VerdaderoAlum.setVisible(false);
-                    FieldRespAlumno.setVisible(true);
-                    lb_escribaRespuesta.setVisible(true);
-                }
+            TAPregunta.setText(examenSeleccionado.getPreguntas().get(cont).getPregunta());
+            if (pre instanceof PSelMultiple) {
+                FieldCheckAlum1.setText(((PSelMultiple) pre).getOpciones()[0]);
+                FieldCheckAlum2.setText(((PSelMultiple) pre).getOpciones()[1]);
+                FieldCheckAlum3.setText(((PSelMultiple) pre).getOpciones()[2]);
+                FieldCheckAlum4.setText(((PSelMultiple) pre).getOpciones()[3]);
+
+                FieldCheckAlum1.setVisible(true);
+                FieldCheckAlum2.setVisible(true);
+                FieldCheckAlum3.setVisible(true);
+                FieldCheckAlum4.setVisible(true);
+                CheckBoxAlum1.setVisible(true);
+                CheckBoxAlum2.setVisible(true);
+                CheckBoxAlum3.setVisible(true);
+                CheckBoxAlum4.setVisible(true);
+                Rbtn_FalsoAlum.setVisible(false);
+                Rbtn_VerdaderoAlum.setVisible(false);
+                FieldRespAlumno.setVisible(false);
+                lb_escribaRespuesta.setVisible(false);
+            } else if (pre instanceof PTrueOrFalse) {
+                FieldCheckAlum1.setVisible(false);
+                FieldCheckAlum2.setVisible(false);
+                FieldCheckAlum3.setVisible(false);
+                FieldCheckAlum4.setVisible(false);
+                CheckBoxAlum1.setVisible(false);
+                CheckBoxAlum2.setVisible(false);
+                CheckBoxAlum3.setVisible(false);
+                CheckBoxAlum4.setVisible(false);
+                Rbtn_FalsoAlum.setVisible(true);
+                Rbtn_VerdaderoAlum.setVisible(true);
+                FieldRespAlumno.setVisible(false);
+                lb_escribaRespuesta.setVisible(false);
+            } else if (pre instanceof PCompletacion) {
+                FieldCheckAlum1.setVisible(false);
+                FieldCheckAlum2.setVisible(false);
+                FieldCheckAlum3.setVisible(false);
+                FieldCheckAlum4.setVisible(false);
+                CheckBoxAlum1.setVisible(false);
+                CheckBoxAlum2.setVisible(false);
+                CheckBoxAlum3.setVisible(false);
+                CheckBoxAlum4.setVisible(false);
+                Rbtn_FalsoAlum.setVisible(false);
+                Rbtn_VerdaderoAlum.setVisible(false);
+                FieldRespAlumno.setVisible(true);
+                lb_escribaRespuesta.setVisible(true);
             }
 
         }
@@ -4219,6 +4235,14 @@ public class Main extends javax.swing.JFrame {
         }
         return modelo;
     }
+
+    public DefaultListModel llenarExamenes(adminExamenes a) {
+        DefaultListModel modelo = new DefaultListModel();
+        for (Examen ex : a.getListaExamenes()) {
+            modelo.addElement(ex);
+        }
+        return modelo;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
     private javax.swing.JButton BtnAsigClases;
@@ -4360,11 +4384,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> JL_AlumnosMat;
     private javax.swing.JList<String> JListAlumAsig;
     private javax.swing.JList<String> JListClasesAlum;
-    private javax.swing.JList<String> JListClasesExamen;
     private javax.swing.JList<String> JListClasesMaestros;
     private javax.swing.JList<String> JListClasesModif;
     private javax.swing.JList<String> JListElimClases;
     private javax.swing.JList<String> JListElimUser;
+    private javax.swing.JList<String> JListExamenesMaestros;
     private javax.swing.JList<String> JListMaestros;
     private javax.swing.JList<String> JListPreguntasModif;
     private javax.swing.JList<String> JListUsuariosModif;
@@ -4434,7 +4458,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_respuestaTres;
     private javax.swing.JCheckBox cb_respuestaUno;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4491,6 +4514,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_AsigAlum;
     private javax.swing.JLabel lb_ClasesMatri;
     private javax.swing.JLabel lb_Crai;
+    private javax.swing.JLabel lb_CursosMaes;
     private javax.swing.JLabel lb_UnitecAlum;
     private javax.swing.JLabel lb_UnitecColor;
     private javax.swing.JLabel lb_ayudaCanvas;
@@ -4570,4 +4594,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtn_modifInactiva;
     // End of variables declaration//GEN-END:variables
 int cont = 0;
+
+    ArrayList<Pregunta> preguntas = new ArrayList<>();
 }
