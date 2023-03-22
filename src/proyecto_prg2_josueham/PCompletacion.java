@@ -4,6 +4,7 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.JTextField;
 
@@ -11,7 +12,7 @@ import javax.swing.JTextField;
  *
  * @author skxka
  */
-public class PCompletacion extends Pregunta {
+public class PCompletacion extends Pregunta  implements Serializable{
     
     public PCompletacion() {
         super.respuesta = new String();

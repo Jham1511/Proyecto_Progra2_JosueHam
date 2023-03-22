@@ -4,13 +4,14 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author SKX Kafei
  */
-public class Pregunta {
+public class Pregunta implements Serializable{
     protected double puntaje;
     protected String pregunta;
     protected Object respuesta;

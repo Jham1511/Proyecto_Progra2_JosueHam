@@ -211,7 +211,6 @@ public class Main extends javax.swing.JFrame {
         lb_misClasesMaestros1 = new javax.swing.JLabel();
         BtnModifExamen = new javax.swing.JButton();
         BtnElimExamen = new javax.swing.JButton();
-        BtnGuardarExamen = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         BtnCursosMaestros = new javax.swing.JButton();
         BtnRegMenuMaes = new javax.swing.JButton();
@@ -312,6 +311,8 @@ public class Main extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         BtnGuardarInfoExamen = new javax.swing.JButton();
         SpinnerDuracion = new javax.swing.JSpinner();
+        cbInfoExamen = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         DiaInfoExamenModif = new javax.swing.JDialog();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -324,6 +325,8 @@ public class Main extends javax.swing.JFrame {
         lb_nueDuracion = new javax.swing.JLabel();
         SpinnerNueDuracion = new javax.swing.JSpinner();
         BtnGuardarModifExamen = new javax.swing.JButton();
+        cb_modifExamen = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         DiaModifPreguntas = new javax.swing.JDialog();
         jPanel18 = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
@@ -1361,13 +1364,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        BtnGuardarExamen.setText("Guardar Examen");
-        BtnGuardarExamen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGuardarExamenActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PNELMaestrosLayout = new javax.swing.GroupLayout(PNELMaestros);
         PNELMaestros.setLayout(PNELMaestrosLayout);
         PNELMaestrosLayout.setHorizontalGroup(
@@ -1389,8 +1385,7 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnGuardarExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(65, 65, 65))))
         );
         PNELMaestrosLayout.setVerticalGroup(
@@ -1401,21 +1396,17 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(lb_misClasesMaestros)
                     .addComponent(lb_misClasesMaestros1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PNELMaestrosLayout.createSequentialGroup()
-                        .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnIngresarClase))
+                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(BtnCrearExamen)
-                        .addGap(18, 18, 18)
+                        .addGap(35, 35, 35)
                         .addComponent(BtnModifExamen)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnElimExamen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnGuardarExamen)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnElimExamen))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnIngresarClase)
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
@@ -2347,6 +2338,14 @@ public class Main extends javax.swing.JFrame {
         SpinnerDuracion.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         DiaInfoExamen.getContentPane().add(SpinnerDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 110, 30));
 
+        cbInfoExamen.setModel(new DefaultComboBoxModel()
+        );
+        DiaInfoExamen.getContentPane().add(cbInfoExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 100, 30));
+
+        jLabel9.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel9.setText("Codigo de la clase ");
+        DiaInfoExamen.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+
         DiaInfoExamenModif.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel16.setBackground(new java.awt.Color(255, 102, 102));
@@ -2409,6 +2408,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         DiaInfoExamenModif.getContentPane().add(BtnGuardarModifExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, 30));
+
+        cb_modifExamen.setModel(new DefaultComboBoxModel()
+        );
+        DiaInfoExamenModif.getContentPane().add(cb_modifExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 120, 30));
+
+        jLabel8.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        jLabel8.setText("Codigo de la clase");
+        DiaInfoExamenModif.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         DiaModifPreguntas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -3455,12 +3462,13 @@ public class Main extends javax.swing.JFrame {
     Examen examenSeleccionado = null;
     Curso cursoSeleccionado = null;
     private void BtnIngresarClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarClaseActionPerformed
-        aCurso.cargarArchivo();
         DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-        System.out.println(cursoSeleccionado.getExamenes());
-
-        JListExamenesMaestros.setModel(llenarExamenesMaestros(cursoSeleccionado));
+        DefaultListModel modelito = (DefaultListModel) JListExamenesMaestros.getModel();
+        modelito.removeAllElements();
+        for (Examen examen : cursoSeleccionado.getExamenes()) {
+            modelito.addElement(examen);
+        }
     }//GEN-LAST:event_BtnIngresarClaseActionPerformed
 
     private void BtnCrearExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrearExamenActionPerformed
@@ -3505,6 +3513,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSeleccionActionPerformed
 
     private void BtnModifExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifExamenActionPerformed
+        DefaultListModel modeloExamen = (DefaultListModel) JListExamenesMaestros.getModel();
+        examenSeleccionado = (Examen) modeloExamen.getElementAt(JListExamenesMaestros.getSelectedIndex());
+        llenarComboExamenModif();
         DiaInfoExamenModif.pack();
         DiaInfoExamenModif.setLocationRelativeTo(this);
         DiaInfoExamenModif.setVisible(true);
@@ -3519,12 +3530,16 @@ public class Main extends javax.swing.JFrame {
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
         DefaultListModel modeloExamen = (DefaultListModel) JListExamenesMaestros.getModel();
         examenSeleccionado = (Examen) modeloExamen.getElementAt(JListExamenesMaestros.getSelectedIndex());
+        Maestro m = maestroSeleccionado(aMaestros);
+        for (Curso c : m.getClases()) {
+            for (Examen ex : c.getExamenes()) {
+                if (ex.getCodigo().equals(examenSeleccionado.getCodigo())) {
+                    c.getExamenes().remove(ex);
+                }
+            }
+        }
 
-        cursoSeleccionado.getExamenes().remove(examenSeleccionado);
-
-        aExamenes.cargarArchivo();
-        aExamenes.getListaExamenes().remove(examenSeleccionado);
-        aExamenes.escribirArchivo();
+        aMaestros.escribirArchivo();
         JListExamenesMaestros.setModel(llenarExamenes(aExamenes));
 
         JOptionPane.showMessageDialog(this, "Examen eliminado correctamente");
@@ -3577,6 +3592,7 @@ public class Main extends javax.swing.JFrame {
         examenSeleccionado.setNombre(FieldNomExamen.getText());
         int duracion = Integer.parseInt(SpinnerDuracion.getValue().toString()) * 60;
         examenSeleccionado.setDuracion(duracion);
+        examenSeleccionado.setCodigo(cbInfoExamen.getSelectedItem().toString());
         JOptionPane.showMessageDialog(this, "Informacion del examen guardada");
         DiaInfoExamen.setVisible(false);
     }//GEN-LAST:event_BtnGuardarInfoExamenActionPerformed
@@ -3594,18 +3610,33 @@ public class Main extends javax.swing.JFrame {
         examenSeleccionado.setDuracion(duracion);
         JOptionPane.showMessageDialog(this, "Informacion del examen modificada");
         DiaInfoExamenModif.setVisible(false);
+        aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnGuardarModifExamenActionPerformed
 
     private void BtnIngresarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarAlumActionPerformed
         DefaultListModel modelo = (DefaultListModel) JListClasesAlum.getModel();
         cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesAlum.getSelectedIndex());
         DefaultListModel modelito = (DefaultListModel) JlistExamenesAlum.getModel();
+        aMaestros.cargarArchivo();
 
-        for (Examen ex : cursoSeleccionado.getExamenes()) {
-            modelito.addElement(ex);
+        for (Maestro m : aMaestros.getListaMaestros()) {
+            System.out.println("For maestro m");
+            for (Curso c : m.getClases()) {
+                System.out.println("Curso c");
+                for (Examen e : c.getExamenes()) {
+                    System.out.println("Examen e");
+                    System.out.println("Codigo e " + e.getCodigo());
+                    System.out.println("Codigo cursoSelec" +cursoSeleccionado.getCodigo());
+                    if (cursoSeleccionado.getCodigo().equals(e.getCodigo())) {
+                        modelito.addElement(e);
+                        System.out.println("Dentro del if");
+                    }
+                }
+            }
+
         }
+
         System.out.println(cursoSeleccionado.getExamenes());
-        JlistExamenesAlum.setModel(modelito);
     }//GEN-LAST:event_BtnIngresarAlumActionPerformed
 
     private void BtnRealizarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRealizarExamenActionPerformed
@@ -3736,54 +3767,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSiguienteExamenActionPerformed
 
     private void BtnTerminarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarTFActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-        aExamenes.cargarArchivo();
-        aExamenes.getListaExamenes().add(examenSeleccionado);
-        aExamenes.escribirArchivo();
-        DiaInfoExamen.setVisible(false);
-
-        aCurso.cargarArchivo();
-        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
-            if (aCurso.getListaCursos().get(i).getNombre().equals(cursoSeleccionado.getNombre())) {
-                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
-            }
-        }
-        aCurso.escribirArchivo();
-        DiaExamenMaestros.setVisible(false);
+        crearExamen();
     }//GEN-LAST:event_BtnTerminarTFActionPerformed
 
     private void BtnTerminarSelMulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarSelMulActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        cursoSeleccionado = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-//        aCurso.cargarArchivo();
-//        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-//        //aCurso.getListaCursos().add(cursoSeleccionado);
-//        aCurso.escribirArchivo();
-
-        aCurso.cargarArchivo();
-        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
-            if (cursoSeleccionado.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
-                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
-            }
-        }
-        aCurso.escribirArchivo();
-        DiaExamenMaestros.setVisible(false);
+        crearExamen();
     }//GEN-LAST:event_BtnTerminarSelMulActionPerformed
 
     private void BtnTerminarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarCompActionPerformed
-        DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-        Curso cla = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-        cursoSeleccionado.getExamenes().add(examenSeleccionado);
-        aCurso.cargarArchivo();
-        for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
-            if (cla.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
-                aCurso.getListaCursos().get(i).getExamenes().add(examenSeleccionado);
-            }
-        }
-        aCurso.escribirArchivo();
-        DiaExamenMaestros.setVisible(false);
+        crearExamen();
     }//GEN-LAST:event_BtnTerminarCompActionPerformed
 
     private void BtnCalificacionesAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalificacionesAlumActionPerformed
@@ -3929,6 +3921,7 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Pregunta modificada correctamente");
         TAModifPreguntas.setText("");
         BtngrupoTFModif.clearSelection();
+        aMaestros.escribirArchivo();
     }//GEN-LAST:event_BtnExamenModifActionPerformed
 
     private void BtnRegresarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegresarExamenActionPerformed
@@ -3994,28 +3987,6 @@ public class Main extends javax.swing.JFrame {
     private void BtnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEnviarActionPerformed
 
     }//GEN-LAST:event_BtnEnviarActionPerformed
-
-    private void BtnGuardarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarExamenActionPerformed
-        if (JListClasesMaestros.getSelectedIndex() >= 0 && JListExamenesMaestros.getSelectedIndex() >= 0) {
-            try {
-                DefaultListModel modelo = (DefaultListModel) JListClasesMaestros.getModel();
-                Curso cla = (Curso) modelo.getElementAt(JListClasesMaestros.getSelectedIndex());
-                DefaultListModel modelito = (DefaultListModel) JListExamenesMaestros.getModel();
-                Examen ex = (Examen) modelito.getElementAt(JListExamenesMaestros.getSelectedIndex());
-
-                aCurso.cargarArchivo();
-                for (int i = 0; i < aCurso.getListaCursos().size(); i++) {
-                    if (cla.getCodigo().equals(aCurso.getListaCursos().get(i).getCodigo())) {
-                        aCurso.getListaCursos().get(i).getExamenes().add(ex);
-                    }
-                }
-                aCurso.escribirArchivo();
-            } catch (Exception e) {
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un objeto en las listas");
-        }
-    }//GEN-LAST:event_BtnGuardarExamenActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         DiaModifPreguntas.setVisible(false);
@@ -4098,6 +4069,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     public void abrirInfoExamen() {
+        llenarComboExamen();
         DiaInfoExamen.setModal(true);
         DiaInfoExamen.pack();
         DiaInfoExamen.setLocationRelativeTo(this);
@@ -4312,6 +4284,53 @@ public class Main extends javax.swing.JFrame {
         }
         return modelExamen;
     }
+
+    public void llenarComboExamenModif() {
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_modifExamen.getModel();
+        modelo.removeAllElements();
+        Maestro m = maestroSeleccionado(aMaestros);
+        for (Curso clase : m.getClases()) {
+            modelo.addElement(clase.getCodigo());
+        }
+
+    }
+
+    public void llenarComboExamen() {
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbInfoExamen.getModel();
+        modelo.removeAllElements();
+        Maestro m = maestroSeleccionado(aMaestros);
+        for (Curso clase : m.getClases()) {
+            modelo.addElement(clase.getCodigo());
+        }
+
+    }
+
+    public void crearExamen() {
+        //Set visible false el jlist de examenes de maestros
+        aMaestros.cargarArchivo();
+        aCurso.cargarArchivo();
+        Maestro m = maestroSeleccionado(aMaestros);
+        System.out.println(examenSeleccionado.toString2());
+        System.out.println("Size acurso " + aCurso.getListaCursos().size());
+        for (Curso c : m.getClases()) {
+            System.out.println("Para saber " + c.getCodigo());
+            if (cursoSeleccionado.getCodigo().equals(c.getCodigo())) {
+                c.getExamenes().add(examenSeleccionado);
+                System.out.println("caca");
+            }
+        }
+        aMaestros.escribirArchivo();
+        aMaestros.cargarArchivo();
+        aCurso.cargarArchivo();
+        Maestro maestroSeleccionado = maestroSeleccionado(aMaestros);
+        System.out.println(maestroSeleccionado.toString2());
+        JListClasesMaestros.setVisible(true);
+        lb_misClasesMaestros.setVisible(true);
+        BtnIngresarClase.setVisible(true);
+        JListClasesMaestros.setModel(llenarCursosMaestros(maestroSeleccionado));
+        System.out.println(maestroSeleccionado.getClases());
+        DiaExamenMaestros.setVisible(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
     private javax.swing.JButton BtnAsigClases;
@@ -4336,7 +4355,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnGuardarCambiosUser;
     private javax.swing.JButton BtnGuardarClase;
-    private javax.swing.JButton BtnGuardarExamen;
     private javax.swing.JButton BtnGuardarInfoExamen;
     private javax.swing.JButton BtnGuardarModifClase;
     private javax.swing.JButton BtnGuardarModifExamen;
@@ -4518,10 +4536,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btngrupoModifUsuario;
     private javax.swing.ButtonGroup btngrupoUsuarios;
     private javax.swing.JLabel buscarClaseModif;
+    private javax.swing.JComboBox<String> cbInfoExamen;
     private javax.swing.JComboBox<String> cb_ClasesAlum;
     private javax.swing.JComboBox<String> cb_horas;
     private javax.swing.JComboBox<String> cb_horasModif;
     private javax.swing.JComboBox<String> cb_maestros;
+    private javax.swing.JComboBox<String> cb_modifExamen;
     private javax.swing.JComboBox<String> cb_nuePeriodo;
     private javax.swing.JComboBox<String> cb_periodo;
     private javax.swing.JCheckBox cb_respuestaCuatro;
@@ -4540,6 +4560,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

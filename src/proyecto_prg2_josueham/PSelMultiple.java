@@ -4,6 +4,7 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,7 +12,7 @@ import java.util.Arrays;
  *
  * @author skxka
  */
-public class PSelMultiple extends Pregunta {
+public class PSelMultiple extends Pregunta implements Serializable{
     private String[] opciones = new String[4];
 
     public PSelMultiple() {

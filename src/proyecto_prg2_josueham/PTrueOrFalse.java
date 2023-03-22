@@ -4,13 +4,14 @@
  */
 package proyecto_prg2_josueham;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author skxka
  */
-public class PTrueOrFalse extends Pregunta {
+public class PTrueOrFalse extends Pregunta implements Serializable {
 
 
     public PTrueOrFalse() {
