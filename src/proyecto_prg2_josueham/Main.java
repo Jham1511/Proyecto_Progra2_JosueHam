@@ -5,6 +5,7 @@
 package proyecto_prg2_josueham;
 
 import java.awt.Desktop;
+import java.io.File;
 import java.net.URL;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Main extends javax.swing.JFrame {
     adminMaestros aMaestros = new adminMaestros("./maestros.tch");
     adminUsuarios aUsuarios = new adminUsuarios("./usuarios.usr");
     adminExamenes aExamenes = new adminExamenes("./examenes.ex");
+    adminTareas aTareas = new adminTareas("./tareas.tr");
 
     Registro registro1 = new Registro("registro", "admin", "Registro", "Activa", new Date().from(Instant.now()));
     Registro registro2 = new Registro("a", "a", "Registro", "Activa", new Date().from(Instant.now()));
@@ -211,6 +213,7 @@ public class Main extends javax.swing.JFrame {
         lb_examenesMaestros = new javax.swing.JLabel();
         BtnModifExamen = new javax.swing.JButton();
         BtnElimExamen = new javax.swing.JButton();
+        BtnTareasMaestro = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         BtnCursosMaestros = new javax.swing.JButton();
         BtnRegMenuMaes = new javax.swing.JButton();
@@ -402,6 +405,18 @@ public class Main extends javax.swing.JFrame {
         Rbtn_FalsoResultados = new javax.swing.JRadioButton();
         lb_correcta = new javax.swing.JLabel();
         lb_incorrecta = new javax.swing.JLabel();
+        DiaCrudTareas = new javax.swing.JDialog();
+        jPanel25 = new javax.swing.JPanel();
+        jPanel26 = new javax.swing.JPanel();
+        lb_nomTarea = new javax.swing.JLabel();
+        BtnGuardarTarea = new javax.swing.JButton();
+        FieldNombreTarea = new javax.swing.JTextField();
+        lb_size = new javax.swing.JLabel();
+        SpinnerSizeTarea = new javax.swing.JSpinner();
+        lb_fechaInicioTarea = new javax.swing.JLabel();
+        ChooserInicioTareas = new com.toedter.calendar.JDateChooser();
+        lb_fechaCierreTarea = new javax.swing.JLabel();
+        ChooserCierreTareas = new com.toedter.calendar.JDateChooser();
         TabbedPanePrincipal = new javax.swing.JTabbedPane();
         PanelLogIn = new javax.swing.JPanel();
         Portal = new javax.swing.JLabel();
@@ -1384,6 +1399,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BtnTareasMaestro.setText("Crear Tarea");
+        BtnTareasMaestro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTareasMaestroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PNELMaestrosLayout = new javax.swing.GroupLayout(PNELMaestros);
         PNELMaestros.setLayout(PNELMaestrosLayout);
         PNELMaestrosLayout.setHorizontalGroup(
@@ -1402,7 +1424,8 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnCrearExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnModifExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnElimExamen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnTareasMaestro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(65, 65, 65))
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(lb_examenesMaestros)
@@ -1416,13 +1439,15 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(lb_misClasesMaestros)
                     .addComponent(lb_examenesMaestros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(PNELMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PNELMaestrosLayout.createSequentialGroup()
                         .addComponent(BtnCrearExamen)
-                        .addGap(35, 35, 35)
+                        .addGap(18, 18, 18)
                         .addComponent(BtnModifExamen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnElimExamen))
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnElimExamen)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnTareasMaestro))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2785,6 +2810,68 @@ public class Main extends javax.swing.JFrame {
 
         lb_incorrecta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cross.png"))); // NOI18N
         DiaVerResultados.getContentPane().add(lb_incorrecta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
+
+        DiaCrudTareas.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel25.setBackground(new java.awt.Color(153, 153, 255));
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
+        );
+
+        DiaCrudTareas.getContentPane().add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 410));
+
+        jPanel26.setBackground(new java.awt.Color(51, 102, 255));
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        DiaCrudTareas.getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 490, -1));
+
+        lb_nomTarea.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_nomTarea.setText("Nombre de la tarea");
+        DiaCrudTareas.getContentPane().add(lb_nomTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+
+        BtnGuardarTarea.setText("Guardar Tarea");
+        BtnGuardarTarea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarTareaActionPerformed(evt);
+            }
+        });
+        DiaCrudTareas.getContentPane().add(BtnGuardarTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
+        DiaCrudTareas.getContentPane().add(FieldNombreTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 90, 30));
+
+        lb_size.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_size.setText("Tamaño máximo del archivo");
+        DiaCrudTareas.getContentPane().add(lb_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+
+        SpinnerSizeTarea.setModel(new javax.swing.SpinnerNumberModel(0.5d, 0.1d, null, 0.1d));
+        DiaCrudTareas.getContentPane().add(SpinnerSizeTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 100, 30));
+
+        lb_fechaInicioTarea.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_fechaInicioTarea.setText("Fecha Inicio");
+        DiaCrudTareas.getContentPane().add(lb_fechaInicioTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
+        DiaCrudTareas.getContentPane().add(ChooserInicioTareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 110, 30));
+
+        lb_fechaCierreTarea.setFont(new java.awt.Font("Cooper Black", 0, 14)); // NOI18N
+        lb_fechaCierreTarea.setText("Fecha cierre");
+        DiaCrudTareas.getContentPane().add(lb_fechaCierreTarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
+        DiaCrudTareas.getContentPane().add(ChooserCierreTareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 110, 30));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -4235,6 +4322,25 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnNextActionPerformed
 
+    private void BtnTareasMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTareasMaestroActionPerformed
+        abrirCrudTareas();
+    }//GEN-LAST:event_BtnTareasMaestroActionPerformed
+
+    private void BtnGuardarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarTareaActionPerformed
+        String nombre = FieldNombreTarea.getText();
+        Date fechaInicio = ChooserInicioTareas.getDate();
+        Date fechaCierre = ChooserCierreTareas.getDate();
+        String strSize = SpinnerSizeTarea.getValue().toString();
+        double size = Double.parseDouble(strSize);
+        File archivo =  null;
+        
+        Tarea tr = new Tarea(nombre, fechaInicio, fechaCierre, size, archivo);
+        aTareas.cargarArchivo();
+        aTareas.setTarea(tr);
+        aTareas.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Tarea creada correctamente");
+    }//GEN-LAST:event_BtnGuardarTareaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4604,7 +4710,11 @@ public class Main extends javax.swing.JFrame {
         DiaExamenMaestros.setVisible(false);
     }
 
-
+public void abrirCrudTareas(){
+    DiaCrudTareas.pack();
+    DiaCrudTareas.setLocationRelativeTo(this);
+    DiaCrudTareas.setVisible(true);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlumAsig;
     private javax.swing.JButton BtnAnterior;
@@ -4633,6 +4743,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnGuardarInfoExamen;
     private javax.swing.JButton BtnGuardarModifClase;
     private javax.swing.JButton BtnGuardarModifExamen;
+    private javax.swing.JButton BtnGuardarTarea;
     private javax.swing.JButton BtnIngresar;
     private javax.swing.JButton BtnIngresarAlum;
     private javax.swing.JButton BtnIngresarClase;
@@ -4659,6 +4770,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton BtnSeleccionarPregunta;
     private javax.swing.JButton BtnSiguienteExamen;
     private javax.swing.JButton BtnTareas;
+    private javax.swing.JButton BtnTareasMaestro;
     private javax.swing.JButton BtnTerminar;
     private javax.swing.JButton BtnTerminarComp;
     private javax.swing.JButton BtnTerminarSelMul;
@@ -4685,14 +4797,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBoxModif2;
     private javax.swing.JCheckBox CheckBoxModif3;
     private javax.swing.JCheckBox CheckBoxModif4;
+    private com.toedter.calendar.JDateChooser ChooserCierreTareas;
     private com.toedter.calendar.JDateChooser ChooserFechaCierre;
     private com.toedter.calendar.JDateChooser ChooserFechaInicio;
+    private com.toedter.calendar.JDateChooser ChooserInicioTareas;
     private com.toedter.calendar.JDateChooser ChooserNacimiento;
     private com.toedter.calendar.JDateChooser ChooserNueFechaCierre;
     private com.toedter.calendar.JDateChooser ChooserNueFechaInicio;
     private javax.swing.JLabel CirculoDer;
     private javax.swing.JLabel CirculoIzq;
     private com.toedter.calendar.JDateChooser DateChooserModif;
+    private javax.swing.JDialog DiaCrudTareas;
     private javax.swing.JDialog DiaElimClases;
     private javax.swing.JDialog DiaElimUsuarios;
     private javax.swing.JDialog DiaExamenAlumnos;
@@ -4728,6 +4843,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField FieldNomExamen;
     private javax.swing.JTextField FieldNombre;
     private javax.swing.JTextField FieldNombreClase;
+    private javax.swing.JTextField FieldNombreTarea;
     private javax.swing.JTextField FieldNueAnio;
     private javax.swing.JTextField FieldNueCarrera;
     private javax.swing.JTextField FieldNueCodigoClase;
@@ -4810,6 +4926,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner SpinnerPuntajeComp;
     private javax.swing.JSpinner SpinnerPuntajeSel;
     private javax.swing.JSpinner SpinnerPuntajeTF;
+    private javax.swing.JSpinner SpinnerSizeTarea;
     private javax.swing.JTextArea TACompletacion;
     private javax.swing.JTextArea TAModifPreguntas;
     private javax.swing.JTextArea TAPregunta;
@@ -4868,6 +4985,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4919,7 +5038,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_estado;
     private javax.swing.JLabel lb_examenesAlum;
     private javax.swing.JLabel lb_examenesMaestros;
+    private javax.swing.JLabel lb_fechaCierreTarea;
     private javax.swing.JLabel lb_fechaInicio;
+    private javax.swing.JLabel lb_fechaInicioTarea;
     private javax.swing.JLabel lb_fecheCierre;
     private javax.swing.JLabel lb_horaClase;
     private javax.swing.JLabel lb_horaModif;
@@ -4939,6 +5060,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_nom;
     private javax.swing.JLabel lb_nomClase;
     private javax.swing.JLabel lb_nomExamen;
+    private javax.swing.JLabel lb_nomTarea;
     private javax.swing.JLabel lb_nueAnio;
     private javax.swing.JLabel lb_nueCarrera;
     private javax.swing.JLabel lb_nueCodigoClase;
@@ -4970,6 +5092,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_respCorrectaModif;
     private javax.swing.JLabel lb_respuestaResultados;
     private javax.swing.JLabel lb_semestre;
+    private javax.swing.JLabel lb_size;
     private javax.swing.JLabel lb_sueldo;
     private javax.swing.JLabel lb_tipo;
     private javax.swing.JLabel lb_unitecBlanco;
